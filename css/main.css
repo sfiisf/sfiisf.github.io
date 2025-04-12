@@ -1578,3 +1578,10 @@ mjx-container svg:focus {
 .style .token.string {
   background: none !important;
 }
+mjx-container {
+  display: block !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: normal !important;
+  padding: 0.5em 0;
+}
