@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>第一篇博客</title>
+  <title>力扣每日一题2843-统计对称整数的数目</title>
   
     
       <meta 
         property="og:title" 
-        content="第一篇博客">
+        content="力扣每日一题2843-统计对称整数的数目">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/04/06/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
+        content="https://sfiisf.github.io/2025/04/11/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982843-%E7%BB%9F%E8%AE%A1%E5%AF%B9%E7%A7%B0%E6%95%B4%E6%95%B0%E7%9A%84%E6%95%B0%E7%9B%AE/index.html">
     
     
       <meta 
@@ -42,14 +42,22 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-04-06">
+        content="2025-04-11">
       <meta 
         property="og:article:modified_time" 
-        content="2025-04-06">
+        content="2025-04-11">
       <meta 
         property="og:article:author" 
         content="sfiisf">
       
+        
+          <meta 
+            property="og:article:tag" 
+            content="cpp">
+        
+          <meta 
+            property="og:article:tag" 
+            content="leetcode">
         
       
     
@@ -169,7 +177,119 @@
     <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
   
   
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
   <body>
     <div class="wrapper">
@@ -317,7 +437,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol>
       </div>
     </article>
   
@@ -421,43 +541,71 @@
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      第一篇博客
+      力扣每日一题2843-统计对称整数的数目
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-04-05T16:30:24.000Z">
+    <time datetime="2025-04-11T03:14:00.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-04-06</span>
+      <span>2025-04-11</span>
     </time>
     
       <span class="dot"></span>
       
         <a 
-          href="/categories/%E6%9D%82%E8%B0%88/" 
+          href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" 
           class="post-meta-link">
-          杂谈
+          做题笔记
         </a>
       
     
     
       <span class="dot"></span>
-      <span>219 字</span>
+      <span>202 字</span>
     
   </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/cpp/" 
+            class="post-meta-link">
+            cpp
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/leetcode/" 
+            class="post-meta-link">
+            leetcode
+          </a>
+        
+      </div>
+    </div>
   
   </header>
   <div 
     id="section" 
     class="post-content">
-    <p>我是sfiisf，这是我兴趣使然创建的博客，现在还什么都没有，也不知道将来会有些什么。</p>
-<p>防止这个新生的博客太空，于是有了这篇自我介绍。</p>
-<p>sfiisf，这个名字是中二时期一拍大腿想出的名字，其中的内涵有些令人害羞尚且不好意思详细介绍，虽然有些后悔但回过神来时已经在很多地方留下这个名字了，只好延用至今。</p>
-<p>仔细想想，我是个乏善可陈且无趣的人，搜肠刮肚自我介绍到这就有点写不下去了。</p>
-<p>虽然不知道将来是我的分享欲先战胜我的懒惰，还是我的懒惰先战胜我的分享欲，但我是个怎么样的人，还是从我将来的文章来认识我吧！</p>
-<p>Love!</p>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p><code>2 * n</code>位数字组成的整数<code>x</code>，若其前<code>n</code>与后<code>n</code>位数位和相等，则称其对称。</p>
+<p>求给定范围<code>[low, high]</code>内对称数的个数。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>注意到数据范围很小<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.464ex;" xmlns="http://www.w3.org/2000/svg" width="21.29ex" height="2.436ex" role="img" focusable="false" viewbox="0 -871.8 9410.2 1076.8"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/></g><g data-mml-node="mo" transform="translate(777.8,0)"><path data-c="2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"/></g><g data-mml-node="mi" transform="translate(1833.6,0)"><path data-c="1D459" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"/></g><g data-mml-node="mi" transform="translate(2131.6,0)"><path data-c="1D45C" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"/></g><g data-mml-node="mi" transform="translate(2616.6,0)"><path data-c="1D464" d="M580 385Q580 406 599 424T641 443Q659 443 674 425T690 368Q690 339 671 253Q656 197 644 161T609 80T554 12T482 -11Q438 -11 404 5T355 48Q354 47 352 44Q311 -11 252 -11Q226 -11 202 -5T155 14T118 53T104 116Q104 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Q21 293 29 315T52 366T96 418T161 441Q204 441 227 416T250 358Q250 340 217 250T184 111Q184 65 205 46T258 26Q301 26 334 87L339 96V119Q339 122 339 128T340 136T341 143T342 152T345 165T348 182T354 206T362 238T373 281Q402 395 406 404Q419 431 449 431Q468 431 475 421T483 402Q483 389 454 274T422 142Q420 131 420 107V100Q420 85 423 71T442 42T487 26Q558 26 600 148Q609 171 620 213T632 273Q632 306 619 325T593 357T580 385Z"/></g><g data-mml-node="mo" transform="translate(3610.3,0)"><path data-c="2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"/></g><g data-mml-node="mi" transform="translate(4666.1,0)"><path data-c="210E" d="M137 683Q138 683 209 688T282 694Q294 694 294 685Q294 674 258 534Q220 386 220 383Q220 381 227 388Q288 442 357 442Q411 442 444 415T478 336Q478 285 440 178T402 50Q403 36 407 31T422 26Q450 26 474 56T513 138Q516 149 519 151T535 153Q555 153 555 145Q555 144 551 130Q535 71 500 33Q466 -10 419 -10H414Q367 -10 346 17T325 74Q325 90 361 192T398 345Q398 404 354 404H349Q266 404 205 306L198 293L164 158Q132 28 127 16Q114 -11 83 -11Q69 -11 59 -2T48 16Q48 30 121 320L195 616Q195 629 188 632T149 637H128Q122 643 122 645T124 664Q129 683 137 683Z"/></g><g data-mml-node="mi" transform="translate(5242.1,0)"><path data-c="1D456" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/></g><g data-mml-node="mi" transform="translate(5587.1,0)"><path data-c="1D454" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z"/></g><g data-mml-node="mi" transform="translate(6064.1,0)"><path data-c="210E" d="M137 683Q138 683 209 688T282 694Q294 694 294 685Q294 674 258 534Q220 386 220 383Q220 381 227 388Q288 442 357 442Q411 442 444 415T478 336Q478 285 440 178T402 50Q403 36 407 31T422 26Q450 26 474 56T513 138Q516 149 519 151T535 153Q555 153 555 145Q555 144 551 130Q535 71 500 33Q466 -10 419 -10H414Q367 -10 346 17T325 74Q325 90 361 192T398 345Q398 404 354 404H349Q266 404 205 306L198 293L164 158Q132 28 127 16Q114 -11 83 -11Q69 -11 59 -2T48 16Q48 30 121 320L195 616Q195 629 188 632T149 637H128Q122 643 122 645T124 664Q129 683 137 683Z"/></g><g data-mml-node="mo" transform="translate(6917.9,0)"><path data-c="2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"/></g><g data-mml-node="msup" transform="translate(7973.7,0)"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"/><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"/></g><g data-mml-node="mn" transform="translate(1033,393.1) scale(0.707)"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"/></g></g></g></g></svg></mjx-container> 直接遍历计数即可。</p>
+<p>但这样太不优雅了，若数据范围扩大该如何做呢，显然和昨天一样是可以通过数位dp来解决的，但尝试了一下感觉好麻烦哦，不想写，easy题有easy题的解法，摆了。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> {</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">static</span> <span class="keyword">constexpr</span> <span class="type">int</span> mx = <span class="number">20</span>;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">countSymmetricIntegers</span><span class="params">(<span class="type">int</span> low, <span class="type">int</span> high)</span> </span>{</span><br><span class="line">        <span class="keyword">auto</span> check = [](<span class="type">int</span> x) -&gt; <span class="type">bool</span> {</span><br><span class="line">            string s = <span class="built_in">to_string</span>(x);</span><br><span class="line">            <span class="type">int</span> n = s.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">if</span> (n &amp; <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) {</span><br><span class="line">                sum += (i &lt; n / <span class="number">2</span> ? <span class="number">1</span> : <span class="number">-1</span>) * (s[i] - <span class="string">' 0'</span>);</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">return</span> sum == <span class="number">0</span>;</span><br><span class="line">        };</span><br><span class="line">        <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = low; i &lt;= high; i++) {</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">check</span>(i)) ans++;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre>
+
 
   </div>
   <div>
@@ -477,8 +625,8 @@
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/04/06/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
-            https://sfiisf.github.io/2025/04/06/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/
+            href="https://sfiisf.github.io/2025/04/11/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982843-%E7%BB%9F%E8%AE%A1%E5%AF%B9%E7%A7%B0%E6%95%B4%E6%95%B0%E7%9A%84%E6%95%B0%E7%9B%AE/">
+            https://sfiisf.github.io/2025/04/11/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982843-%E7%BB%9F%E8%AE%A1%E5%AF%B9%E7%A7%B0%E6%95%B4%E6%95%B0%E7%9A%84%E6%95%B0%E7%9B%AE/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -490,18 +638,32 @@
   
     <div class="nav-item-prev">
       <a 
-        href="/2025/04/06/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98368-%E6%9C%80%E5%A4%A7%E6%95%B4%E9%99%A4%E5%AD%90%E9%9B%86/" 
+        href="/2025/04/12/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983272-%E7%BB%9F%E8%AE%A1%E5%A5%BD%E6%95%B4%E6%95%B0%E7%9A%84%E6%95%B0%E7%9B%AE/" 
         class="nav-link">
         <i class="iconfont icon-left nav-prev-icon"></i>
         <div>
           <div class="nav-label">上一篇</div>
           
-            <div class="nav-title">力扣每日一题368.最大整除子集 </div>
+            <div class="nav-title">力扣每日一题3272-统计好整数的数目 </div>
           
         </div>
       </a>
     </div>
   
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2025/04/10/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982999-%E7%BB%9F%E8%AE%A1%E5%BC%BA%E5%A4%A7%E6%95%B4%E6%95%B0%E7%9A%84%E6%95%B0%E7%9B%AE/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">下一篇</div>
+          
+            <div class="nav-title">力扣每日一题2999-统计强大整数的数目 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
   
 </div>
 
@@ -550,7 +712,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -564,7 +726,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol>
     </article>
   
   
