@@ -138,8 +138,6 @@
     <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
   
   
-    <link rel="preload" href="/js/lib/lozad.min.js" as="script">
-  
   
   
   
@@ -304,17 +302,17 @@
   </div>
   <div class="categories-list">
     
-      <a href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
-        <div class="categories-list-item">
-          做题笔记
-          <span class="categories-list-item-badge">28</span>
-        </div>
-      </a>
-    
       <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
         <div class="categories-list-item">
           学习笔记
           <span class="categories-list-item-badge">2</span>
+        </div>
+      </a>
+    
+      <a href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
+        <div class="categories-list-item">
+          做题笔记
+          <span class="categories-list-item-badge">28</span>
         </div>
       </a>
     
@@ -346,6 +344,12 @@
       </a>
     
       <a 
+        href="/tags/note/" 
+        title="note">
+        <div class="tags-list-item">note</div>
+      </a>
+    
+      <a 
         href="/tags/leetcode/" 
         title="leetcode">
         <div class="tags-list-item">leetcode</div>
@@ -358,15 +362,9 @@
       </a>
     
       <a 
-        href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" 
-        title="组合数学">
-        <div class="tags-list-item">组合数学</div>
-      </a>
-    
-      <a 
-        href="/tags/note/" 
-        title="note">
-        <div class="tags-list-item">note</div>
+        href="/tags/math/" 
+        title="math">
+        <div class="tags-list-item">math</div>
       </a>
     
       <a 
@@ -376,21 +374,21 @@
       </a>
     
       <a 
-        href="/tags/math/" 
-        title="math">
-        <div class="tags-list-item">math</div>
-      </a>
-    
-      <a 
-        href="/tags/network/" 
-        title="network">
-        <div class="tags-list-item">network</div>
+        href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" 
+        title="组合数学">
+        <div class="tags-list-item">组合数学</div>
       </a>
     
       <a 
         href="/tags/%E6%95%B0%E4%BD%8Ddp/" 
         title="数位dp">
         <div class="tags-list-item">数位dp</div>
+      </a>
+    
+      <a 
+        href="/tags/network/" 
+        title="network">
+        <div class="tags-list-item">network</div>
       </a>
     
   </div>
@@ -1065,23 +1063,6 @@
         loadScript('/js/lib/busuanzi.min.js') 
       </script>
      
-    
-      <script>
-        var addLazyload = function () {
-          var observer = lozad('.lozad', {
-            load: function (el) {
-              el.srcset = el.getAttribute('data-src')
-            },
-            loaded: function (el) {
-              el.classList.add('loaded')
-            },
-          })
-          observer.observe()
-        }
-      </script>
-      <script>
-        loadScript('/js/lib/lozad.min.js', addLazyload)
-      </script>
     
     <script src="//instant.page/5.1.0" type="module"
       integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
