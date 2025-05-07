@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>cpp学习</title>
+  <title>力扣每日一题3341-到达最后一个房间的最少时间 I</title>
   
     
       <meta 
         property="og:title" 
-        content="cpp学习">
+        content="力扣每日一题3341-到达最后一个房间的最少时间 I">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/04/09/cpp%E5%AD%A6%E4%B9%A0/index.html">
+        content="https://sfiisf.github.io/2025/05/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983341-%E5%88%B0%E8%BE%BE%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%88%BF%E9%97%B4%E7%9A%84%E6%9C%80%E5%B0%91%E6%97%B6%E9%97%B4-I/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-04-09">
+        content="2025-05-07">
       <meta 
         property="og:article:modified_time" 
-        content="2025-04-10">
+        content="2025-05-07">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -57,7 +57,7 @@
         
           <meta 
             property="og:article:tag" 
-            content="note">
+            content="leetcode">
         
       
     
@@ -437,7 +437,7 @@ mjx-container[display="true"] + br {
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="toc-text">智能指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shared-ptr"><span class="toc-text">shared_ptr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unique-ptr"><span class="toc-text">unique_ptr</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol>
       </div>
     </article>
   
@@ -494,6 +494,12 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
+        href="/tags/note/" 
+        title="note">
+        <div class="tags-list-item">note</div>
+      </a>
+    
+      <a 
         href="/tags/leetcode/" 
         title="leetcode">
         <div class="tags-list-item">leetcode</div>
@@ -506,33 +512,9 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" 
-        title="组合数学">
-        <div class="tags-list-item">组合数学</div>
-      </a>
-    
-      <a 
-        href="/tags/note/" 
-        title="note">
-        <div class="tags-list-item">note</div>
-      </a>
-    
-      <a 
-        href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" 
-        title="概率论">
-        <div class="tags-list-item">概率论</div>
-      </a>
-    
-      <a 
-        href="/tags/network/" 
-        title="network">
-        <div class="tags-list-item">network</div>
-      </a>
-    
-      <a 
-        href="/tags/%E6%95%B0%E4%BD%8Ddp/" 
-        title="数位dp">
-        <div class="tags-list-item">数位dp</div>
+        href="/tags/math/" 
+        title="math">
+        <div class="tags-list-item">math</div>
       </a>
     
       <a 
@@ -542,9 +524,27 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/math/" 
-        title="math">
-        <div class="tags-list-item">math</div>
+        href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" 
+        title="组合数学">
+        <div class="tags-list-item">组合数学</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%95%B0%E4%BD%8Ddp/" 
+        title="数位dp">
+        <div class="tags-list-item">数位dp</div>
+      </a>
+    
+      <a 
+        href="/tags/network/" 
+        title="network">
+        <div class="tags-list-item">network</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" 
+        title="概率论">
+        <div class="tags-list-item">概率论</div>
       </a>
     
   </div>
@@ -559,30 +559,30 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      cpp学习
+      力扣每日一题3341-到达最后一个房间的最少时间 I
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-04-09T12:23:59.000Z">
+    <time datetime="2025-05-07T01:24:04.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-04-09</span>
+      <span>2025-05-07</span>
     </time>
     
       <span class="dot"></span>
       
         <a 
-          href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" 
+          href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" 
           class="post-meta-link">
-          学习笔记
+          做题笔记
         </a>
       
     
     
       <span class="dot"></span>
-      <span>499 字</span>
+      <span>306 字</span>
     
   </div>
   
@@ -606,9 +606,9 @@ mjx-container[display="true"] + br {
             <span class="dot"></span>
           
           <a 
-            href="/tags/note/" 
+            href="/tags/leetcode/" 
             class="post-meta-link">
-            note
+            leetcode
           </a>
         
       </div>
@@ -618,20 +618,10 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <p>由于我个人仍在学习当中，所学内容可能较为零散不成体系更多是以学习时间记录而非内容体系记录，所写可能也因此显得有些杂乱无章，当我建立起一个较为完整的知识体系框架后也许会回来整理吧。</p>
-<p>所记录的问题可能来自我网上冲浪所见或面试所遇我认为值得记录学习的，回答可能来自于网络资料、各路大模型回答以及一些我个人的理解，可能准确率并不太高，若有错漏还望不吝赐教。</p>
-<h2 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h2><p>引用计数概念防止内存泄露。</p>
-<p>基本想法：对于动态分配的对象进行引用计数每当增加一次对同一个对象的引用，那么引用对象的引用计数就会增加一次， 每删除一次引用，引用计数就会减一，当一个对象的引用计数减为零时，就自动删除指向的堆内存。</p>
-<p>c++11引入智能指针概念，包含<code>std::shared_ptr</code>/<code>std::unique_ptr</code>/<code>std::weak_ptr</code>,头文件为<code>&lt;memory&gt;</code></p>
-<h3 id="shared-ptr"><a href="#shared-ptr" class="headerlink" title="shared_ptr"></a><code>shared_ptr</code></h3><p>可自动记录有多少个<code>shared_ptr</code>共同指向同一对象，当计数归零时自动释放对应对象内存</p>
-<pre class="highlight"><code class="hljs cpp">std::<span class="hljs-built_in">make_shared</span>&lt;T&gt; (Args&amp;&amp;... args); <span class="hljs-comment">// 创建对应对象并返回其指针</span><br><br>.<span class="hljs-built_in">get</span>(); <span class="hljs-comment">// 获得原始指针</span><br>.<span class="hljs-built_in">use_count</span>(); <span class="hljs-comment">// 查看对象引用计数</span><br>	<span class="hljs-keyword">auto</span> p = ptr.<span class="hljs-built_in">get</span>(); <span class="hljs-comment">// 不会增加计数</span><br>	<span class="hljs-keyword">auto</span> p = ptr; <span class="hljs-comment">// 会增加计数</span><br><br>.<span class="hljs-built_in">reset</span>(); <span class="hljs-comment">// 置空</span><br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定<code>n * m</code>的方格，格子<code>(i, j)</code>必须在时刻<code>moveTime[i][j]</code>之后才可到达，初始位于时刻<code>0</code>与左上角<code>(0, 0)</code>，求解到达右下角<code>(n - 1, m - 1)</code>的最早时刻。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>比较经典的最短路题，只需把当前时刻<code>t</code>与目的方格最小时刻<code>moveTime[i][j]</code>取<code>max</code>加一即<code>max(t, moveTime[i][j]) + 1</code>作为边权然后跑一下迪杰斯特拉即可。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> array&lt;<span class="hljs-type">int</span>, 2&gt; nxt[] = {<br>    {<span class="hljs-number">1</span>, <span class="hljs-number">0</span>}, {<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>}, {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>}, {<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>}<br>};<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minTimeToReach</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; moveTime)</span> </span>{<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = moveTime.<span class="hljs-built_in">size</span>(), m = moveTime.<span class="hljs-built_in">back</span>().<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> e = n * m - <span class="hljs-number">1</span>;<br><br>        <span class="hljs-keyword">auto</span> cal1 = [&amp;](<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y) -&gt; <span class="hljs-type">int</span> {<br>            <span class="hljs-keyword">return</span> x * m + y;<br>        };<br>        <span class="hljs-keyword">auto</span> cal2 = [&amp;](<span class="hljs-type">int</span> x) -&gt; pair&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; {<br>            <span class="hljs-keyword">return</span> {x / m, x % m};<br>        };<br>        <span class="hljs-keyword">auto</span> across = [&amp;](<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y) -&gt; <span class="hljs-type">bool</span> {<br>            <span class="hljs-keyword">return</span> x &lt; <span class="hljs-number">0</span> || x &gt;= n || y &lt; <span class="hljs-number">0</span> || y &gt;= m;<br>        };<br><br>        <span class="hljs-function">vector&lt;<span class="hljs-type">bool</span>&gt; <span class="hljs-title">vis</span><span class="hljs-params">(n * m)</span></span>;<br>        priority_queue&lt;pair&lt;ll, <span class="hljs-type">int</span>&gt;, vector&lt;pair&lt;ll, <span class="hljs-type">int</span>&gt;&gt;, greater&lt;&gt;&gt; pq;<br>        pq.<span class="hljs-built_in">push</span>({<span class="hljs-number">0</span>, <span class="hljs-number">0</span>});<br>        <span class="hljs-keyword">while</span> (!pq.<span class="hljs-built_in">empty</span>()) {<br>            <span class="hljs-keyword">auto</span> [c, t] = pq.<span class="hljs-built_in">top</span>();<br>            pq.<span class="hljs-built_in">pop</span>();<br>            <span class="hljs-keyword">if</span> (vis[t]) <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-keyword">if</span> (t == e) <span class="hljs-keyword">return</span> c;<br>            vis[t] = <span class="hljs-literal">true</span>;<br>            <span class="hljs-keyword">auto</span> [x, y] = <span class="hljs-built_in">cal2</span>(t);<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> [tx, ty] : nxt) {<br>                <span class="hljs-type">int</span> nx = tx + x, ny = ty + y;<br>                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">across</span>(nx, ny)) <span class="hljs-keyword">continue</span>;<br>                <span class="hljs-type">int</span> nt = <span class="hljs-built_in">cal1</span>(nx, ny);<br>                pq.<span class="hljs-built_in">push</span>({<span class="hljs-built_in">max</span>(c, <span class="hljs-number">1ll</span> * moveTime[nx][ny]) + <span class="hljs-number">1</span>, nt});<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    }<br>};<br></code></pre>
 
-<h3 id="unique-ptr"><a href="#unique-ptr" class="headerlink" title="unique_ptr"></a><code>unique_ptr</code></h3><p>独占的智能指针, 禁止其他智能指针与其共享同一个对象</p>
-<blockquote>
-<p>cpp11没有提供<code>std::make_unique</code>, cpp委员会说是忘记了</p>
-</blockquote>
-<p><code>unique_ptr</code> 用法<code>shared_ptr</code>与类似，但无法通过赋值拷贝给另一智能指针，但可以通过<code>std::move</code>将其转移给另一<code>unique_ptr</code></p>
-<p>同时还可以通过<code>.get()</code>获取其原始指针后直接赋值给普通指针，但这样显然并不安全。</p>
 
   </div>
   <div>
@@ -651,8 +641,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/04/09/cpp%E5%AD%A6%E4%B9%A0/">
-            https://sfiisf.github.io/2025/04/09/cpp%E5%AD%A6%E4%B9%A0/
+            href="https://sfiisf.github.io/2025/05/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983341-%E5%88%B0%E8%BE%BE%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%88%BF%E9%97%B4%E7%9A%84%E6%9C%80%E5%B0%91%E6%97%B6%E9%97%B4-I/">
+            https://sfiisf.github.io/2025/05/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983341-%E5%88%B0%E8%BE%BE%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E6%88%BF%E9%97%B4%E7%9A%84%E6%9C%80%E5%B0%91%E6%97%B6%E9%97%B4-I/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -662,29 +652,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/04/09/%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">网络学习 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/04/09/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983375-%E4%BD%BF%E6%95%B0%E7%BB%84%E7%9A%84%E5%80%BC%E5%85%A8%E9%83%A8%E4%B8%BAK%E7%9A%84%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E6%AC%A1%E6%95%B0/" 
+        href="/2025/05/06/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981920-%E5%9F%BA%E4%BA%8E%E6%8E%92%E5%88%97%E6%9E%84%E5%BB%BA%E6%95%B0%E7%BB%84/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题3375-使数组的值全部为K的最少操作次数 </div>
+            <div class="nav-title">力扣每日一题1920-基于排列构建数组 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
@@ -738,7 +714,7 @@ mjx-container[display="true"] + br {
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="toc-text">智能指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shared-ptr"><span class="toc-text">shared_ptr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unique-ptr"><span class="toc-text">unique_ptr</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -752,7 +728,7 @@ mjx-container[display="true"] + br {
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="toc-text">智能指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shared-ptr"><span class="toc-text">shared_ptr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unique-ptr"><span class="toc-text">unique_ptr</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol>
     </article>
   
   
