@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题1007-行相等的最少多米诺旋转</title>
+  <title>力扣每日一题2094-找出 3 位偶数</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题1007-行相等的最少多米诺旋转">
+        content="力扣每日一题2094-找出 3 位偶数">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/05/03/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981007-%E8%A1%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E6%9C%80%E5%B0%91%E5%A4%9A%E7%B1%B3%E8%AF%BA%E6%97%8B%E8%BD%AC/index.html">
+        content="https://sfiisf.github.io/2025/05/12/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982094-%E6%89%BE%E5%87%BA-3-%E4%BD%8D%E5%81%B6%E6%95%B0/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-05-03">
+        content="2025-05-12">
       <meta 
         property="og:article:modified_time" 
-        content="2025-05-03">
+        content="2025-05-12">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -559,16 +559,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题1007-行相等的最少多米诺旋转
+      力扣每日一题2094-找出 3 位偶数
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-05-03T07:45:33.000Z">
+    <time datetime="2025-05-12T02:25:00.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-05-03</span>
+      <span>2025-05-12</span>
     </time>
     
       <span class="dot"></span>
@@ -582,7 +582,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>285 字</span>
+      <span>198 字</span>
     
   </div>
   
@@ -618,10 +618,13 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有一排可分上下部分的多米诺骨牌，每张牌上下部分均分别写着<code>[1, 6]</code>的数字，每次操作可使得某张牌上下颠倒，求使得上部/下部所有数字相同的最小操作次数或判断其不可能。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>注意到牌上数字的范围很小，可以考虑直接枚举是哪个数可以满足条件及最小操作次数；但这样常数，呃也不算大但不够优，可以再考虑开个数组记录各个数字出现次数及使其在上部或下部满足同排均相同的操作次数，如此遍历一趟即可。</p>
-<p>没什么特别需要注意的地方。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minDominoRotations</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; tops, vector&lt;<span class="hljs-type">int</span>&gt;&amp; bottoms)</span> </span>{<br>        array&lt;<span class="hljs-type">int</span>, 7&gt; num, tcnt, bcnt;<br>        num.<span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>); tcnt.<span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>); bcnt.<span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = tops.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (tops[i] == bottoms[i]) {<br>                num[tops[i]]++;<br>            } <span class="hljs-keyword">else</span> {<br>                num[tops[i]]++;<br>                num[bottoms[i]]++;<br>                tcnt[bottoms[i]]++;<br>                bcnt[tops[i]]++;<br>            }<br>        }<br>        <span class="hljs-type">int</span> mn = n;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; <span class="hljs-number">7</span>; i++) {<br>            <span class="hljs-keyword">if</span> (num[i] == n) mn = <span class="hljs-built_in">min</span>({mn, tcnt[i], bcnt[i]});<br>        }<br>        <span class="hljs-keyword">return</span> mn == n ? <span class="hljs-number">-1</span> : mn;<br>    }<br>};<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定个位数数组<code>digits</code>，可从中任选<code>3</code>个数，按任意顺序排序并组成一个三位数，求所有满足以下条件的不同整数</p>
+<ul>
+<li>无前导零</li>
+<li>为偶数</li>
+</ul>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>三位偶数的个数并不多，可以考虑枚举三位偶数，再判断给出的<code>digits</code>是否可以拼出该数即可。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">findEvenNumbers</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; digits)</span> </span>{<br>        array&lt;<span class="hljs-type">int</span>, 10&gt; cnt;<br>        cnt.<span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : digits) {<br>            cnt[x]++;<br>        }<br><br>        <span class="hljs-keyword">auto</span> check = [&amp;](<span class="hljs-type">int</span> x) -&gt; <span class="hljs-type">bool</span> {<br>            array&lt;<span class="hljs-type">int</span>, <span class="hljs-number">3</span>&gt; t;<br>            <span class="hljs-type">bool</span> res = <span class="hljs-literal">true</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) {<br>                t[i] = x % <span class="hljs-number">10</span>;<br>                x /= <span class="hljs-number">10</span>;<br>                res &amp;= (--cnt[t[i]] &gt;= <span class="hljs-number">0</span>);<br>            }<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">3</span>; i++) cnt[t[i]]++;<br>            <span class="hljs-keyword">return</span> res;<br>        };<br><br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">100</span>; i &lt; <span class="hljs-number">1000</span>; i += <span class="hljs-number">2</span>) {<br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">check</span>(i)) ans.<span class="hljs-built_in">push_back</span>(i);<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
 
 
   </div>
@@ -642,8 +645,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/05/03/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981007-%E8%A1%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E6%9C%80%E5%B0%91%E5%A4%9A%E7%B1%B3%E8%AF%BA%E6%97%8B%E8%BD%AC/">
-            https://sfiisf.github.io/2025/05/03/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981007-%E8%A1%8C%E7%9B%B8%E7%AD%89%E7%9A%84%E6%9C%80%E5%B0%91%E5%A4%9A%E7%B1%B3%E8%AF%BA%E6%97%8B%E8%BD%AC/
+            href="https://sfiisf.github.io/2025/05/12/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982094-%E6%89%BE%E5%87%BA-3-%E4%BD%8D%E5%81%B6%E6%95%B0/">
+            https://sfiisf.github.io/2025/05/12/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982094-%E6%89%BE%E5%87%BA-3-%E4%BD%8D%E5%81%B6%E6%95%B0/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -653,29 +656,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/05/04/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981128-%E7%AD%89%E4%BB%B7%E5%A4%9A%E7%B1%B3%E8%AF%BA%E9%AA%A8%E7%89%8C%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题1128-等价多米诺骨牌对的数量 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/05/02/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98838-%E6%8E%A8%E5%A4%9A%E7%B1%B3%E8%AF%BA/" 
+        href="/2025/05/11/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981550-%E5%AD%98%E5%9C%A8%E8%BF%9E%E7%BB%AD%E4%B8%89%E4%B8%AA%E5%A5%87%E6%95%B0%E7%9A%84%E6%95%B0%E7%BB%84/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题838-推多米诺 </div>
+            <div class="nav-title">力扣每日一题1550-存在连续三个奇数的数组 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
