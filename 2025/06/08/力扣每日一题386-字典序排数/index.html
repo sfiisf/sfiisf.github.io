@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题2145-统计隐藏数组数目</title>
+  <title>力扣每日一题386-字典序排数</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题2145-统计隐藏数组数目">
+        content="力扣每日一题386-字典序排数">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/04/21/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982145-%E7%BB%9F%E8%AE%A1%E9%9A%90%E8%97%8F%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE/index.html">
+        content="https://sfiisf.github.io/2025/06/08/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98386-%E5%AD%97%E5%85%B8%E5%BA%8F%E6%8E%92%E6%95%B0/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-04-21">
+        content="2025-06-08">
       <meta 
         property="og:article:modified_time" 
-        content="2025-04-21">
+        content="2025-06-08">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -565,16 +565,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题2145-统计隐藏数组数目
+      力扣每日一题386-字典序排数
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-04-21T05:24:39.000Z">
+    <time datetime="2025-06-08T01:04:16.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-04-21</span>
+      <span>2025-06-08</span>
     </time>
     
       <span class="dot"></span>
@@ -588,7 +588,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>191 字</span>
+      <span>86 字</span>
     
   </div>
   
@@ -624,11 +624,9 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定某隐藏数组的差分数组<code>differences</code>与定值上界<code>upper</code>及定值<code>lower</code>，求满足最大最小值不超过给定上下界的合法隐藏数组的个数。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>对差分数组求前缀和即可获知隐藏数组各数与第一个数的差值，也因此易得隐藏数组最大最小值的相对差值。</p>
-<p>又对于给定的差分结果，确定一个数即可确定整个隐藏数组。</p>
-<p>根据给定的上下界<code>upper</code>与<code>lower</code>计算结果即可。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">numberOfArrays</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; differences, <span class="hljs-type">int</span> lower, <span class="hljs-type">int</span> upper)</span> </span>{<br>        ll mn = <span class="hljs-number">0</span>, mx = <span class="hljs-number">0</span>;<br>        ll cur = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : differences) {<br>            cur += x;<br>            mn = <span class="hljs-built_in">min</span>(mn, cur);<br>            mx = <span class="hljs-built_in">max</span>(mx, cur);<br>        }<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(upper - lower - (mx - mn) + <span class="hljs-number">1</span>, <span class="hljs-number">0ll</span>);<br>    }<br>};<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定整数<code>n</code>，按字典序返回范围<code>[1, n]</code>内所有整数</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>按字典序进行枚举即可。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">lexicalOrder</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>{<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(n)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>, num = <span class="hljs-number">1</span>; i &lt; n; i++) {<br>            ans[i] = num;<br>            <span class="hljs-keyword">if</span> (num * <span class="hljs-number">10</span> &lt;= n) num *= <span class="hljs-number">10</span>;<br>            <span class="hljs-keyword">else</span> {<br>                <span class="hljs-keyword">while</span> (num % <span class="hljs-number">10</span> == <span class="hljs-number">9</span> || num + <span class="hljs-number">1</span> &gt; n) {<br>                    num /= <span class="hljs-number">10</span>;<br>                }<br>                num++;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
 
 
   </div>
@@ -649,8 +647,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/04/21/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982145-%E7%BB%9F%E8%AE%A1%E9%9A%90%E8%97%8F%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE/">
-            https://sfiisf.github.io/2025/04/21/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982145-%E7%BB%9F%E8%AE%A1%E9%9A%90%E8%97%8F%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE/
+            href="https://sfiisf.github.io/2025/06/08/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98386-%E5%AD%97%E5%85%B8%E5%BA%8F%E6%8E%92%E6%95%B0/">
+            https://sfiisf.github.io/2025/06/08/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98386-%E5%AD%97%E5%85%B8%E5%BA%8F%E6%8E%92%E6%95%B0/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -660,29 +658,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/04/22/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982338-%E7%BB%9F%E8%AE%A1%E7%90%86%E6%83%B3%E6%95%B0%E7%BB%84%E7%9A%84%E6%95%B0%E7%9B%AE/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题2338-统计理想数组的数目 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/04/20/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98781-%E6%A3%AE%E6%9E%97%E4%B8%AD%E7%9A%84%E5%85%94%E5%AD%90/" 
+        href="/2025/06/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983170-%E5%88%A0%E9%99%A4%E6%98%9F%E5%8F%B7%E4%BB%A5%E5%90%8E%E5%AD%97%E5%85%B8%E5%BA%8F%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题781-森林中的兔子 </div>
+            <div class="nav-title">力扣每日一题3170-删除星号以后字典序最小的字符串 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
