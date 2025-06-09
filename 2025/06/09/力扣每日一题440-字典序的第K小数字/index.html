@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题1061-按字典序排列最小的等效字符串</title>
+  <title>力扣每日一题440-字典序的第K小数字</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题1061-按字典序排列最小的等效字符串">
+        content="力扣每日一题440-字典序的第K小数字">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/06/05/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981061-%E6%8C%89%E5%AD%97%E5%85%B8%E5%BA%8F%E6%8E%92%E5%88%97%E6%9C%80%E5%B0%8F%E7%9A%84%E7%AD%89%E6%95%88%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+        content="https://sfiisf.github.io/2025/06/09/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98440-%E5%AD%97%E5%85%B8%E5%BA%8F%E7%9A%84%E7%AC%ACK%E5%B0%8F%E6%95%B0%E5%AD%97/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-06-05">
+        content="2025-06-09">
       <meta 
         property="og:article:modified_time" 
-        content="2025-06-05">
+        content="2025-06-09">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -565,16 +565,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题1061-按字典序排列最小的等效字符串
+      力扣每日一题440-字典序的第K小数字
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-06-05T01:13:51.000Z">
+    <time datetime="2025-06-09T02:50:50.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-06-05</span>
+      <span>2025-06-09</span>
     </time>
     
       <span class="dot"></span>
@@ -588,7 +588,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>244 字</span>
+      <span>297 字</span>
     
   </div>
   
@@ -624,12 +624,11 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定两等长字符串<code>s1</code>与<code>s2</code>，以及另一字符串<code>baseStr</code></p>
-<p><code>s1</code>与<code>s2</code>相同位置的字符等价，即<code>s1[i]</code>与<code>s2[i]</code>等价</p>
-<p>可将<code>baseStr</code>中的字符任意替换成与其等价的字符</p>
-<p>求<code>baseStr</code>替换后字典序最小的结果。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>比较自然可以想到使用并查集，同一集合内的字符是可以互相替换的，要使得字典序最小，应将同一集合内的字符均替换为最小的字符。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> N = <span class="hljs-number">26</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">string <span class="hljs-title">smallestEquivalentString</span><span class="hljs-params">(string s1, string s2, string baseStr)</span> </span>{<br>        array&lt;<span class="hljs-type">int</span>, N&gt; fa;<br>        ranges::<span class="hljs-built_in">iota</span>(fa, <span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">auto</span> find = [&amp;](<span class="hljs-keyword">this</span> <span class="hljs-keyword">auto</span>&amp;&amp; self, <span class="hljs-type">int</span> u) -&gt; <span class="hljs-type">int</span> {<br>            <span class="hljs-keyword">if</span> (fa[u] == u) <span class="hljs-keyword">return</span> u;<br>            <span class="hljs-keyword">return</span> fa[u] = <span class="hljs-built_in">self</span>(fa[u]);<br>        };<br>        <span class="hljs-keyword">auto</span> merge = [&amp;](<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y) -&gt; <span class="hljs-type">void</span> {<br>            x = <span class="hljs-built_in">find</span>(x); y = <span class="hljs-built_in">find</span>(y);<br>            <span class="hljs-keyword">if</span> (x == y) <span class="hljs-keyword">return</span>;<br>            <span class="hljs-keyword">if</span> (x &gt; y) <span class="hljs-built_in">swap</span>(x, y);<br>            fa[y] = x;<br>            <span class="hljs-keyword">return</span>;<br>        };<br><br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = s<span class="hljs-number">1.</span><span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-built_in">merge</span>(s1[i] - <span class="hljs-string">'a'</span>, s2[i] - <span class="hljs-string">'a'</span>);<br>        }<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; ch : baseStr) {<br>            ch = <span class="hljs-built_in">char</span>(<span class="hljs-built_in">find</span>(ch - <span class="hljs-string">'a'</span>) + <span class="hljs-string">'a'</span>);<br>        }<br>        <span class="hljs-keyword">return</span> baseStr;<br>    }<br>};<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定整数<code>n</code>和<code>k</code>，返回<code>[1, n]</code>中字典序第<code>k</code>小的数字</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>不妨将数字当作字符串看待，那又比较自然的可以想到字典树。</p>
+<p>是返回<code>[1, n]</code>范围内的数，故而可以得到一颗根节点有<code>9</code>条边其余点有<code>10</code>条边共有<code>n + 1</code>个结点的树。</p>
+<p>将<code>[1, n]</code>的数按照字典序排序，显然是按照先序遍历该树得到，本题数据量较大不太可以直接遍历模拟得到，考虑使用子树结点数进行加速判断：假定当前处于任意结点，需要得到第<code>k</code>小的数，若其第一个子节点子树内所有结点数为<code>x</code>，若<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.312ex;" xmlns="http://www.w3.org/2000/svg" width="5.49ex" height="1.882ex" role="img" focusable="false" viewbox="0 -694 2426.6 832"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/></g><g data-mml-node="mo" transform="translate(849.8,0)"><path data-c="2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"/></g><g data-mml-node="mi" transform="translate(1905.6,0)"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"/></g></g></g></svg></mjx-container> 显然所需点不在该子树内，若<mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.09ex;" xmlns="http://www.w3.org/2000/svg" width="5.49ex" height="1.661ex" role="img" focusable="false" viewbox="0 -694 2426.6 734"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mi"><path data-c="1D458" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"/></g><g data-mml-node="mo" transform="translate(798.8,0)"><path data-c="3C" d="M694 -11T694 -19T688 -33T678 -40Q671 -40 524 29T234 166L90 235Q83 240 83 250Q83 261 91 266Q664 540 678 540Q681 540 687 534T694 519T687 505Q686 504 417 376L151 250L417 124Q686 -4 687 -5Q694 -11 694 -19Z"/></g><g data-mml-node="mi" transform="translate(1854.6,0)"><path data-c="1D465" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"/></g></g></g></svg></mjx-container>显然所需点在该子树内。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">findKthNumber</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> k)</span> </span>{<br>        <span class="hljs-type">int</span> p = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n / <span class="hljs-number">10</span>; i &gt; <span class="hljs-number">0</span>; i /= <span class="hljs-number">10</span>) p *= <span class="hljs-number">10</span>;<br><br>        <span class="hljs-keyword">auto</span> cal = [&amp;](<span class="hljs-type">int</span> x) -&gt; <span class="hljs-type">int</span> {<br>            <span class="hljs-type">int</span> sz = (p - <span class="hljs-number">1</span>) / <span class="hljs-number">9</span>;<br>            ll l = <span class="hljs-number">1ll</span> * p * x, r = <span class="hljs-number">1ll</span> * p * (x + <span class="hljs-number">1</span>);<br>            <span class="hljs-keyword">if</span> (l &lt;= n) {<br>                sz += <span class="hljs-built_in">min</span>(r, n + <span class="hljs-number">1ll</span>) - l;<br>            }<br>            <span class="hljs-keyword">return</span> sz;<br>        };<br><br>        <span class="hljs-type">int</span> x = <span class="hljs-number">1</span>;<br>        k--;<br>        <span class="hljs-keyword">while</span> (k) {<br>            <span class="hljs-type">int</span> sz = <span class="hljs-built_in">cal</span>(x);<br>            <span class="hljs-keyword">if</span> (sz &lt;= k) {<br>                k -= sz;<br>                x++;<br>            } <span class="hljs-keyword">else</span> {<br>                p /= <span class="hljs-number">10</span>;<br>                x *= <span class="hljs-number">10</span>;<br>                k--;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> x;<br>    }<br>};<br></code></pre>
 
 
   </div>
@@ -650,8 +649,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/06/05/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981061-%E6%8C%89%E5%AD%97%E5%85%B8%E5%BA%8F%E6%8E%92%E5%88%97%E6%9C%80%E5%B0%8F%E7%9A%84%E7%AD%89%E6%95%88%E5%AD%97%E7%AC%A6%E4%B8%B2/">
-            https://sfiisf.github.io/2025/06/05/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981061-%E6%8C%89%E5%AD%97%E5%85%B8%E5%BA%8F%E6%8E%92%E5%88%97%E6%9C%80%E5%B0%8F%E7%9A%84%E7%AD%89%E6%95%88%E5%AD%97%E7%AC%A6%E4%B8%B2/
+            href="https://sfiisf.github.io/2025/06/09/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98440-%E5%AD%97%E5%85%B8%E5%BA%8F%E7%9A%84%E7%AC%ACK%E5%B0%8F%E6%95%B0%E5%AD%97/">
+            https://sfiisf.github.io/2025/06/09/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98440-%E5%AD%97%E5%85%B8%E5%BA%8F%E7%9A%84%E7%AC%ACK%E5%B0%8F%E6%95%B0%E5%AD%97/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -661,29 +660,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/06/06/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982434-%E4%BD%BF%E7%94%A8%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%89%93%E5%8D%B0%E5%AD%97%E5%85%B8%E5%BA%8F%E6%9C%80%E5%B0%8F%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题2434-使用机器人打印字典序最小的字符串 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/06/04/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983403-%E4%BB%8E%E7%9B%92%E5%AD%90%E4%B8%AD%E6%89%BE%E5%87%BA%E5%AD%97%E5%85%B8%E5%BA%8F%E6%9C%80%E5%A4%A7%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2-I/" 
+        href="/2025/06/08/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98386-%E5%AD%97%E5%85%B8%E5%BA%8F%E6%8E%92%E6%95%B0/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题3403-从盒子中找出字典序最大的字符串 I </div>
+            <div class="nav-title">力扣每日一题386-字典序排数 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
