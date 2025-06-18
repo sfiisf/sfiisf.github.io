@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题3442-奇偶频次间的最大差值 I</title>
+  <title>力扣每日一题2294-划分数组使最大差为 K</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题3442-奇偶频次间的最大差值 I">
+        content="力扣每日一题2294-划分数组使最大差为 K">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/06/10/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983442-%E5%A5%87%E5%81%B6%E9%A2%91%E6%AC%A1%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC-I/index.html">
+        content="https://sfiisf.github.io/2025/06/19/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982294-%E5%88%92%E5%88%86%E6%95%B0%E7%BB%84%E4%BD%BF%E6%9C%80%E5%A4%A7%E5%B7%AE%E4%B8%BA-K/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-06-10">
+        content="2025-06-19">
       <meta 
         property="og:article:modified_time" 
-        content="2025-06-10">
+        content="2025-06-19">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -565,16 +565,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题3442-奇偶频次间的最大差值 I
+      力扣每日一题2294-划分数组使最大差为 K
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-06-10T04:37:09.000Z">
+    <time datetime="2025-06-18T16:32:45.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-06-10</span>
+      <span>2025-06-19</span>
     </time>
     
       <span class="dot"></span>
@@ -588,7 +588,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>192 字</span>
+      <span>118 字</span>
     
   </div>
   
@@ -624,12 +624,9 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定小写字母字符串<code>s</code>，求<code>diff = a1 - a2</code>的最大值</p>
-<p>其中<code>a1</code>为字符串中任意出现次数为奇数次的字符的出现次数</p>
-<p><code>a2</code>为字符串中任意出现次数为偶数次的字符的出现次数</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>要使得<code>diff</code>最大，显然应该使得<code>a1</code>取得最大<code>a2</code>取得最小</p>
-<p>也就是选取出现次数为奇数的最大，出现次数为偶数的最大，注意出现<code>0</code>次也就是未出现的字符应不考虑即可。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxDifference</span><span class="hljs-params">(string s)</span> </span>{<br>        array&lt;<span class="hljs-type">int</span>, 26&gt; cnt;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; ch : s) {<br>            cnt[ch - <span class="hljs-string">'a'</span>]++;<br>        }<br>        <span class="hljs-type">int</span> mx = <span class="hljs-number">0</span>, mn = INT_MAX;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; i : cnt) {<br>            <span class="hljs-keyword">if</span> (i &amp; <span class="hljs-number">1</span>) mx = <span class="hljs-built_in">max</span>(mx, i);<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i) mn = <span class="hljs-built_in">min</span>(mn, i);<br>        }<br>        <span class="hljs-keyword">return</span> mx - mn;<br>    }<br>};<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定数组<code>nums</code>与整数<code>k</code>，将<code>nums</code>划分为子序列，使得每个子序列最大值与最小值的差值不超过<code>k</code>，求所需划分的最少子序列数。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>显然符合贪心性质，直接排序开贪即可。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">partitionArray</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> k)</span> </span>{<br>        ranges::<span class="hljs-built_in">sort</span>(nums);<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> cnt = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (nums[i] - nums[l] &lt;= k) <span class="hljs-keyword">continue</span>;<br>            cnt++;<br>            l = i;<br>        }<br>        <span class="hljs-keyword">return</span> cnt;<br>    }<br>};<br></code></pre>
 
 
   </div>
@@ -650,8 +647,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/06/10/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983442-%E5%A5%87%E5%81%B6%E9%A2%91%E6%AC%A1%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC-I/">
-            https://sfiisf.github.io/2025/06/10/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983442-%E5%A5%87%E5%81%B6%E9%A2%91%E6%AC%A1%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC-I/
+            href="https://sfiisf.github.io/2025/06/19/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982294-%E5%88%92%E5%88%86%E6%95%B0%E7%BB%84%E4%BD%BF%E6%9C%80%E5%A4%A7%E5%B7%AE%E4%B8%BA-K/">
+            https://sfiisf.github.io/2025/06/19/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982294-%E5%88%92%E5%88%86%E6%95%B0%E7%BB%84%E4%BD%BF%E6%9C%80%E5%A4%A7%E5%B7%AE%E4%B8%BA-K/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -661,29 +658,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/06/11/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983345-%E5%A5%87%E5%81%B6%E9%A2%91%E6%AC%A1%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC-II/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题3345-奇偶频次间的最大差值 II </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/06/09/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98440-%E5%AD%97%E5%85%B8%E5%BA%8F%E7%9A%84%E7%AC%ACK%E5%B0%8F%E6%95%B0%E5%AD%97/" 
+        href="/2025/06/18/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982966-%E5%88%92%E5%88%86%E6%95%B0%E7%BB%84%E5%B9%B6%E6%BB%A1%E8%B6%B3%E6%9C%80%E5%A4%A7%E5%B7%AE%E9%99%90%E5%88%B6/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题440-字典序的第K小数字 </div>
+            <div class="nav-title">力扣每日一题2966-划分数组并满足最大差限制 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
