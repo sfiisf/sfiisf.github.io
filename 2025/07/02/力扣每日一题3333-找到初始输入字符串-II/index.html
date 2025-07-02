@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题3405-统计恰好有 K 个相等相邻元素的数组数目</title>
+  <title>力扣每日一题3333-找到初始输入字符串 II</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题3405-统计恰好有 K 个相等相邻元素的数组数目">
+        content="力扣每日一题3333-找到初始输入字符串 II">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/06/17/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983405-%E7%BB%9F%E8%AE%A1%E6%81%B0%E5%A5%BD%E6%9C%89-K-%E4%B8%AA%E7%9B%B8%E7%AD%89%E7%9B%B8%E9%82%BB%E5%85%83%E7%B4%A0%E7%9A%84%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE/index.html">
+        content="https://sfiisf.github.io/2025/07/02/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983333-%E6%89%BE%E5%88%B0%E5%88%9D%E5%A7%8B%E8%BE%93%E5%85%A5%E5%AD%97%E7%AC%A6%E4%B8%B2-II/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-06-17">
+        content="2025-07-02">
       <meta 
         property="og:article:modified_time" 
-        content="2025-06-17">
+        content="2025-07-02">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -565,16 +565,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题3405-统计恰好有 K 个相等相邻元素的数组数目
+      力扣每日一题3333-找到初始输入字符串 II
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-06-17T04:25:38.000Z">
+    <time datetime="2025-07-02T15:26:17.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-06-17</span>
+      <span>2025-07-02</span>
     </time>
     
       <span class="dot"></span>
@@ -588,7 +588,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>325 字</span>
+      <span>346 字</span>
     
   </div>
   
@@ -624,17 +624,10 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>对于给定的三个正整数<code>n</code>、<code>m</code>、<code>k</code>，称满足以下条件的数组<code>arr</code>为好数组</p>
-<ul>
-<li><code>arr</code>的长度为<code>n</code></li>
-<li><code>arr</code>的元素均为<code>[1, m]</code></li>
-<li><code>arr</code>中恰好有<code>k</code>对满足<code>arr[i] == arr[i - 1]</code>的下标</li>
-</ul>
-<p>求好数组<code>arr</code>的构造数</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>仔细观察可以发现该题其实就是个数学题，进行一个推式子即可</p>
-<p>首先长为<code>n</code>的数组共有<code>n - 1</code>对相邻元素，要求恰好有<code>k</code>对相邻元素相同，也就是说有<code>n - 1 - k</code>对相邻元素不同。也就是说有会有<code>n - 1 - k</code>个数将整个数组分割为<code>n - k</code>段，每段元素相同。</p>
-<p>计算分割方案与分割后填色数即可。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span>;<br><span class="hljs-type">int</span> f[N + <span class="hljs-number">1</span>], nf[N + <span class="hljs-number">1</span>];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">powMod</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>{<br>    <span class="hljs-type">int</span> res = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (b) {<br>        <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>) {<br>            res = <span class="hljs-number">1ll</span> * res * a % mod;<br>        }<br>        a = <span class="hljs-number">1ll</span> * a * a % mod;<br>        b &gt;&gt;= <span class="hljs-number">1</span>;<br>    }<br>    <span class="hljs-keyword">return</span> res;<br>}<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">C</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> k)</span> </span>{<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1ll</span> * f[n] * nf[k] % mod * nf[n - k] % mod;<br>}<br><br><span class="hljs-type">int</span> init = []() -&gt; <span class="hljs-type">int</span> {<br>    f[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; i++) {<br>        f[i] = <span class="hljs-number">1ll</span> * f[i - <span class="hljs-number">1</span>] * i % mod;<br>    }<br>    nf[N] = <span class="hljs-built_in">powMod</span>(f[N], mod - <span class="hljs-number">2</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = N; i &gt; <span class="hljs-number">0</span>; i--) {<br>        nf[i - <span class="hljs-number">1</span>] = <span class="hljs-number">1ll</span> * nf[i] * i % mod;<br>    }<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>} ();<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countGoodArrays</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> m, <span class="hljs-type">int</span> k)</span> </span>{<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1ll</span> * <span class="hljs-built_in">C</span>(n - <span class="hljs-number">1</span>, k) * m % mod * <span class="hljs-built_in">powMod</span>(m - <span class="hljs-number">1</span>, n - k - <span class="hljs-number">1</span>) % mod;<br>    }<br>};<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给出字符串<code>word</code>与整数<code>k</code>， Alice 在打这个字符串时可能在某个键停留过久使得该字符被输入多次，已知 Alice 最初所输入的字符串长度不小于<code>k</code>，求 Alice 最初想输入的字符串的可能数量。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先不考虑长度问题，那么就和昨天的题非常类似，仅仅是 Alice 犯错次数变为无限多，那还是很好做的。也就是总的方案数是好求的。</p>
+<p>最终字符串的长度大于某值的方案数似乎不太好做，但不大于某长度的就好做很多，进行一个分组dp即可。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">possibleStringCount</span><span class="hljs-params">(string word, <span class="hljs-type">int</span> k)</span> </span>{<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = word.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">if</span> (n &lt; k) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        ll ans = <span class="hljs-number">1</span>;<br>        vector&lt;<span class="hljs-type">int</span>&gt; f;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ) {<br>            <span class="hljs-type">int</span> j;<br>            <span class="hljs-keyword">for</span> (j = i + <span class="hljs-number">1</span>; j &lt; n &amp;&amp; word[i] == word[j]; j++);<br>            k--;<br>            <span class="hljs-keyword">if</span> (j - i &gt; <span class="hljs-number">1</span>) {<br>                ans = ans * (j - i) % mod;<br>                f.<span class="hljs-built_in">push_back</span>(j - i - <span class="hljs-number">1</span>);<br>            }<br>            i = j;<br>        }<br><br>        <span class="hljs-keyword">if</span> (k &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> ans;<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> m = f.<span class="hljs-built_in">size</span>();<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">dp</span>(m + <span class="hljs-number">1</span>, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt; (k));<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">pre</span><span class="hljs-params">(k + <span class="hljs-number">1</span>)</span></span>;<br>        ranges::<span class="hljs-built_in">fill</span>(dp[<span class="hljs-number">0</span>], <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; k; j++) {<br>                pre[j + <span class="hljs-number">1</span>] = (pre[j] + dp[i][j]) % mod;<br>            }<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; k; j++) {<br>                dp[i + <span class="hljs-number">1</span>][j] = (pre[j + <span class="hljs-number">1</span>] - pre[<span class="hljs-built_in">max</span>(j - f[i], <span class="hljs-number">0</span>)]) % mod;<br>            }<br>        }<br><br>        <span class="hljs-keyword">return</span> (ans - dp[m][k - <span class="hljs-number">1</span>] + mod) % mod;<br>    }<br>};<br></code></pre>
 
 
   </div>
@@ -655,8 +648,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/06/17/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983405-%E7%BB%9F%E8%AE%A1%E6%81%B0%E5%A5%BD%E6%9C%89-K-%E4%B8%AA%E7%9B%B8%E7%AD%89%E7%9B%B8%E9%82%BB%E5%85%83%E7%B4%A0%E7%9A%84%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE/">
-            https://sfiisf.github.io/2025/06/17/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983405-%E7%BB%9F%E8%AE%A1%E6%81%B0%E5%A5%BD%E6%9C%89-K-%E4%B8%AA%E7%9B%B8%E7%AD%89%E7%9B%B8%E9%82%BB%E5%85%83%E7%B4%A0%E7%9A%84%E6%95%B0%E7%BB%84%E6%95%B0%E7%9B%AE/
+            href="https://sfiisf.github.io/2025/07/02/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983333-%E6%89%BE%E5%88%B0%E5%88%9D%E5%A7%8B%E8%BE%93%E5%85%A5%E5%AD%97%E7%AC%A6%E4%B8%B2-II/">
+            https://sfiisf.github.io/2025/07/02/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983333-%E6%89%BE%E5%88%B0%E5%88%9D%E5%A7%8B%E8%BE%93%E5%85%A5%E5%AD%97%E7%AC%A6%E4%B8%B2-II/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -666,29 +659,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/06/18/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982966-%E5%88%92%E5%88%86%E6%95%B0%E7%BB%84%E5%B9%B6%E6%BB%A1%E8%B6%B3%E6%9C%80%E5%A4%A7%E5%B7%AE%E9%99%90%E5%88%B6/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题2966-划分数组并满足最大差限制 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/06/16/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982016-%E5%A2%9E%E9%87%8F%E5%85%83%E7%B4%A0%E4%B9%8B%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC/" 
+        href="/2025/07/01/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983330-%E6%89%BE%E5%88%B0%E5%88%9D%E5%A7%8B%E8%BE%93%E5%85%A5%E5%AD%97%E7%AC%A6%E4%B8%B2-I/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题2016-增量元素之间的最大差值 </div>
+            <div class="nav-title">力扣每日一题3330-找到初始输入字符串 I </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
