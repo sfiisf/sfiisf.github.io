@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题1498-满足条件的子序列数目</title>
+  <title>力扣每日一题1353-最多可以参加的会议数目</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题1498-满足条件的子序列数目">
+        content="力扣每日一题1353-最多可以参加的会议数目">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/06/29/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981498-%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%E6%95%B0%E7%9B%AE/index.html">
+        content="https://sfiisf.github.io/2025/07/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981353-%E6%9C%80%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E7%9A%84%E4%BC%9A%E8%AE%AE%E6%95%B0%E7%9B%AE/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-06-29">
+        content="2025-07-07">
       <meta 
         property="og:article:modified_time" 
-        content="2025-06-29">
+        content="2025-07-07">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -565,16 +565,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题1498-满足条件的子序列数目
+      力扣每日一题1353-最多可以参加的会议数目
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-06-29T11:48:48.000Z">
+    <time datetime="2025-07-07T15:03:58.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-06-29</span>
+      <span>2025-07-07</span>
     </time>
     
       <span class="dot"></span>
@@ -588,7 +588,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>290 字</span>
+      <span>218 字</span>
     
   </div>
   
@@ -624,10 +624,9 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定数组<code>nums</code>与整数<code>target</code>，求<code>nums</code>中满足最大最小值之和不超过<code>target</code>的子序列的个数。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>需要求的是子序列，所以其顺序是无所谓的，故而考虑直接排序，这样最大最小值就方便直接选择。</p>
-<p>使得最大最小值之和不超过某一定值，若<code>x + y</code>不超过某值，显然若<code>z &lt; y</code>则必有<code>x + z</code>不超过对应值。故而可以直接使用双指针，记录若选出当前最小值，最大值可以选哪个，再计算出对应子序列数量即可。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-function">ll <span class="hljs-title">powMod</span><span class="hljs-params">(ll a, ll b)</span> </span>{<br>    ll res = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">while</span> (b) {<br>        <span class="hljs-keyword">if</span> (b &amp; <span class="hljs-number">1</span>) {<br>            res = res * a % mod;<br>        }<br>        a = a * a % mod;<br>        b &gt;&gt;= <span class="hljs-number">1</span>;<br>    }<br>    <span class="hljs-keyword">return</span> res;<br>}<br><br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> N =  <span class="hljs-number">1e5</span>;<br>ll p[N + <span class="hljs-number">10</span>];<br><span class="hljs-type">int</span> init = []() {<br>    p[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= N; i++) {<br>        p[i] = (p[i - <span class="hljs-number">1</span>] &lt;&lt; <span class="hljs-number">1</span>) % mod;<br>    }<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>} ();<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">numSubseq</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> target)</span> </span>{<br>        ranges::<span class="hljs-built_in">sort</span>(nums);<br>        ll ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, r = <span class="hljs-built_in">int</span>(nums.<span class="hljs-built_in">size</span>()) - <span class="hljs-number">1</span> ; l &lt;= r; ) {<br>            <span class="hljs-keyword">if</span> (nums[l] + nums[r] &gt; target) {<br>                r--;<br>            } <span class="hljs-keyword">else</span> {<br>                <span class="hljs-comment">// ans = (ans + powMod(2, r - l)) % mod;</span><br>                ans += p[r - l];<br>                <span class="hljs-keyword">if</span> (ans &gt; mod) ans -= mod;<br>                l++;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定数组<code>events</code>，其中<code>event[i] = [startDat_i, endDay_i]</code>表示第<code>i</code>个会议开始与结束的时间。每日最多可参加一个会议，求最多可以参加几个会议。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>显然是满足贪心性质的，对于每个当前未参加且可参加的会议，应当选择结束时间最早的会议，使用优先队列进行维护可参加的会议即可。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxEvents</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; events)</span> </span>{<br>        <span class="hljs-type">int</span> mx = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; vec : events) {<br>            mx = <span class="hljs-built_in">max</span>(mx, vec.<span class="hljs-built_in">back</span>());<br>        }<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = events.<span class="hljs-built_in">size</span>();<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">cnt</span>(mx + <span class="hljs-number">1</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; vec : events) {<br>            cnt[vec.<span class="hljs-built_in">front</span>()].<span class="hljs-built_in">push_back</span>(vec.<span class="hljs-built_in">back</span>());<br>        }<br><br>        priority_queue&lt;<span class="hljs-type">int</span>, vector&lt;<span class="hljs-type">int</span>&gt;, greater&lt;&gt;&gt; pq;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= mx; i++) {<br>            <span class="hljs-keyword">while</span> (!pq.<span class="hljs-built_in">empty</span>() &amp;&amp; pq.<span class="hljs-built_in">top</span>() &lt; i) {<br>                pq.<span class="hljs-built_in">pop</span>();<br>            }<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : cnt[i]) {<br>                pq.<span class="hljs-built_in">push</span>(x);<br>            }<br>            <span class="hljs-keyword">if</span> (!pq.<span class="hljs-built_in">empty</span>()) {<br>                ans++;<br>                pq.<span class="hljs-built_in">pop</span>();<br>            }<br>        }<br><br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
 
 
   </div>
@@ -648,8 +647,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/06/29/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981498-%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%E6%95%B0%E7%9B%AE/">
-            https://sfiisf.github.io/2025/06/29/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981498-%E6%BB%A1%E8%B6%B3%E6%9D%A1%E4%BB%B6%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97%E6%95%B0%E7%9B%AE/
+            href="https://sfiisf.github.io/2025/07/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981353-%E6%9C%80%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E7%9A%84%E4%BC%9A%E8%AE%AE%E6%95%B0%E7%9B%AE/">
+            https://sfiisf.github.io/2025/07/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981353-%E6%9C%80%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E7%9A%84%E4%BC%9A%E8%AE%AE%E6%95%B0%E7%9B%AE/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -659,29 +658,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/06/30/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98594-%E6%9C%80%E9%95%BF%E5%92%8C%E8%B0%90%E5%AD%90%E5%BA%8F%E5%88%97/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题594-最长和谐子序列 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/06/28/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982099-%E6%89%BE%E5%88%B0%E5%92%8C%E6%9C%80%E5%A4%A7%E7%9A%84%E9%95%BF%E5%BA%A6%E4%B8%BA-K-%E7%9A%84%E5%AD%90%E5%BA%8F%E5%88%97/" 
+        href="/2025/07/06/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981865-%E6%89%BE%E5%87%BA%E5%92%8C%E4%B8%BA%E6%8C%87%E5%AE%9A%E5%80%BC%E7%9A%84%E4%B8%8B%E6%A0%87%E5%AF%B9/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题2099-找到和最大的长度为 K 的子序列 </div>
+            <div class="nav-title">力扣每日一题1865-找出和为指定值的下标对 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
