@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题2900最长相邻不相等子序列 I</title>
+  <title>力扣每日一题1751-最多可以参加的会议数目 II</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题2900最长相邻不相等子序列 I">
+        content="力扣每日一题1751-最多可以参加的会议数目 II">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/05/15/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982900%E6%9C%80%E9%95%BF%E7%9B%B8%E9%82%BB%E4%B8%8D%E7%9B%B8%E7%AD%89%E5%AD%90%E5%BA%8F%E5%88%97-I/index.html">
+        content="https://sfiisf.github.io/2025/07/08/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981751-%E6%9C%80%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E7%9A%84%E4%BC%9A%E8%AE%AE%E6%95%B0%E7%9B%AE-II/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-05-15">
+        content="2025-07-08">
       <meta 
         property="og:article:modified_time" 
-        content="2025-05-15">
+        content="2025-07-08">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -565,16 +565,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题2900最长相邻不相等子序列 I
+      力扣每日一题1751-最多可以参加的会议数目 II
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-05-15T02:27:32.000Z">
+    <time datetime="2025-07-08T14:52:00.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-05-15</span>
+      <span>2025-07-08</span>
     </time>
     
       <span class="dot"></span>
@@ -588,7 +588,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>114 字</span>
+      <span>304 字</span>
     
   </div>
   
@@ -624,10 +624,13 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定等长的字符串数组<code>words</code>与二进制数组<code>groups</code>；</p>
-<p>求任意最长递增序列<code>I</code>满足<code>groups[I[i]] != groups[I[i + 1]]</code>返回<code>word[I]</code></p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>显然满足贪心性质，进行一趟遍历即可。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">getLongestSubsequence</span><span class="hljs-params">(vector&lt;string&gt;&amp; words, vector&lt;<span class="hljs-type">int</span>&gt;&amp; groups)</span> </span>{<br>        vector&lt;string&gt; ans;<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = groups.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>, cur = <span class="hljs-number">-1</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (cur != groups[i]) {<br>                cur = groups[i];<br>                ans.<span class="hljs-built_in">push_back</span>(words[i]);<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定数组<code>events</code>与整数<code>k</code>，其中<code>event[i] = [startDat_i, endDay_i, value_i]</code>表示第<code>i</code>个会议开始与结束的时间以及其价值。若完整参加某一会议可得其价值，最多参加<code>k</code>个会议，求所能得到的最大总价值。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先考虑所有会议价值一致且无参加的会议数量限制，那么比较经典是将会议按结束时间排序进行贪心。</p>
+<p>再考虑加入会议价值的影响，也不难想到使用dp，递推或递归地推出每一时刻结束前所能获得的最大价值。</p>
+<p>最后是参加会议数量的限制，在前一思路的基础上加入已参与会议的数量维度即可。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxValue</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; events, <span class="hljs-type">int</span> k)</span> </span>{<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = events.<span class="hljs-built_in">size</span>();<br>        ranges::<span class="hljs-built_in">sort</span>(events, [&amp;](<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x, <span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; y) {<br>            <span class="hljs-keyword">return</span> x[<span class="hljs-number">1</span>] &lt; y[<span class="hljs-number">1</span>];<br>        });<br>        <span class="hljs-function">vector <span class="hljs-title">dp</span><span class="hljs-params">(n + <span class="hljs-number">1</span>, vector&lt;<span class="hljs-type">int</span>&gt; (k + <span class="hljs-number">1</span>))</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-type">int</span> p = <span class="hljs-built_in">lower_bound</span>(events.<span class="hljs-built_in">begin</span>(), events.<span class="hljs-built_in">end</span>(), events[i][<span class="hljs-number">0</span>], [](<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x, <span class="hljs-type">int</span> t) {<br>                <span class="hljs-keyword">return</span> x[<span class="hljs-number">1</span>] &lt; t;<br>            }) - events.<span class="hljs-built_in">begin</span>();<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= k; j++) {<br>                dp[i + <span class="hljs-number">1</span>][j] = <span class="hljs-built_in">max</span>(dp[i][j], dp[p][j - <span class="hljs-number">1</span>] + events[i][<span class="hljs-number">2</span>]);<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> dp[n][k];<br>    }<br>};<br></code></pre>
+
+
 
 
   </div>
@@ -648,8 +651,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/05/15/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982900%E6%9C%80%E9%95%BF%E7%9B%B8%E9%82%BB%E4%B8%8D%E7%9B%B8%E7%AD%89%E5%AD%90%E5%BA%8F%E5%88%97-I/">
-            https://sfiisf.github.io/2025/05/15/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982900%E6%9C%80%E9%95%BF%E7%9B%B8%E9%82%BB%E4%B8%8D%E7%9B%B8%E7%AD%89%E5%AD%90%E5%BA%8F%E5%88%97-I/
+            href="https://sfiisf.github.io/2025/07/08/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981751-%E6%9C%80%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E7%9A%84%E4%BC%9A%E8%AE%AE%E6%95%B0%E7%9B%AE-II/">
+            https://sfiisf.github.io/2025/07/08/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981751-%E6%9C%80%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E7%9A%84%E4%BC%9A%E8%AE%AE%E6%95%B0%E7%9B%AE-II/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -659,29 +662,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/05/16/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982901-%E6%9C%80%E9%95%BF%E7%9B%B8%E9%82%BB%E4%B8%8D%E7%9B%B8%E7%AD%89%E5%AD%90%E5%BA%8F%E5%88%97-II/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题2901-最长相邻不相等子序列 II </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/05/14/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983337-%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BD%AC%E6%8D%A2%E5%90%8E%E7%9A%84%E9%95%BF%E5%BA%A6-II/" 
+        href="/2025/07/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981353-%E6%9C%80%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E7%9A%84%E4%BC%9A%E8%AE%AE%E6%95%B0%E7%9B%AE/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题3337-字符串转换后的长度 II </div>
+            <div class="nav-title">力扣每日一题1353-最多可以参加的会议数目 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
