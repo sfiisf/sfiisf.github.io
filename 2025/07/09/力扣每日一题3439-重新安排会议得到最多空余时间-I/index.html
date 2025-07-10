@@ -408,7 +408,7 @@ mjx-container[display="true"] + br {
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>99</span>
+    <span>100</span>
     <span>文章</span>
   </a>
   <a 
@@ -462,7 +462,7 @@ mjx-container[display="true"] + br {
       <a href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
         <div class="categories-list-item">
           做题笔记
-          <span class="categories-list-item-badge">95</span>
+          <span class="categories-list-item-badge">96</span>
         </div>
       </a>
     
@@ -588,7 +588,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>202 字</span>
+      <span>316 字</span>
     
   </div>
   
@@ -624,7 +624,9 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>W</p>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定整数<code>eventTime</code>表示总时长，活动开始于<code>t = 0</code>结束于<code>t = eventTime</code></p>
+<p>同时给定两个数组<code>startTime</code>与<code>endTime</code>表示<code>n</code>个时间没有重叠的会议的开始与结束时间。</p>
+<p>最多可以平移<code>k</code>个会议，使其保持原会议时长但改变其开始结束时间，同时保持所有会议相对顺序不变且无重叠。求可以得到的会议间最长连续空闲时间。</p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>发现这题之前赛时写过，但实在有点久远同时又是比赛过程，所以可能可能有些丑陋。但最近上班好累哦，实在懒得重写（</p>
 <p>大概就是直接模拟将多个会议拼在一起往前平移或往后平移所能得到的最大空闲块即可。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxFreeTime</span><span class="hljs-params">(<span class="hljs-type">int</span> eventTime, <span class="hljs-type">int</span> k, vector&lt;<span class="hljs-type">int</span>&gt;&amp; startTime, vector&lt;<span class="hljs-type">int</span>&gt;&amp; endTime)</span> </span>{<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">len</span><span class="hljs-params">(startTime.size())</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; startTime.<span class="hljs-built_in">size</span>(); i++) {<br>            len[i] = endTime[i] - startTime[i];<br>        }<br><br>        <span class="hljs-type">int</span> start = <span class="hljs-number">0</span>, sum = <span class="hljs-number">0</span>, cnt = <span class="hljs-number">0</span>, lo = <span class="hljs-number">0</span>, l = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; startTime.<span class="hljs-built_in">size</span>(); i++) {<br>            sum += len[i];<br>            cnt++;<br>            <span class="hljs-keyword">if</span> (cnt &lt; k) <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-keyword">if</span> (cnt &gt; k) {<br>                cnt--;<br>                sum -= len[lo];<br>                start = endTime[lo];<br>                l = endTime[lo];<br>                lo++;<br>            }<br>            ans = <span class="hljs-built_in">max</span>({ans, (i &lt; startTime.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span> ? startTime[i + <span class="hljs-number">1</span>] - sum - l : eventTime - sum - l)});<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
@@ -658,6 +660,20 @@ mjx-container[display="true"] + br {
   </div>
 </article>
 <div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2025/07/10/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983440-%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E4%BC%9A%E8%AE%AE%E5%BE%97%E5%88%B0%E6%9C%80%E5%A4%9A%E7%A9%BA%E4%BD%99%E6%97%B6%E9%97%B4-II/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">上一篇</div>
+          
+            <div class="nav-title">力扣每日一题3440-重新安排会议得到最多空余时间 II </div>
+          
+        </div>
+      </a>
+    </div>
   
   
     <div class="nav-item-next">
@@ -750,6 +766,11 @@ mjx-container[display="true"] + br {
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-07-10</div>
+        <a href="/2025/07/10/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983440-%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E4%BC%9A%E8%AE%AE%E5%BE%97%E5%88%B0%E6%9C%80%E5%A4%9A%E7%A9%BA%E4%BD%99%E6%97%B6%E9%97%B4-II/"><div class="recent-posts-item-content">力扣每日一题3440-重新安排会议得到最多空余时间 II</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2025-07-09</div>
         <a href="/2025/07/09/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983439-%E9%87%8D%E6%96%B0%E5%AE%89%E6%8E%92%E4%BC%9A%E8%AE%AE%E5%BE%97%E5%88%B0%E6%9C%80%E5%A4%9A%E7%A9%BA%E4%BD%99%E6%97%B6%E9%97%B4-I/"><div class="recent-posts-item-content">力扣每日一题3439-重新安排会议得到最多空余时间 I</div></a>
       </div>
@@ -762,11 +783,6 @@ mjx-container[display="true"] + br {
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2025-07-07</div>
         <a href="/2025/07/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981353-%E6%9C%80%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%8F%82%E5%8A%A0%E7%9A%84%E4%BC%9A%E8%AE%AE%E6%95%B0%E7%9B%AE/"><div class="recent-posts-item-content">力扣每日一题1353-最多可以参加的会议数目</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2025-07-06</div>
-        <a href="/2025/07/06/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981865-%E6%89%BE%E5%87%BA%E5%92%8C%E4%B8%BA%E6%8C%87%E5%AE%9A%E5%80%BC%E7%9A%84%E4%B8%8B%E6%A0%87%E5%AF%B9/"><div class="recent-posts-item-content">力扣每日一题1865-找出和为指定值的下标对</div></a>
       </div>
     
   </div>
