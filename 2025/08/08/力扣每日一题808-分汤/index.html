@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题2411-按位或最大的最小子数组长度</title>
+  <title>力扣每日一题808-分汤</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题2411-按位或最大的最小子数组长度">
+        content="力扣每日一题808-分汤">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/07/29/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982411-%E6%8C%89%E4%BD%8D%E6%88%96%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6/index.html">
+        content="https://sfiisf.github.io/2025/08/08/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98808-%E5%88%86%E6%B1%A4/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-07-29">
+        content="2025-08-08">
       <meta 
         property="og:article:modified_time" 
-        content="2025-07-29">
+        content="2025-08-08">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -575,16 +575,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题2411-按位或最大的最小子数组长度
+      力扣每日一题808-分汤
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-07-29T15:09:59.000Z">
+    <time datetime="2025-08-08T14:17:50.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-07-29</span>
+      <span>2025-08-08</span>
     </time>
     
       <span class="dot"></span>
@@ -598,7 +598,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>558 字</span>
+      <span>505 字</span>
     
   </div>
   
@@ -643,15 +643,21 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定非负整数数组<code>nums</code>。对于<code>nums</code>中的每一个数，求出以其为起点可以得到按位或最大值的最小非空子数组的长度。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先考虑按位或可以得到的最大值怎么求，显然是子数组越长越可能得到最大值，那么一路或到尾显然是可以得到最大值的。那么怎么求最早出现也就是最短的呢。显然一个数与另一个数无论或几次结果都是不变的，那很自然可以想到ST表上二分。</p>
-<p>但这有点火箭毛毛虫了，因为或运算有个很好的性质，在正<code>int</code>的范围内，最多是可以变换<code>31</code>次的，那直接从前往后遍历，从后往前更新即可。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>st表加二分实现</p>
-<pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">T</span>&gt; <br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">ST</span> {<br>	<span class="hljs-type">int</span> n, logn;<br>	vector&lt;<span class="hljs-type">int</span>&gt; LOG;<br>	vector&lt;vector&lt;T&gt;&gt;st;<br>	<span class="hljs-built_in">ST</span> (<span class="hljs-type">int</span> x) {<br>		n = x;<br>		logn = __lg(n);<br>		LOG.<span class="hljs-built_in">resize</span>(n + <span class="hljs-number">1</span>);<br>		st.<span class="hljs-built_in">resize</span>(n, <span class="hljs-built_in">vector</span>&lt;T&gt; (logn + <span class="hljs-number">1</span>));<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt;= n; i++) {<br>			LOG[i] = LOG[i / <span class="hljs-number">2</span>] + <span class="hljs-number">1</span>;<br>		}<br>	}<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">set</span><span class="hljs-params">(<span class="hljs-type">int</span> i, T x)</span> </span>{<br>		st[i][<span class="hljs-number">0</span>] = x;<br>	}<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">build</span><span class="hljs-params">()</span> </span>{<br>		<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= logn; i++) {<br>			<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j + (<span class="hljs-number">1</span> &lt;&lt; i) - <span class="hljs-number">1</span> &lt; n; j++) {<br>				st[j][i] = st[j][i - <span class="hljs-number">1</span>] | st[j + (<span class="hljs-number">1</span> &lt;&lt; (i - <span class="hljs-number">1</span>))][i - <span class="hljs-number">1</span>];<br>			}<br>		}<br>	}<br>	<span class="hljs-function">T <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>{<br>		<span class="hljs-type">int</span> len = LOG[r - l + <span class="hljs-number">1</span>];<br>		<span class="hljs-keyword">return</span> st[l][len] | st[r - (<span class="hljs-number">1</span> &lt;&lt; len) + <span class="hljs-number">1</span>][len];<br>	}<br>};<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">smallestSubarrays</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>{<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">ST&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">st</span><span class="hljs-params">(n)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            st.<span class="hljs-built_in">set</span>(i, nums[i]);<br>        }<br>        st.<span class="hljs-built_in">build</span>();<br><br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(n)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-type">int</span> x = st.<span class="hljs-built_in">query</span>(i, n - <span class="hljs-number">1</span>);<br>            <span class="hljs-type">int</span> lo = i, hi = n - <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">while</span> (lo &lt; hi) {<br>                <span class="hljs-type">int</span> mid = lo + hi &gt;&gt; <span class="hljs-number">1</span>;<br>                <span class="hljs-keyword">if</span> (st.<span class="hljs-built_in">query</span>(i, mid) == x) hi = mid;<br>                <span class="hljs-keyword">else</span> lo = mid + <span class="hljs-number">1</span>;<br>            }<br>            ans[i] = lo - i + <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定初始有 <code>n</code> 毫升的汤A和汤B，每轮操作等概率地发生以下四种事件：</p>
+<ul>
+<li>A减少 <code>100</code> 毫升，B减少 <code>0</code> 毫升</li>
+<li>A减少 <code>75</code> 毫升，B减少 <code>25</code> 毫升</li>
+<li>A减少 <code>50</code> 毫升，B减少 <code>50</code> 毫升</li>
+<li>A减少 <code>25</code> 毫升，B减少 <code>75</code> 毫升</li>
+</ul>
+<p>求(A在B之前取完的概率)加上(AB同时取完概率的一半)</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>先看数据范围，<code>n &lt;= 1e9</code> 非常的大，当 <code>n</code> 很大时什么做法都不可能实现的，那么肯定是个思维数学题。</p>
+<p>仔细观察每次操作的影响，A减少的期望量显然是大于B的，那么当 <code>n</code> 很大时一定是A先取完的。</p>
+<p>再考虑以下小范围时应该怎么做。求概率，比较自然可以想到使用概率dp，同时注意到每次操作的减少量的最大公因数为 <code>25</code> ，故可以将毫升数统统除以 <code>25</code> 表示操作次数与操作减少量。</p>
+<p>再用获得的dp算法大概跑一下范围，可以发现操作次数超过 <code>200</code> 后概率在可接受误差内可认为 <code>1</code></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ld = <span class="hljs-type">long</span> <span class="hljs-type">double</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> ld eps = <span class="hljs-number">1e-5</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> N = <span class="hljs-number">25</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> ld p = <span class="hljs-number">0.25</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">soupServings</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>{<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> t = (n + N - <span class="hljs-number">1</span>) / N;<br>        <span class="hljs-keyword">if</span> (t &gt;= <span class="hljs-number">200</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1.0</span>;<br><br>        <span class="hljs-keyword">auto</span> cal = [](<span class="hljs-type">const</span> <span class="hljs-type">int</span>&amp; x) -&gt; <span class="hljs-type">int</span> {<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>(x, <span class="hljs-number">0</span>);<br>        };<br><br>        <span class="hljs-function">vector <span class="hljs-title">f</span><span class="hljs-params">(t + <span class="hljs-number">1</span>, vector&lt;ld&gt; (t + <span class="hljs-number">1</span>))</span></span>;<br>        <span class="hljs-built_in">fill</span>(f[<span class="hljs-number">0</span>].<span class="hljs-built_in">begin</span>(), f[<span class="hljs-number">0</span>].<span class="hljs-built_in">end</span>(), <span class="hljs-number">1.0</span>);<br>        f[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">0.5</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= t; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= t; j++) {<br>                f[i][j] = (f[<span class="hljs-built_in">cal</span>(i - <span class="hljs-number">4</span>)][j] + f[<span class="hljs-built_in">cal</span>(i - <span class="hljs-number">3</span>)][<span class="hljs-built_in">cal</span>(j - <span class="hljs-number">1</span>)] + f[<span class="hljs-built_in">cal</span>(i - <span class="hljs-number">2</span>)][<span class="hljs-built_in">cal</span>(j - <span class="hljs-number">2</span>)] + f[<span class="hljs-built_in">cal</span>(i - <span class="hljs-number">1</span>)][<span class="hljs-built_in">cal</span>(j - <span class="hljs-number">3</span>)]) * p;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> f[t][t];<br>    }<br>};<br></code></pre>
 
-<pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">smallestSubarrays</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>{<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(n, <span class="hljs-number">1</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i - <span class="hljs-number">1</span>; j &gt;= <span class="hljs-number">0</span> &amp;&amp; (nums[j] | nums[i]) != nums[j]; j--) {<br>                nums[j] |= nums[i];<br>                ans[j] = i - j + <span class="hljs-number">1</span>;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
-
-<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">smallestSubarrays</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        n = <span class="hljs-built_in">len</span>(nums)<br>        ans = [<span class="hljs-number">1</span>] * n<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>, n):<br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i - <span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>):<br>                <span class="hljs-keyword">if</span> (nums[j] | nums[i]) == nums[j]:<br>                    <span class="hljs-keyword">break</span><br>                nums[j] |= nums[i]<br>                ans[j] = i - j + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> ans<br></code></pre>
+<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">soupServings</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">float</span>:<br>        t = (n + <span class="hljs-number">24</span>) // <span class="hljs-number">25</span><br>        <span class="hljs-keyword">if</span> t &gt;= <span class="hljs-number">200</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1.0</span><br>        <br>        p = <span class="hljs-number">0.25</span><br><span class="hljs-meta">        @cache</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">dfs</span>(<span class="hljs-params">x, y</span>) -&gt; <span class="hljs-built_in">float</span>:<br>            <span class="hljs-keyword">if</span> x &lt;= <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> y &lt;= <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0.5</span><br>            <span class="hljs-keyword">elif</span> x &lt;= <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">1.0</span><br>            <span class="hljs-keyword">elif</span> y &lt;= <span class="hljs-number">0</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span><br>            res = <span class="hljs-number">0.0</span><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-number">5</span>):<br>                res += dfs(x - i, y - <span class="hljs-number">4</span> + i) * p<br>            <span class="hljs-keyword">return</span> res<br>        <br>        <span class="hljs-keyword">return</span> dfs(t, t)<br></code></pre>
 
 
   </div>
@@ -672,8 +678,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/07/29/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982411-%E6%8C%89%E4%BD%8D%E6%88%96%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6/">
-            https://sfiisf.github.io/2025/07/29/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982411-%E6%8C%89%E4%BD%8D%E6%88%96%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%90%E6%95%B0%E7%BB%84%E9%95%BF%E5%BA%A6/
+            href="https://sfiisf.github.io/2025/08/08/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98808-%E5%88%86%E6%B1%A4/">
+            https://sfiisf.github.io/2025/08/08/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98808-%E5%88%86%E6%B1%A4/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -683,29 +689,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/07/30/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982419-%E6%8C%89%E4%BD%8D%E4%B8%8E%E6%9C%80%E5%A4%A7%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E6%95%B0%E7%BB%84/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题2419-按位与最大的最长子数组 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/07/28/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982044-%E7%BB%9F%E8%AE%A1%E6%8C%89%E4%BD%8D%E6%88%96%E8%83%BD%E5%BE%97%E5%88%B0%E6%9C%80%E5%A4%A7%E5%80%BC%E7%9A%84%E5%AD%90%E9%9B%86%E6%95%B0%E7%9B%AE/" 
+        href="/2025/08/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983363-%E6%9C%80%E5%A4%9A%E5%8F%AF%E6%94%B6%E9%9B%86%E7%9A%84%E6%B0%B4%E6%9E%9C%E6%95%B0%E7%9B%AE/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题2044-统计按位或能得到最大值的子集数目 </div>
+            <div class="nav-title">力扣每日一题3363-最多可收集的水果数目 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
