@@ -498,15 +498,15 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/note/" 
-        title="note">
-        <div class="tags-list-item">note</div>
-      </a>
-    
-      <a 
         href="/tags/leetcode/" 
         title="leetcode">
         <div class="tags-list-item">leetcode</div>
+      </a>
+    
+      <a 
+        href="/tags/python/" 
+        title="python">
+        <div class="tags-list-item">python</div>
       </a>
     
       <a 
@@ -516,39 +516,15 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/math/" 
-        title="math">
-        <div class="tags-list-item">math</div>
-      </a>
-    
-      <a 
-        href="/tags/fenwick/" 
-        title="fenwick">
-        <div class="tags-list-item">fenwick</div>
-      </a>
-    
-      <a 
         href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" 
         title="组合数学">
         <div class="tags-list-item">组合数学</div>
       </a>
     
       <a 
-        href="/tags/%E6%95%B0%E4%BD%8Ddp/" 
-        title="数位dp">
-        <div class="tags-list-item">数位dp</div>
-      </a>
-    
-      <a 
-        href="/tags/network/" 
-        title="network">
-        <div class="tags-list-item">network</div>
-      </a>
-    
-      <a 
-        href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" 
-        title="概率论">
-        <div class="tags-list-item">概率论</div>
+        href="/tags/note/" 
+        title="note">
+        <div class="tags-list-item">note</div>
       </a>
     
       <a 
@@ -558,9 +534,33 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/python/" 
-        title="python">
-        <div class="tags-list-item">python</div>
+        href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" 
+        title="概率论">
+        <div class="tags-list-item">概率论</div>
+      </a>
+    
+      <a 
+        href="/tags/network/" 
+        title="network">
+        <div class="tags-list-item">network</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%95%B0%E4%BD%8Ddp/" 
+        title="数位dp">
+        <div class="tags-list-item">数位dp</div>
+      </a>
+    
+      <a 
+        href="/tags/fenwick/" 
+        title="fenwick">
+        <div class="tags-list-item">fenwick</div>
+      </a>
+    
+      <a 
+        href="/tags/math/" 
+        title="math">
+        <div class="tags-list-item">math</div>
       </a>
     
   </div>
@@ -598,7 +598,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>128 字</span>
+      <span>170 字</span>
     
   </div>
   
@@ -644,8 +644,9 @@ mjx-container[display="true"] + br {
     id="section" 
     class="post-content">
     <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定正整数 <code>n</code> ，判断 <code>n</code> 是否可以表示成若干不同的三的幂次和。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>三的幂次和，可以考虑将数转换为 <code>3</code> 进制，根据进制的知识可以想到，若每一位均为 <code>0</code> 或 <code>1</code> 则其可以表示为各不相同的 <code>3</code> 的幂次和。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">checkPowersOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>{<br>        <span class="hljs-keyword">for</span> ( ; n; n /= <span class="hljs-number">3</span>) {<br>          <span class="hljs-keyword">if</span> (n % <span class="hljs-number">3</span> == <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        }<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>    }<br>};<br></code></pre>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>三的幂次和，那和二的幂次和没什么本质区别的，表示方式都是唯一的，可以从数据范围内最大的三次幂开始，若 <code>n</code> 大于等于该数则减去该数，判断 <code>n</code> 最终是否为 <code>0</code> 即可.</p>
+<p>也可以将 <code>n</code> 转换为 <code>3</code> 进制，判断每一位是否均为 <code>0</code> 或 <code>1</code></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">checkPowersOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>{<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">4782969</span>; i; i /= <span class="hljs-number">3</span>) {<br>            <span class="hljs-keyword">if</span> (n &gt;= i) n -= i;<br>        }<br>        <span class="hljs-keyword">return</span> n == <span class="hljs-number">0</span>;<br>    }<br>};<br></code></pre>
 
 <pre class="highlight"><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">checkPowersOfThree</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-keyword">while</span> n &gt; <span class="hljs-number">1</span>:<br>          <span class="hljs-keyword">if</span> n % <span class="hljs-number">3</span> == <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>          n //= <span class="hljs-number">3</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br></code></pre>
 
