@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题3345-奇偶频次间的最大差值 II</title>
+  <title>力扣每日一题3000-对角线最长的矩形的面积</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题3345-奇偶频次间的最大差值 II">
+        content="力扣每日一题3000-对角线最长的矩形的面积">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/06/11/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983345-%E5%A5%87%E5%81%B6%E9%A2%91%E6%AC%A1%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC-II/index.html">
+        content="https://sfiisf.github.io/2025/08/26/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983000-%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%9C%80%E9%95%BF%E7%9A%84%E7%9F%A9%E5%BD%A2%E7%9A%84%E9%9D%A2%E7%A7%AF/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-06-11">
+        content="2025-08-26">
       <meta 
         property="og:article:modified_time" 
-        content="2025-06-11">
+        content="2025-08-26">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -58,6 +58,10 @@
           <meta 
             property="og:article:tag" 
             content="leetcode">
+        
+          <meta 
+            property="og:article:tag" 
+            content="python">
         
       
     
@@ -571,16 +575,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题3345-奇偶频次间的最大差值 II
+      力扣每日一题3000-对角线最长的矩形的面积
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-06-11T12:27:39.000Z">
+    <time datetime="2025-08-25T16:23:54.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-06-11</span>
+      <span>2025-08-26</span>
     </time>
     
       <span class="dot"></span>
@@ -594,7 +598,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>235 字</span>
+      <span>181 字</span>
     
   </div>
   
@@ -623,6 +627,15 @@ mjx-container[display="true"] + br {
             leetcode
           </a>
         
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/python/" 
+            class="post-meta-link">
+            python
+          </a>
+        
       </div>
     </div>
   
@@ -630,15 +643,11 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定由<code>['0', '4']</code>组成的字符串<code>s</code>与整数<code>k</code>，求<code>s</code>的子串<code>subs</code>中<code>freq[a] - freq[b]</code>的最大值，其中：</p>
-<ul>
-<li><code>subs</code>长度至少为<code>k</code></li>
-<li><code>freq</code>表示该字符在<code>subs</code>中出现的次数</li>
-<li><code>freq[a]</code>为奇数</li>
-<li><code>freq[b]</code>为偶数</li>
-</ul>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>显然应该使用滑动窗口与前缀最小。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> inf = <span class="hljs-number">1e9</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> N = <span class="hljs-number">5</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxDifference</span><span class="hljs-params">(string s, <span class="hljs-type">int</span> k)</span> </span>{<br>        <span class="hljs-type">int</span> ans = -inf;<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = s.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x = <span class="hljs-number">0</span>; x &lt; N; x++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> y = <span class="hljs-number">0</span>; y &lt; N; y++) {<br>                <span class="hljs-keyword">if</span> (x == y) <span class="hljs-keyword">continue</span>;<br>                array&lt;<span class="hljs-type">int</span>, N&gt; cur, pre;<br>                cur.<span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>); pre.<span class="hljs-built_in">fill</span>(<span class="hljs-number">0</span>);<br>                array&lt;array&lt;<span class="hljs-type">int</span>, 2&gt;, 2&gt; mn;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; i : mn) i.<span class="hljs-built_in">fill</span>(inf);<br>                <span class="hljs-type">int</span> left = <span class="hljs-number">0</span>;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>                    cur[s[i] - <span class="hljs-string">'0'</span>]++;<br>                    <span class="hljs-keyword">while</span> (i + <span class="hljs-number">1</span> - left &gt;= k &amp;&amp; cur[x] &gt; pre[x] &amp;&amp; cur[y] &gt; pre[y]) {<br>                        <span class="hljs-type">int</span>&amp; t = mn[pre[x] &amp; <span class="hljs-number">1</span>][pre[y] &amp; <span class="hljs-number">1</span>];<br>                        t = <span class="hljs-built_in">min</span>(t, pre[x] - pre[y]);<br>                        pre[s[left++] - <span class="hljs-string">'0'</span>]++;<br>                    }<br>                    ans = <span class="hljs-built_in">max</span>(ans, cur[x] - cur[y] - mn[cur[x] &amp; <span class="hljs-number">1</span> ^ <span class="hljs-number">1</span>][cur[y] &amp; <span class="hljs-number">1</span>]);<br>                }<br>            }<br>        }<br>        <span class="hljs-keyword">return</span>  ans;<br>    }<br>};<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一些矩阵的长宽，求对角线最长的矩阵的面积，若存在多个矩阵对角线同长，返回对角线最长且面积最大的矩阵面积。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>直接遍历矩阵进行计算比较即可，避免开方的耗时与精度问题直接使用对角线的平方进行比较就好。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">areaOfMaxDiagonal</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; dimensions)</span> </span>{<br>        <span class="hljs-type">int</span> mx = <span class="hljs-number">0</span>, mxspace = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; vec : dimensions) {<br>            <span class="hljs-type">int</span> x = vec[<span class="hljs-number">0</span>], y = vec[<span class="hljs-number">1</span>];<br>            <span class="hljs-type">int</span> t = x * x + y * y;<br>            <span class="hljs-keyword">if</span> (t &gt; mx) {<br>                mx = t;<br>                mxspace = x * y;<br>            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (t == mx) {<br>                mxspace = <span class="hljs-built_in">max</span>(mxspace, x * y);<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> mxspace;<br>    }<br>};<br></code></pre>
+
+<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">areaOfMaxDiagonal</span>(<span class="hljs-params">self, dimensions: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>((x * x + y * y, x * y) <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> dimensions)[<span class="hljs-number">1</span>]<br></code></pre>
 
 
   </div>
@@ -659,8 +668,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/06/11/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983345-%E5%A5%87%E5%81%B6%E9%A2%91%E6%AC%A1%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC-II/">
-            https://sfiisf.github.io/2025/06/11/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983345-%E5%A5%87%E5%81%B6%E9%A2%91%E6%AC%A1%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC-II/
+            href="https://sfiisf.github.io/2025/08/26/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983000-%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%9C%80%E9%95%BF%E7%9A%84%E7%9F%A9%E5%BD%A2%E7%9A%84%E9%9D%A2%E7%A7%AF/">
+            https://sfiisf.github.io/2025/08/26/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983000-%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%9C%80%E9%95%BF%E7%9A%84%E7%9F%A9%E5%BD%A2%E7%9A%84%E9%9D%A2%E7%A7%AF/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -670,29 +679,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/06/12/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983423-%E5%BE%AA%E7%8E%AF%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9B%B8%E9%82%BB%E5%85%83%E7%B4%A0%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题3423-循环数组中相邻元素的最大差值 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/06/10/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983442-%E5%A5%87%E5%81%B6%E9%A2%91%E6%AC%A1%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E5%B7%AE%E5%80%BC-I/" 
+        href="/2025/08/25/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98498-%E5%AF%B9%E8%A7%92%E7%BA%BF%E9%81%8D%E5%8E%86/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题3442-奇偶频次间的最大差值 I </div>
+            <div class="nav-title">力扣每日一题498-对角线遍历 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
