@@ -412,7 +412,7 @@ mjx-container[display="true"] + br {
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>154</span>
+    <span>155</span>
     <span>文章</span>
   </a>
   <a 
@@ -466,7 +466,7 @@ mjx-container[display="true"] + br {
       <a href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
         <div class="categories-list-item">
           做题笔记
-          <span class="categories-list-item-badge">150</span>
+          <span class="categories-list-item-badge">151</span>
         </div>
       </a>
     
@@ -598,7 +598,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>272 字</span>
+      <span>264 字</span>
     
   </div>
   
@@ -648,7 +648,7 @@ mjx-container[display="true"] + br {
 <p>也可以对点的坐标进行排序判断（见cpp实现）。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">numberOfPairs</span>(<span class="hljs-params">self, points: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        ans = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> x0, y0 <span class="hljs-keyword">in</span> points:<br>            <span class="hljs-keyword">for</span> x1, y1 <span class="hljs-keyword">in</span> points:<br>                <span class="hljs-keyword">if</span> (x1 == x0 <span class="hljs-keyword">and</span> y1 == y0) <span class="hljs-keyword">or</span> (x1 &lt; x0 <span class="hljs-keyword">or</span> y1 &gt; y0):<br>                    <span class="hljs-keyword">continue</span><br>                ans += <span class="hljs-number">1</span><br>                <span class="hljs-keyword">for</span> x2, y2 <span class="hljs-keyword">in</span> points:<br>                    <span class="hljs-keyword">if</span> (x0 == x2 <span class="hljs-keyword">and</span> y0 == y2) <span class="hljs-keyword">or</span> (x1 == x2 <span class="hljs-keyword">and</span> y1 == y2):<br>                        <span class="hljs-keyword">continue</span><br>                    <span class="hljs-keyword">if</span> x0 &lt;= x2 &lt;= x1 <span class="hljs-keyword">and</span> y1 &lt;= y2 &lt;= y0:<br>                        ans -= <span class="hljs-number">1</span><br>                        <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">return</span> ans<br></code></pre>
 
-<pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">numberOfPairs</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; points)</span> </span>{<br>        ranges::<span class="hljs-built_in">sort</span>(points, [&amp;](<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x, <span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; y) {<br>            <span class="hljs-keyword">if</span> (x[<span class="hljs-number">0</span>] == y[<span class="hljs-number">0</span>]) <span class="hljs-keyword">return</span> x[<span class="hljs-number">1</span>] &gt; y[<span class="hljs-number">1</span>];<br>            <span class="hljs-keyword">return</span> x[<span class="hljs-number">0</span>] &lt; y[<span class="hljs-number">0</span>];<br>        });<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = points.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>; j &lt; n; j++) {<br>                <span class="hljs-keyword">if</span> (points[i][<span class="hljs-number">1</span>] &lt; points[j][<span class="hljs-number">1</span>]) <span class="hljs-keyword">continue</span>;<br>                ans++;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = i + <span class="hljs-number">1</span>; k &lt; j; k++) {<br>                    <span class="hljs-keyword">if</span> (points[k][<span class="hljs-number">1</span>] &lt;= points[i][<span class="hljs-number">1</span>] &amp;&amp; points[k][<span class="hljs-number">1</span>] &gt;= points[j][<span class="hljs-number">1</span>]) {<br>                        ans--;<br>                        <span class="hljs-keyword">break</span>;<br>                    }<br>                }<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+<pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">numberOfPairs</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; points)</span> </span>{<br>        ranges::<span class="hljs-built_in">sort</span>(points, [&amp;](<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x, <span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; y) {<br>            <span class="hljs-keyword">if</span> (x[<span class="hljs-number">0</span>] == y[<span class="hljs-number">0</span>]) <span class="hljs-keyword">return</span> x[<span class="hljs-number">1</span>] &gt; y[<span class="hljs-number">1</span>];<br>            <span class="hljs-keyword">return</span> x[<span class="hljs-number">0</span>] &lt; y[<span class="hljs-number">0</span>];<br>        });<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = points.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-type">int</span> my = INT_MIN;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>; j &lt; n &amp;&amp; my &lt; points[i][<span class="hljs-number">1</span>]; j++) {<br>                <span class="hljs-keyword">if</span> (points[j][<span class="hljs-number">1</span>] &lt;= points[i][<span class="hljs-number">1</span>] &amp;&amp; points[j][<span class="hljs-number">1</span>] &gt; my) {<br>                    my = points[j][<span class="hljs-number">1</span>];<br>                    ans++;<br>                }<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
 
 
   </div>
@@ -679,6 +679,20 @@ mjx-container[display="true"] + br {
   </div>
 </article>
 <div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2025/09/03/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983027-%E4%BA%BA%E5%91%98%E7%AB%99%E4%BD%8D%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0II/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">上一篇</div>
+          
+            <div class="nav-title">力扣每日一题3027-人员站位的方案数II </div>
+          
+        </div>
+      </a>
+    </div>
   
   
     <div class="nav-item-next">
@@ -771,6 +785,11 @@ mjx-container[display="true"] + br {
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-09-03</div>
+        <a href="/2025/09/03/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983027-%E4%BA%BA%E5%91%98%E7%AB%99%E4%BD%8D%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0II/"><div class="recent-posts-item-content">力扣每日一题3027-人员站位的方案数II</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2025-09-02</div>
         <a href="/2025/09/02/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983025-%E4%BA%BA%E5%91%98%E7%AB%99%E4%BD%8D%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0I/"><div class="recent-posts-item-content">力扣每日一题3025-人员站位的方案数I</div></a>
       </div>
@@ -783,11 +802,6 @@ mjx-container[display="true"] + br {
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2025-08-31</div>
         <a href="/2025/08/31/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9837-%E8%A7%A3%E6%95%B0%E7%8B%AC/"><div class="recent-posts-item-content">力扣每日一题37-解数独</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2025-08-30</div>
-        <a href="/2025/08/30/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9836-%E6%9C%89%E6%95%88%E7%9A%84%E6%95%B0%E7%8B%AC/"><div class="recent-posts-item-content">力扣每日一题36-有效的数独</div></a>
       </div>
     
   </div>
