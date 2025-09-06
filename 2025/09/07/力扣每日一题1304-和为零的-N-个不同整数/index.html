@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题2561-重排水果</title>
+  <title>力扣每日一题1304-和为零的 N 个不同整数</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题2561-重排水果">
+        content="力扣每日一题1304-和为零的 N 个不同整数">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/08/02/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982561-%E9%87%8D%E6%8E%92%E6%B0%B4%E6%9E%9C/index.html">
+        content="https://sfiisf.github.io/2025/09/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981304-%E5%92%8C%E4%B8%BA%E9%9B%B6%E7%9A%84-N-%E4%B8%AA%E4%B8%8D%E5%90%8C%E6%95%B4%E6%95%B0/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-08-02">
+        content="2025-09-07">
       <meta 
         property="og:article:modified_time" 
-        content="2025-08-02">
+        content="2025-09-07">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -575,16 +575,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题2561-重排水果
+      力扣每日一题1304-和为零的 N 个不同整数
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-08-02T06:37:38.000Z">
+    <time datetime="2025-09-06T16:19:25.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-08-02</span>
+      <span>2025-09-07</span>
     </time>
     
       <span class="dot"></span>
@@ -598,7 +598,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>471 字</span>
+      <span>142 字</span>
     
   </div>
   
@@ -643,18 +643,11 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定两个等长数组<code>basket1</code>和<code>basket2</code>。可以进行任意次以下操作：</p>
-<ul>
-<li>交换<code>basket1[i]</code>与<code>basket2[j]</code>，操作的代价为<code>min(basket1[i], basket2[j])</code></li>
-</ul>
-<p>求欲使两数组内容相同的最小代价。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>手玩一下不难发现其实是很符合贪心性质的。</p>
-<p>首先是不能使两数组相同的情况，必然是有某个数有奇数个。</p>
-<p>再考虑可以使得两数组相同的情况，每个数均有偶数个，又两数组等长，若<code>basket1</code>中缺某数一定会多出另一个数，<code>basket2</code>也是同理。每次交换可以处理两个数。可以想到将两数中多的数列出来，每次操作交换一侧最大另一侧的最小。又可选择某侧最小值换过去再换回来，取代价最小即可。</p>
-<p>呃，好像讲得是有点乱，还请看代码吧。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minCost</span>(<span class="hljs-params">self, basket1: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], basket2: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        cnt = defaultdict(<span class="hljs-built_in">int</span>)<br>        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> basket1:<br>            cnt[x] += <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> basket2:<br>            cnt[x] -= <span class="hljs-number">1</span><br>        <br>        a, b = [], []<br>        <span class="hljs-keyword">for</span> num, t <span class="hljs-keyword">in</span> cnt.items():<br>            <span class="hljs-keyword">if</span> t &amp; <span class="hljs-number">1</span>:<br>                <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>            <span class="hljs-keyword">if</span> t &gt; <span class="hljs-number">0</span>:<br>                a.extend([num] * (t // <span class="hljs-number">2</span>))<br>            <span class="hljs-keyword">elif</span> t &lt; <span class="hljs-number">0</span>:<br>                b.extend([num] * (-t // <span class="hljs-number">2</span>))<br>        <br>        a.sort()<br>        b.sort(reverse=<span class="hljs-literal">True</span>)<br>        mn = <span class="hljs-built_in">min</span>(<span class="hljs-built_in">min</span>(basket1), <span class="hljs-built_in">min</span>(basket2))<br>        ans = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(a)):<br>            ans += <span class="hljs-built_in">min</span>(a[i], b[i], mn * <span class="hljs-number">2</span>)<br>        <span class="hljs-keyword">return</span> ans<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定整数 <code>n</code> 返回任意大小为 <code>n</code> 由不同整数组成且和为 <code>0</code> 的数组。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>比较简单的构造题，随便写写满足题意就可以了。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">sumZero</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>{<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(n)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>, t = <span class="hljs-number">1</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (i &amp; <span class="hljs-number">1</span>) {<br>                ans[i] = -(t++);<br>            } <span class="hljs-keyword">else</span> {<br>                ans[i] = t;<br>            }<br>        }<br>        <span class="hljs-keyword">if</span> (n &amp; <span class="hljs-number">1</span>) ans[n - <span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
 
-<pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-title">minCost</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; basket1, vector&lt;<span class="hljs-type">int</span>&gt;&amp; basket2)</span> </span>{<br>        <span class="hljs-type">int</span> mn = <span class="hljs-number">1e9</span>;<br>        unordered_map&lt;<span class="hljs-type">int</span>, array&lt;<span class="hljs-type">int</span>, 2&gt;&gt; cnt;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : basket1) {<br>            cnt[x][<span class="hljs-number">0</span>]++;<br>            mn = <span class="hljs-built_in">min</span>(mn, x);<br>        }<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : basket2) {<br>            cnt[x][<span class="hljs-number">1</span>]++;<br>            mn = <span class="hljs-built_in">min</span>(mn, x);<br>        }<br>        vector&lt;<span class="hljs-type">int</span>&gt; a, b;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; [num, arr] : cnt) {<br>            <span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; [x, y] = arr;<br>            <span class="hljs-keyword">if</span> ((x + y) &amp; <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>            <span class="hljs-keyword">if</span> (x &gt; y) a.<span class="hljs-built_in">insert</span>(a.<span class="hljs-built_in">end</span>(), (x - y) &gt;&gt; <span class="hljs-number">1</span>, num);<br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x &lt; y) b.<span class="hljs-built_in">insert</span>(b.<span class="hljs-built_in">end</span>(), (y - x) &gt;&gt; <span class="hljs-number">1</span>, num);<br>        }<br>        ranges::<span class="hljs-built_in">sort</span>(a);<br>        ranges::<span class="hljs-built_in">sort</span>(b, <span class="hljs-built_in">greater</span>());<br>        ll ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; a.<span class="hljs-built_in">size</span>(); i++) {<br>            ans += <span class="hljs-built_in">min</span>({a[i], b[i], mn &lt;&lt; <span class="hljs-number">1</span>});<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">sumZero</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        ans = [<span class="hljs-number">0</span>] * n<br>        t = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>            <span class="hljs-keyword">if</span> i &amp; <span class="hljs-number">1</span>:<br>                ans[i] = -t<br>                t += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                ans[i] = t<br>        <span class="hljs-keyword">if</span> n &amp; <span class="hljs-number">1</span>:<br>            ans[-<span class="hljs-number">1</span>] = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">return</span> ans<br></code></pre>
 
 
   </div>
@@ -675,8 +668,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/08/02/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982561-%E9%87%8D%E6%8E%92%E6%B0%B4%E6%9E%9C/">
-            https://sfiisf.github.io/2025/08/02/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982561-%E9%87%8D%E6%8E%92%E6%B0%B4%E6%9E%9C/
+            href="https://sfiisf.github.io/2025/09/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981304-%E5%92%8C%E4%B8%BA%E9%9B%B6%E7%9A%84-N-%E4%B8%AA%E4%B8%8D%E5%90%8C%E6%95%B4%E6%95%B0/">
+            https://sfiisf.github.io/2025/09/07/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981304-%E5%92%8C%E4%B8%BA%E9%9B%B6%E7%9A%84-N-%E4%B8%AA%E4%B8%8D%E5%90%8C%E6%95%B4%E6%95%B0/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -686,29 +679,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/08/03/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982106-%E6%91%98%E6%B0%B4%E6%9E%9C/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题2106-摘水果 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/08/01/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98118-%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/" 
+        href="/2025/09/06/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983495-%E4%BD%BF%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E9%83%BD%E5%8F%98%E4%B8%BA%E9%9B%B6%E7%9A%84%E6%9C%80%E5%B0%91%E6%93%8D%E4%BD%9C%E6%AC%A1%E6%95%B0/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题118-杨辉三角 </div>
+            <div class="nav-title">力扣每日一题3495-使数组元素都变为零的最少操作次数 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
