@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题1900-最佳运动员的比拼回合</title>
+  <title>力扣每日一题1733-需要教语言的最少人数</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题1900-最佳运动员的比拼回合">
+        content="力扣每日一题1733-需要教语言的最少人数">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/07/12/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981900-%E6%9C%80%E4%BD%B3%E8%BF%90%E5%8A%A8%E5%91%98%E7%9A%84%E6%AF%94%E6%8B%BC%E5%9B%9E%E5%90%88/index.html">
+        content="https://sfiisf.github.io/2025/09/10/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981733-%E9%9C%80%E8%A6%81%E6%95%99%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9C%80%E5%B0%91%E4%BA%BA%E6%95%B0/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-07-12">
+        content="2025-09-10">
       <meta 
         property="og:article:modified_time" 
-        content="2025-07-12">
+        content="2025-09-10">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -58,6 +58,10 @@
           <meta 
             property="og:article:tag" 
             content="leetcode">
+        
+          <meta 
+            property="og:article:tag" 
+            content="python">
         
       
     
@@ -571,16 +575,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题1900-最佳运动员的比拼回合
+      力扣每日一题1733-需要教语言的最少人数
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-07-12T08:04:22.000Z">
+    <time datetime="2025-09-09T17:16:57.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-07-12</span>
+      <span>2025-09-10</span>
     </time>
     
       <span class="dot"></span>
@@ -594,7 +598,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>262 字</span>
+      <span>382 字</span>
     
   </div>
   
@@ -623,6 +627,15 @@ mjx-container[display="true"] + br {
             leetcode
           </a>
         
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/python/" 
+            class="post-meta-link">
+            python
+          </a>
+        
       </div>
     </div>
   
@@ -630,11 +643,12 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定整数<code>n</code>与<code>firstPlayer</code>与<code>secondPlayer</code>，表示<code>n</code>名运动员编号为<code>1~n</code>按升序排序。</p>
-<p>每一回合令从前往后数的第<code>i</code>位选手与从后往前数的第<code>i</code>位选手对战，除<code>firstPlayer</code>与<code>secondPlayer</code>必胜外各位选手均可能胜或负。败者淘汰，胜者仍按升序进行排序。</p>
-<p>求<code>firstPlayer</code>与<code>secondPlayer</code>最早与最晚的相遇回合数。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>可以进行一个推导发现规律。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">earliestAndLatest</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> firstPlayer, <span class="hljs-type">int</span> secondPlayer)</span> </span>{<br>        <span class="hljs-keyword">if</span> (firstPlayer + secondPlayer == n + <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> {<span class="hljs-number">1</span>, <span class="hljs-number">1</span>};<br>        <span class="hljs-keyword">if</span> (firstPlayer + secondPlayer &gt; n + <span class="hljs-number">1</span>) {<br>            <span class="hljs-type">int</span> t = firstPlayer;<br>            firstPlayer = n + <span class="hljs-number">1</span> - secondPlayer;<br>            secondPlayer = n + <span class="hljs-number">1</span> - t;<br>        }<br><br>        <span class="hljs-keyword">auto</span> cal = [&amp;](<span class="hljs-type">int</span> n) -&gt; <span class="hljs-type">int</span> {<br>            <span class="hljs-type">int</span> res = <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span> (firstPlayer + secondPlayer &lt;= (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>) {<br>                <span class="hljs-keyword">while</span> (firstPlayer + secondPlayer &lt;= (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>) {<br>                    res++;<br>                    n = (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>                }<br><br>                <span class="hljs-keyword">if</span> (secondPlayer - firstPlayer &gt; <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> res + <span class="hljs-number">1</span>;<br>            }<br>            <span class="hljs-keyword">if</span> (secondPlayer - firstPlayer == <span class="hljs-number">1</span>) {<br>                res++;<br>                n = (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>                <span class="hljs-keyword">while</span> (n &amp; <span class="hljs-number">1</span>) {<br>                    res++;<br>                    n = (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>                }<br>                <span class="hljs-keyword">return</span> res;<br>            }<br>            <span class="hljs-keyword">if</span> (secondPlayer &lt;= (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> res + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">if</span> (secondPlayer - firstPlayer == <span class="hljs-number">2</span>) {<br>                res++;<br>                n = (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>                <span class="hljs-keyword">while</span>(n &amp; <span class="hljs-number">1</span>) {<br>                    res++;<br>                    n = (n + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>                }<br>                <span class="hljs-keyword">return</span> res;<br>            }<br>            <span class="hljs-keyword">if</span> (firstPlayer % <span class="hljs-number">2</span> == <span class="hljs-number">0</span> &amp;&amp; firstPlayer + secondPlayer == n) {<br>                res++;<br>            }<br>            <span class="hljs-keyword">return</span> res + <span class="hljs-number">1</span>;<br>        };<br><br>        <span class="hljs-keyword">return</span> {<span class="hljs-built_in">cal</span>(n), <span class="hljs-built_in">min</span>(<span class="hljs-built_in">bit_width</span>(n - <span class="hljs-number">1u</span>), n + <span class="hljs-number">1</span> -secondPlayer)};<br>    }<br>};<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>有 <code>n</code> 种语言， <code>m</code> 个人，其中已知所有人已会的语言，同时知道某些人之间存在朋友关系。两两之间需要会任意同种语言才可交流。现欲教某些人同一种语言，使得所有朋友之间可以互相交流，求最少教几人。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><code>n</code> 和 <code>m</code> 的范围都不是很大，均在 <code>500</code> 以内，那其实可以随便乱搞的。</p>
+<p>这里我是先找到所有存在无法交流朋友的人，枚举所教的语言，所需教的人即为 <code>存在无法交流朋友的人 - 存在无法交流朋友且会该语言的人</code></p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minimumTeachings</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span>, languages: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]], friendships: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        know = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">set</span>, languages))<br>        <br>        p = <span class="hljs-built_in">set</span>()<br>        <span class="hljs-keyword">for</span> u, v <span class="hljs-keyword">in</span> friendships:<br>            <span class="hljs-keyword">if</span> know[u - <span class="hljs-number">1</span>].isdisjoint(know[v - <span class="hljs-number">1</span>]):<br>                p.add(u - <span class="hljs-number">1</span>)<br>                p.add(v - <span class="hljs-number">1</span>)<br><br>        ans = <span class="hljs-built_in">len</span>(languages)<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, n + <span class="hljs-number">1</span>):<br>            ans = <span class="hljs-built_in">min</span>(ans, <span class="hljs-built_in">len</span>(p) - <span class="hljs-built_in">sum</span>(i <span class="hljs-keyword">in</span> know[x] <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> p))<br>        <span class="hljs-keyword">return</span> ans<br></code></pre>
+
+<pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minimumTeachings</span><span class="hljs-params">(<span class="hljs-type">int</span> n, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; languages, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; friendships)</span> </span>{<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> m = languages.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector <span class="hljs-title">know</span><span class="hljs-params">(m, vector&lt;<span class="hljs-type">bool</span>&gt; (n))</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : languages[i]) {<br>                know[i][x - <span class="hljs-number">1</span>] = <span class="hljs-literal">true</span>;<br>            }<br>        }<br><br>        unordered_set&lt;<span class="hljs-type">int</span>&gt; p;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; f : friendships) {<br>            <span class="hljs-type">int</span> u = f[<span class="hljs-number">0</span>], v = f[<span class="hljs-number">1</span>];<br>            u--; v--;<br>            <span class="hljs-type">bool</span> need = <span class="hljs-literal">true</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : languages[u]) {<br>                <span class="hljs-keyword">if</span> (know[v][x - <span class="hljs-number">1</span>]) {<br>                    need = <span class="hljs-literal">false</span>;<br>                    <span class="hljs-keyword">break</span>;<br>                }<br>            }<br>            <span class="hljs-keyword">if</span> (need) {<br>                p.<span class="hljs-built_in">insert</span>(u);<br>                p.<span class="hljs-built_in">insert</span>(v);<br>            }<br>        }<br><br>        <span class="hljs-type">int</span> ans = m;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-type">int</span> t = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : p) {<br>                <span class="hljs-keyword">if</span> (know[x][i]) t++;<br>            }<br>            ans = <span class="hljs-built_in">min</span>(ans, <span class="hljs-built_in">int</span>(p.<span class="hljs-built_in">size</span>()) - t);<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
 
 
   </div>
@@ -655,8 +669,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/07/12/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981900-%E6%9C%80%E4%BD%B3%E8%BF%90%E5%8A%A8%E5%91%98%E7%9A%84%E6%AF%94%E6%8B%BC%E5%9B%9E%E5%90%88/">
-            https://sfiisf.github.io/2025/07/12/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981900-%E6%9C%80%E4%BD%B3%E8%BF%90%E5%8A%A8%E5%91%98%E7%9A%84%E6%AF%94%E6%8B%BC%E5%9B%9E%E5%90%88/
+            href="https://sfiisf.github.io/2025/09/10/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981733-%E9%9C%80%E8%A6%81%E6%95%99%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9C%80%E5%B0%91%E4%BA%BA%E6%95%B0/">
+            https://sfiisf.github.io/2025/09/10/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981733-%E9%9C%80%E8%A6%81%E6%95%99%E8%AF%AD%E8%A8%80%E7%9A%84%E6%9C%80%E5%B0%91%E4%BA%BA%E6%95%B0/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -666,29 +680,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/07/13/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982410-%E8%BF%90%E5%8A%A8%E5%91%98%E5%92%8C%E8%AE%AD%E7%BB%83%E5%B8%88%E7%9A%84%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D%E6%95%B0/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题2410-运动员和训练师的最大匹配数 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/07/11/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983169-%E6%97%A0%E9%9C%80%E5%BC%80%E4%BC%9A%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%97%A5/" 
+        href="/2025/09/09/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982327-%E7%9F%A5%E9%81%93%E7%A7%98%E5%AF%86%E7%9A%84%E4%BA%BA%E6%95%B0/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题3169-无需开会的工作日 </div>
+            <div class="nav-title">力扣每日一题2327-知道秘密的人数 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
