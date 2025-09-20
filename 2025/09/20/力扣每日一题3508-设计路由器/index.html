@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>力扣每日一题3000-对角线最长的矩形的面积</title>
+  <title>力扣每日一题3508-设计路由器</title>
   
     
       <meta 
         property="og:title" 
-        content="力扣每日一题3000-对角线最长的矩形的面积">
+        content="力扣每日一题3508-设计路由器">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/08/26/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983000-%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%9C%80%E9%95%BF%E7%9A%84%E7%9F%A9%E5%BD%A2%E7%9A%84%E9%9D%A2%E7%A7%AF/index.html">
+        content="https://sfiisf.github.io/2025/09/20/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983508-%E8%AE%BE%E8%AE%A1%E8%B7%AF%E7%94%B1%E5%99%A8/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-08-26">
+        content="2025-09-20">
       <meta 
         property="og:article:modified_time" 
-        content="2025-08-26">
+        content="2025-09-20">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -58,10 +58,6 @@
           <meta 
             property="og:article:tag" 
             content="leetcode">
-        
-          <meta 
-            property="og:article:tag" 
-            content="python">
         
       
     
@@ -575,16 +571,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      力扣每日一题3000-对角线最长的矩形的面积
+      力扣每日一题3508-设计路由器
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-08-25T16:23:54.000Z">
+    <time datetime="2025-09-20T09:25:19.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-08-26</span>
+      <span>2025-09-20</span>
     </time>
     
       <span class="dot"></span>
@@ -598,7 +594,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>181 字</span>
+      <span>482 字</span>
     
   </div>
   
@@ -627,15 +623,6 @@ mjx-container[display="true"] + br {
             leetcode
           </a>
         
-          
-            <span class="dot"></span>
-          
-          <a 
-            href="/tags/python/" 
-            class="post-meta-link">
-            python
-          </a>
-        
       </div>
     </div>
   
@@ -643,11 +630,16 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定一些矩形的长宽，求对角线最长的矩形的面积，若存在多个矩形对角线同长，返回对角线最长且面积最大的矩形面积。</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>直接遍历矩阵进行计算比较即可，避免开方的耗时与精度问题直接使用对角线的平方进行比较就好。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">areaOfMaxDiagonal</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; dimensions)</span> </span>{<br>        <span class="hljs-type">int</span> mx = <span class="hljs-number">0</span>, mxspace = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; vec : dimensions) {<br>            <span class="hljs-type">int</span> x = vec[<span class="hljs-number">0</span>], y = vec[<span class="hljs-number">1</span>];<br>            <span class="hljs-type">int</span> t = x * x + y * y;<br>            <span class="hljs-keyword">if</span> (t &gt; mx) {<br>                mx = t;<br>                mxspace = x * y;<br>            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (t == mx) {<br>                mxspace = <span class="hljs-built_in">max</span>(mxspace, x * y);<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> mxspace;<br>    }<br>};<br></code></pre>
-
-<pre class="highlight"><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">areaOfMaxDiagonal</span>(<span class="hljs-params">self, dimensions: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">max</span>((x * x + y * y, x * y) <span class="hljs-keyword">for</span> x, y <span class="hljs-keyword">in</span> dimensions)[<span class="hljs-number">1</span>]<br></code></pre>
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>每个数据包包含以下内容 <code>[source, destination, timestamp]</code></p>
+<p>实现 <code>Router</code> 类有如下功能：</p>
+<ul>
+<li><code>Router(int memoryLimit)</code> : 初始化，并设置固定内存限制，若未转发包数大于 <code>memoryLimit</code> 则不断丢弃最久的数据包</li>
+<li><code>bool addPacket(int source, int destination, int timestamp)</code> 添加对应数据包，若已存在完全相同的数据包则添加失败，返回添加结果</li>
+<li><code>vector&lt;int&gt; forwardPacket()</code> 按先入先出规则返回下一个未被丢弃的数据包</li>
+<li><code>int getCount(int destination, int startTime, int endTime)</code> 返回尚未转发目的地为 <code>destination</code> 且 <code>startTime &lt;= timeStamp &lt;= endTime</code> 的数据包数量</li>
+</ul>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>也同样没什么特别的，进行一个模拟就好。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Ahash</span> {<br>    <span class="hljs-function"><span class="hljs-type">size_t</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-type">const</span> array&lt;<span class="hljs-type">int</span>, <span class="hljs-number">3</span>&gt;&amp; arr)</span> <span class="hljs-type">const</span> <span class="hljs-keyword">noexcept</span> </span>{<br>        <span class="hljs-type">size_t</span> h1 = hash&lt;<span class="hljs-type">int</span>&gt;{}(arr[<span class="hljs-number">0</span>]);<br>        <span class="hljs-type">size_t</span> h2 = hash&lt;<span class="hljs-type">int</span>&gt;{}(arr[<span class="hljs-number">1</span>]);<br>        <span class="hljs-type">size_t</span> h3 = hash&lt;<span class="hljs-type">int</span>&gt;{}(arr[<span class="hljs-number">2</span>]);<br>        <span class="hljs-type">size_t</span> seed = h1;<br>        seed ^= h2 + <span class="hljs-number">0x9e3779b9</span> + (seed &lt;&lt; <span class="hljs-number">6</span>) + (seed &gt;&gt; <span class="hljs-number">2</span>);<br>        seed ^= h3 + <span class="hljs-number">0x9e3779b9</span> + (seed &lt;&lt; <span class="hljs-number">6</span>) + (seed &gt;&gt; <span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">return</span> seed;<br>    }<br>};<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Aequal</span> {<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">operator</span><span class="hljs-params">()</span><span class="hljs-params">(<span class="hljs-type">const</span> array&lt;<span class="hljs-type">int</span>, <span class="hljs-number">3</span>&gt;&amp; x, <span class="hljs-type">const</span> array&lt;<span class="hljs-type">int</span>, <span class="hljs-number">3</span>&gt;&amp; y)</span> <span class="hljs-type">const</span> <span class="hljs-keyword">noexcept</span> </span>{<br>        <span class="hljs-keyword">return</span> x == y;<br>    }<br>};<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Router</span> {<br><span class="hljs-keyword">private</span>:<br>    <span class="hljs-type">int</span> limit;<br>    unordered_set&lt;array&lt;<span class="hljs-type">int</span>, 3&gt;, Ahash, Aequal&gt; ust;<br>    unordered_map&lt;<span class="hljs-type">int</span>, vector&lt;<span class="hljs-type">int</span>&gt;&gt; dst2time;<br>    unordered_map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; dst2sz;<br>    queue&lt;array&lt;<span class="hljs-type">int</span>, 3&gt;&gt; q;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Router</span>(<span class="hljs-type">int</span> memoryLimit) {<br>        limit = memoryLimit;<br>        ust.<span class="hljs-built_in">clear</span>();<br>        dst2time.<span class="hljs-built_in">clear</span>();<br>        dst2sz.<span class="hljs-built_in">clear</span>();<br>    }<br>    <br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">addPacket</span><span class="hljs-params">(<span class="hljs-type">int</span> source, <span class="hljs-type">int</span> destination, <span class="hljs-type">int</span> timestamp)</span> </span>{<br>        <span class="hljs-keyword">auto</span> [it, ok] = ust.<span class="hljs-built_in">insert</span>({source, destination, timestamp});<br>        <span class="hljs-keyword">if</span> (!ok) <span class="hljs-keyword">return</span> ok;<br>        dst2time[destination].<span class="hljs-built_in">push_back</span>(timestamp);<br>        q.<span class="hljs-built_in">push</span>({source, destination, timestamp});<br>        <span class="hljs-keyword">for</span> ( ; q.<span class="hljs-built_in">size</span>() &gt; limit; q.<span class="hljs-built_in">pop</span>()) {<br>            <span class="hljs-keyword">auto</span> [source, destination, timestamp] = q.<span class="hljs-built_in">front</span>();<br>            ust.<span class="hljs-built_in">erase</span>({source, destination, timestamp});<br>            dst2sz[destination]++;<br>        }<br>        <span class="hljs-keyword">return</span> ok;<br>    }<br>    <br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">forwardPacket</span><span class="hljs-params">()</span> </span>{<br>        <span class="hljs-keyword">if</span> (q.<span class="hljs-built_in">empty</span>()) <span class="hljs-keyword">return</span> {};<br>        <span class="hljs-keyword">auto</span> [source, destination, timestamp] = q.<span class="hljs-built_in">front</span>();<br>        q.<span class="hljs-built_in">pop</span>();<br>        ust.<span class="hljs-built_in">erase</span>({source, destination, timestamp});<br>        dst2sz[destination]++;<br>        <span class="hljs-keyword">return</span> {source, destination, timestamp};<br>    }<br>    <br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">getCount</span><span class="hljs-params">(<span class="hljs-type">int</span> destination, <span class="hljs-type">int</span> startTime, <span class="hljs-type">int</span> endTime)</span> </span>{<br>        <span class="hljs-keyword">if</span> (!dst2time.<span class="hljs-built_in">count</span>(destination)) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; vec = dst2time[destination];<br>        <span class="hljs-type">int</span> t = dst2sz[destination];<br>        <span class="hljs-keyword">auto</span> l = ranges::<span class="hljs-built_in">lower_bound</span>(vec.<span class="hljs-built_in">begin</span>() + t, vec.<span class="hljs-built_in">end</span>(), startTime);<br>        <span class="hljs-keyword">auto</span> r = ranges::<span class="hljs-built_in">upper_bound</span>(vec.<span class="hljs-built_in">begin</span>() + t, vec.<span class="hljs-built_in">end</span>(), endTime);<br>        <span class="hljs-keyword">return</span> r - l;<br>    }<br>};<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Your Router object will be instantiated and called as such:</span><br><span class="hljs-comment"> * Router* obj = new Router(memoryLimit);</span><br><span class="hljs-comment"> * bool param_1 = obj-&gt;addPacket(source,destination,timestamp);</span><br><span class="hljs-comment"> * vector&lt;int&gt; param_2 = obj-&gt;forwardPacket();</span><br><span class="hljs-comment"> * int param_3 = obj-&gt;getCount(destination,startTime,endTime);</span><br><span class="hljs-comment"> */</span><br></code></pre>
 
 
   </div>
@@ -668,8 +660,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/08/26/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983000-%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%9C%80%E9%95%BF%E7%9A%84%E7%9F%A9%E5%BD%A2%E7%9A%84%E9%9D%A2%E7%A7%AF/">
-            https://sfiisf.github.io/2025/08/26/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983000-%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%9C%80%E9%95%BF%E7%9A%84%E7%9F%A9%E5%BD%A2%E7%9A%84%E9%9D%A2%E7%A7%AF/
+            href="https://sfiisf.github.io/2025/09/20/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983508-%E8%AE%BE%E8%AE%A1%E8%B7%AF%E7%94%B1%E5%99%A8/">
+            https://sfiisf.github.io/2025/09/20/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983508-%E8%AE%BE%E8%AE%A1%E8%B7%AF%E7%94%B1%E5%99%A8/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -679,29 +671,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/08/27/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983459-%E6%9C%80%E9%95%BFV%E5%BD%A2%E5%AF%B9%E8%A7%92%E7%BA%BF%E6%AE%B5%E7%9A%84%E9%95%BF%E5%BA%A6/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">力扣每日一题3459-最长V形对角线段的长度 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/08/25/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98498-%E5%AF%B9%E8%A7%92%E7%BA%BF%E9%81%8D%E5%8E%86/" 
+        href="/2025/09/19/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983484-%E8%AE%BE%E8%AE%A1%E7%94%B5%E5%AD%90%E8%A1%A8%E6%A0%BC/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">力扣每日一题498-对角线遍历 </div>
+            <div class="nav-title">力扣每日一题3484-设计电子表格 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
