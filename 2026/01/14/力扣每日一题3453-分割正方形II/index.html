@@ -45,11 +45,19 @@
         content="2026-01-14">
       <meta 
         property="og:article:modified_time" 
-        content="2026-01-14">
+        content="2026-01-15">
       <meta 
         property="og:article:author" 
         content="sfiisf">
       
+        
+          <meta 
+            property="og:article:tag" 
+            content="cpp">
+        
+          <meta 
+            property="og:article:tag" 
+            content="leetcode">
         
       
     
@@ -400,7 +408,7 @@ mjx-container[display="true"] + br {
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>288</span>
+    <span>289</span>
     <span>文章</span>
   </a>
   <a 
@@ -429,7 +437,7 @@ mjx-container[display="true"] + br {
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol>
       </div>
     </article>
   
@@ -454,7 +462,7 @@ mjx-container[display="true"] + br {
       <a href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
         <div class="categories-list-item">
           做题笔记
-          <span class="categories-list-item-badge">282</span>
+          <span class="categories-list-item-badge">284</span>
         </div>
       </a>
     
@@ -575,17 +583,58 @@ mjx-container[display="true"] + br {
       <span>2026-01-14</span>
     </time>
     
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" 
+          class="post-meta-link">
+          做题笔记
+        </a>
+      
+    
     
       <span class="dot"></span>
-      <span>0 字</span>
+      <span>837 字</span>
     
   </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/cpp/" 
+            class="post-meta-link">
+            cpp
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/leetcode/" 
+            class="post-meta-link">
+            leetcode
+          </a>
+        
+      </div>
+    </div>
   
   </header>
   <div 
     id="section" 
     class="post-content">
-    
+    <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>给定数组 <code>squares</code> 表示多个与坐标轴平行的可能互相重叠的正方形。找到一个最小的纵坐标，使得其对应的水平线使得其上下的图形面积相等（重叠区域不重复计数）。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>与昨天的题目仅仅相差一个字，就是重复区域不再重复计数，但是难度就提升了非常多。因为重叠区域不好计算所以我们不能再使用二分了，只能进行一个扫描线操作。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> <span class="hljs-title class_">Info</span>, <span class="hljs-keyword">class</span> <span class="hljs-title class_">Tag</span>&gt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">SegmentTree</span> {<br>    <span class="hljs-type">int</span> n;<br>    vector&lt;Info&gt; info;<br>    vector&lt;Tag&gt; tag;<br>    <span class="hljs-built_in">SegmentTree</span>() : <span class="hljs-built_in">n</span>(<span class="hljs-number">0</span>) {}<br>    <span class="hljs-built_in">SegmentTree</span>(<span class="hljs-type">int</span> n_, Info v_ = <span class="hljs-built_in">Info</span>()) {<br>        <span class="hljs-built_in">init</span>(n_, v_);<br>    }<br>    <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;</span><br><span class="hljs-function">    <span class="hljs-title">SegmentTree</span><span class="hljs-params">(vector&lt;T&gt; init_)</span> </span>{<br>        <span class="hljs-built_in">init</span>(init_);<br>    }<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n_, Info v_ = Info())</span> </span>{<br>        <span class="hljs-built_in">init</span>(<span class="hljs-built_in">vector</span>&lt;Info&gt;(n_, v_));<br>    }<br>    <span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;</span><br><span class="hljs-function">    <span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(vector&lt;T&gt; init_)</span> </span>{<br>        n = init_.<span class="hljs-built_in">size</span>();<br>        info.<span class="hljs-built_in">assign</span>(<span class="hljs-number">4</span> &lt;&lt; __lg(n), <span class="hljs-built_in">Info</span>());<br>        tag.<span class="hljs-built_in">assign</span>(<span class="hljs-number">4</span> &lt;&lt; __lg(n), <span class="hljs-built_in">Tag</span>());<br>        function&lt;<span class="hljs-type">void</span>(<span class="hljs-type">int</span>, <span class="hljs-type">int</span>, <span class="hljs-type">int</span>)&gt; build = [&amp;](<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r) {<br>            <span class="hljs-keyword">if</span> (r - l == <span class="hljs-number">1</span>) {<br>                info[p] = init_[l];<br>                <span class="hljs-keyword">return</span>;<br>            }<br>            <span class="hljs-type">int</span> m = (l + r) / <span class="hljs-number">2</span>;<br>            <span class="hljs-built_in">build</span>(<span class="hljs-number">2</span> * p, l, m);<br>            <span class="hljs-built_in">build</span>(<span class="hljs-number">2</span> * p + <span class="hljs-number">1</span>, m, r);<br>            <span class="hljs-built_in">pull</span>(p);<br>        };<br>        <span class="hljs-built_in">build</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, n);<br>    }<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">pull</span><span class="hljs-params">(<span class="hljs-type">int</span> p)</span> </span>{<br>        info[p] = info[<span class="hljs-number">2</span> * p] + info[<span class="hljs-number">2</span> * p + <span class="hljs-number">1</span>];<br>    }<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">apply</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">const</span> Tag &amp;v)</span> </span>{<br>        info[p].<span class="hljs-built_in">apply</span>(v);<br>        tag[p].<span class="hljs-built_in">apply</span>(v);<br>    }<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">push</span><span class="hljs-params">(<span class="hljs-type">int</span> p)</span> </span>{<br>        <span class="hljs-built_in">apply</span>(<span class="hljs-number">2</span> * p, tag[p]);<br>        <span class="hljs-built_in">apply</span>(<span class="hljs-number">2</span> * p + <span class="hljs-number">1</span>, tag[p]);<br>        tag[p] = <span class="hljs-built_in">Tag</span>();<br>    }<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">set</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x, <span class="hljs-type">const</span> Info &amp;v)</span> </span>{<br>        <span class="hljs-keyword">if</span> (r - l == <span class="hljs-number">1</span>) {<br>            info[p] = v;<br>            <span class="hljs-keyword">return</span>;<br>        }<br>        <span class="hljs-type">int</span> m = (l + r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-built_in">push</span>(p);<br>        <span class="hljs-keyword">if</span> (x &lt; m) {<br>            <span class="hljs-built_in">set</span>(<span class="hljs-number">2</span> * p, l, m, x, v);<br>        } <span class="hljs-keyword">else</span> {<br>            <span class="hljs-built_in">set</span>(<span class="hljs-number">2</span> * p + <span class="hljs-number">1</span>, m, r, x, v);<br>        }<br>        <span class="hljs-built_in">pull</span>(p);<br>    }<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">set</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">const</span> Info &amp;v)</span> </span>{<br>        <span class="hljs-built_in">set</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, n, p, v);<br>    }<br>    <span class="hljs-function">Info <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>{<br>        <span class="hljs-keyword">if</span> (l &gt;= y || r &lt;= x) {<br>            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Info</span>();<br>        }<br>        <span class="hljs-keyword">if</span> (l &gt;= x &amp;&amp; r &lt;= y) {<br>            <span class="hljs-keyword">return</span> info[p];<br>        }<br>        <span class="hljs-type">int</span> m = (l + r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-built_in">push</span>(p);<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">query</span>(<span class="hljs-number">2</span> * p, l, m, x, y) + <span class="hljs-built_in">query</span>(<span class="hljs-number">2</span> * p + <span class="hljs-number">1</span>, m, r, x, y);<br>    }<br>    <span class="hljs-function">Info <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>{<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">query</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, n, l, r);<br>    }<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y, <span class="hljs-type">const</span> Tag &amp;v)</span> </span>{<br>        <span class="hljs-keyword">if</span> (l &gt;= y || r &lt;= x) {<br>            <span class="hljs-keyword">return</span>;<br>        }<br>        <span class="hljs-keyword">if</span> (l &gt;= x &amp;&amp; r &lt;= y) {<br>            <span class="hljs-built_in">apply</span>(p, v);<br>            <span class="hljs-keyword">return</span>;<br>        }<br>        <span class="hljs-type">int</span> m = (l + r) / <span class="hljs-number">2</span>;<br>        <span class="hljs-built_in">push</span>(p);<br>        <span class="hljs-built_in">update</span>(<span class="hljs-number">2</span> * p, l, m, x, y, v);<br>        <span class="hljs-built_in">update</span>(<span class="hljs-number">2</span> * p + <span class="hljs-number">1</span>, m, r, x, y, v);<br>        <span class="hljs-built_in">pull</span>(p);<br>    }<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">update</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">const</span> Tag &amp;v)</span> </span>{<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">update</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, n, l, r, v);    <br>    }<br>};<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Tag</span> {<br>    <span class="hljs-type">int</span> add = <span class="hljs-number">0</span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">apply</span><span class="hljs-params">(Tag t)</span> </span>{<br>        add += t.add;<br>    }<br>};<br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Info</span> {<br>    <span class="hljs-type">int</span> mi = <span class="hljs-number">0</span>;<br>    <span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">apply</span><span class="hljs-params">(Tag t)</span> </span>{<br>        mi += t.add;<br>    }<br>};<br><br>Info <span class="hljs-keyword">operator</span>+(<span class="hljs-type">const</span> Info &amp;a, <span class="hljs-type">const</span> Info &amp;b) {<br>    <span class="hljs-keyword">if</span> (a.mi &lt; b.mi) {<br>        <span class="hljs-keyword">return</span> a;<br>    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a.mi &gt; b.mi) {<br>        <span class="hljs-keyword">return</span> b;<br>    } <span class="hljs-keyword">else</span> {<br>        <span class="hljs-keyword">return</span> {a.mi, a.cnt + b.cnt};<br>    }<br>}<br><br><span class="hljs-keyword">using</span> S = SegmentTree&lt;Info, Tag&gt;;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">double</span> <span class="hljs-title">separateSquares</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; squares)</span> </span>{<br>        vector&lt;array&lt;<span class="hljs-type">int</span>, 4&gt;&gt; f;<br>        vector&lt;<span class="hljs-type">int</span>&gt; a;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; s : squares) {<br>            <span class="hljs-type">int</span> x = s[<span class="hljs-number">0</span>], y = s[<span class="hljs-number">1</span>], len = s[<span class="hljs-number">2</span>];<br>            a.<span class="hljs-built_in">push_back</span>(x);<br>            a.<span class="hljs-built_in">push_back</span>(x + len);<br>            f.<span class="hljs-built_in">push_back</span>({y, x, x + len, <span class="hljs-number">1</span>});<br>            f.<span class="hljs-built_in">push_back</span>({y + len, x, x + len, <span class="hljs-number">-1</span>});<br>        }<br>        ranges::<span class="hljs-built_in">sort</span>(f);<br>        ranges::<span class="hljs-built_in">sort</span>(a);<br>        <span class="hljs-type">int</span> n = a.<span class="hljs-built_in">erase</span>(<span class="hljs-built_in">unique</span>(a.<span class="hljs-built_in">begin</span>(), a.<span class="hljs-built_in">end</span>()), a.<span class="hljs-built_in">end</span>()) - a.<span class="hljs-built_in">begin</span>();<br>        <span class="hljs-type">int</span> length = a.<span class="hljs-built_in">back</span>() - a.<span class="hljs-built_in">front</span>();<br><br>        <span class="hljs-function">S <span class="hljs-title">StT</span><span class="hljs-params">(n)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) {<br>            StT.<span class="hljs-built_in">set</span>(i, {<span class="hljs-number">0</span>, a[i + <span class="hljs-number">1</span>] - a[i]});<br>        }<br><br>        vector&lt;array&lt;ll, 2&gt;&gt; record;<br>        ll cur = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> m = f.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m - <span class="hljs-number">1</span>; i++) {<br>            <span class="hljs-keyword">auto</span> [y, tl, tr, t] = f[i];<br>            <span class="hljs-type">int</span> l = ranges::<span class="hljs-built_in">lower_bound</span>(a, tl) - a.<span class="hljs-built_in">begin</span>();<br>            <span class="hljs-type">int</span> r = ranges::<span class="hljs-built_in">lower_bound</span>(a, tr) - a.<span class="hljs-built_in">begin</span>();<br>            StT.<span class="hljs-built_in">update</span>(l, r, {t});<br>            <span class="hljs-keyword">auto</span> res = StT.<span class="hljs-built_in">query</span>(<span class="hljs-number">0</span>, n);<br>            <span class="hljs-type">int</span> p = res.mi == <span class="hljs-number">0</span> ? res.cnt : <span class="hljs-number">0</span>;<br>            record.<span class="hljs-built_in">push_back</span>({cur, length - p});<br>            cur += <span class="hljs-number">1ll</span> * (length - p) * (f[i + <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] - y);<br>        }<br><br>        <span class="hljs-type">int</span> lo = ranges::<span class="hljs-built_in">lower_bound</span>(record, cur, {}, [](<span class="hljs-keyword">auto</span>&amp; node) {<br>            <span class="hljs-keyword">return</span> node[<span class="hljs-number">0</span>] * <span class="hljs-number">2</span>;<br>        }) - record.<span class="hljs-built_in">begin</span>() - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">auto</span> [res, len] = record[lo];<br>        <span class="hljs-keyword">return</span> f[lo][<span class="hljs-number">0</span>] + (cur - res * <span class="hljs-number">2</span>) / (len * <span class="hljs-number">2.0</span>);<br>    }<br>};<br></code></pre>
+
+
   </div>
   <div>
     
@@ -614,6 +663,20 @@ mjx-container[display="true"] + br {
   </div>
 </article>
 <div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2026/01/15/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982943-%E6%9C%80%E5%A4%A7%E5%8C%96%E7%BD%91%E6%A0%BC%E5%9B%BE%E4%B8%AD%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%A9%BA%E6%B4%9E%E7%9A%84%E9%9D%A2%E7%A7%AF/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">上一篇</div>
+          
+            <div class="nav-title">力扣每日一题2943-最大化网格图中正方形空洞的面积 </div>
+          
+        </div>
+      </a>
+    </div>
   
   
     <div class="nav-item-next">
@@ -677,7 +740,7 @@ mjx-container[display="true"] + br {
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -691,7 +754,7 @@ mjx-container[display="true"] + br {
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol>
     </article>
   
   
@@ -706,6 +769,11 @@ mjx-container[display="true"] + br {
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-15</div>
+        <a href="/2026/01/15/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982943-%E6%9C%80%E5%A4%A7%E5%8C%96%E7%BD%91%E6%A0%BC%E5%9B%BE%E4%B8%AD%E6%AD%A3%E6%96%B9%E5%BD%A2%E7%A9%BA%E6%B4%9E%E7%9A%84%E9%9D%A2%E7%A7%AF/"><div class="recent-posts-item-content">力扣每日一题2943-最大化网格图中正方形空洞的面积</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2026-01-14</div>
         <a href="/2026/01/14/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983453-%E5%88%86%E5%89%B2%E6%AD%A3%E6%96%B9%E5%BD%A2II/"><div class="recent-posts-item-content">力扣每日一题3453-分割正方形II</div></a>
       </div>
@@ -718,11 +786,6 @@ mjx-container[display="true"] + br {
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2026-01-12</div>
         <a href="/2026/01/12/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981266-%E8%AE%BF%E9%97%AE%E6%89%80%E6%9C%89%E7%82%B9%E7%9A%84%E6%9C%80%E5%B0%8F%E6%97%B6%E9%97%B4/"><div class="recent-posts-item-content">力扣每日一题1266-访问所有点的最小时间</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2026-01-11</div>
-        <a href="/2026/01/11/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%9885-%E6%9C%80%E5%A4%A7%E7%9F%A9%E5%BD%A2/"><div class="recent-posts-item-content">力扣每日一题85-最大矩形</div></a>
       </div>
     
   </div>
