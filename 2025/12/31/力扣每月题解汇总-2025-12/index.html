@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="sfiisf">
+  <link 
+    rel="icon" 
+    href="/">
+  <title>力扣每月题解汇总-2025年12月</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="力扣每月题解汇总-2025年12月">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://sfiisf.github.io/2025/12/31/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2025-12/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="/img/author.png">
+    
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2025-12-31">
+      <meta 
+        property="og:article:modified_time" 
+        content="2026-03-23">
+      <meta 
+        property="og:article:author" 
+        content="sfiisf">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="cpp">
+        
+          <meta 
+            property="og:article:tag" 
+            content="leetcode">
+        
+          <meta 
+            property="og:article:tag" 
+            content="monthly-summary">
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+  
+  
+  
+    
+    <link rel="prefetch" href="//cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-svg.js" as="script">
+  
+  
+    
+    <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
+  
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/">
+      
+      <span class="navbar-logo-dsc">sfiisf blog</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/" 
+        class="navbar-menu-item">
+        
+          首页
+        
+      </a>
+    
+      <a 
+        href="/archives" 
+        class="navbar-menu-item">
+        
+          归档
+        
+      </a>
+    
+      <a 
+        href="/tags" 
+        class="navbar-menu-item">
+        
+          标签
+        
+      </a>
+    
+      <a 
+        href="/categories" 
+        class="navbar-menu-item">
+        
+          分类
+        
+      </a>
+    
+      <a 
+        href="/about" 
+        class="navbar-menu-item">
+        
+          关于
+        
+      </a>
+    
+      <a 
+        href="/links" 
+        class="navbar-menu-item">
+        
+          友链
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="/img/author.png" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">sfiisf</p>
+<p class="author-description"></p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/archives">
+    <span>16</span>
+    <span>文章</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/categories">
+    <span>3</span>
+    <span>分类</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/tags">
+    <span>13</span>
+    <span>标签</span>
+  </a>
+</div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2025%E5%B9%B412%E6%9C%88"><span class="toc-text">力扣每月题解汇总-2025年12月</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982141-%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8CN%E5%8F%B0%E7%94%B5%E8%84%91%E7%9A%84%E6%9C%80%E9%95%BF%E6%97%B6%E9%97%B4"><span class="toc-text">力扣每日一题2141-同时运行N台电脑的最长时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983623-%E7%BB%9F%E8%AE%A1%E6%A2%AF%E5%BD%A2%E7%9A%84%E6%95%B0%E7%9B%AEI"><span class="toc-text">力扣每日一题3623-统计梯形的数目I</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-1"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-1"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983625-%E7%BB%9F%E8%AE%A1%E6%A2%AF%E5%BD%A2%E7%9A%84%E6%95%B0%E7%9B%AEII"><span class="toc-text">力扣每日一题3625-统计梯形的数目II</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-2"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-2"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982211-%E7%BB%9F%E8%AE%A1%E9%81%93%E8%B7%AF%E4%B8%8A%E7%9A%84%E7%A2%B0%E6%92%9E%E6%AC%A1%E6%95%B0"><span class="toc-text">力扣每日一题2211-统计道路上的碰撞次数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-3"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-3"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-3"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983432-%E7%BB%9F%E8%AE%A1%E5%85%83%E7%B4%A0%E5%92%8C%E5%B7%AE%E5%80%BC%E4%B8%BA%E5%81%B6%E6%95%B0%E7%9A%84%E5%88%86%E5%8C%BA%E6%96%B9%E6%A1%88"><span class="toc-text">力扣每日一题3432-统计元素和差值为偶数的分区方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-4"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-4"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-4"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983578-%E7%BB%9F%E8%AE%A1%E6%9E%81%E5%B7%AE%E6%9C%80%E5%A4%A7%E4%B8%BAK%E7%9A%84%E5%88%86%E5%89%B2%E6%96%B9%E5%BC%8F%E6%95%B0"><span class="toc-text">力扣每日一题3578-统计极差最大为K的分割方式数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-5"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-5"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-5"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981523-%E5%9C%A8%E5%8C%BA%E9%97%B4%E8%8C%83%E5%9B%B4%E5%86%85%E7%BB%9F%E8%AE%A1%E5%A5%87%E6%95%B0%E6%95%B0%E7%9B%AE"><span class="toc-text">力扣每日一题1523-在区间范围内统计奇数数目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-6"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-6"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-6"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981925-%E7%BB%9F%E8%AE%A1%E5%B9%B3%E6%96%B9%E5%92%8C%E4%B8%89%E5%85%83%E7%BB%84%E7%9A%84%E6%95%B0%E7%9B%AE"><span class="toc-text">力扣每日一题1925-统计平方和三元组的数目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-7"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-7"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-7"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983583-%E7%BB%9F%E8%AE%A1%E7%89%B9%E6%AE%8A%E4%B8%89%E5%85%83%E7%BB%84"><span class="toc-text">力扣每日一题3583-统计特殊三元组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-8"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-8"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-8"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983577-%E7%BB%9F%E8%AE%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%A3%E9%94%81%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E6%95%B0"><span class="toc-text">力扣每日一题3577-统计计算机解锁顺序排列数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-9"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-9"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-9"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983531-%E7%BB%9F%E8%AE%A1%E8%A2%AB%E8%A6%86%E7%9B%96%E7%9A%84%E5%BB%BA%E7%AD%91"><span class="toc-text">力扣每日一题3531-统计被覆盖的建筑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-10"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-10"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-10"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983433-%E7%BB%9F%E8%AE%A1%E7%94%A8%E6%88%B7%E8%A2%AB%E6%8F%90%E5%8F%8A%E6%83%85%E5%86%B5"><span class="toc-text">力扣每日一题3433-统计用户被提及情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-11"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-11"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-11"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983606-%E4%BC%98%E6%83%A0%E5%88%B8%E6%A0%A1%E9%AA%8C%E5%99%A8"><span class="toc-text">力扣每日一题3606-优惠券校验器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-12"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-12"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-12"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982147-%E5%88%86%E9%9A%94%E9%95%BF%E5%BB%8A%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0"><span class="toc-text">力扣每日一题2147-分隔长廊的方案数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-13"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-13"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-13"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982110-%E8%82%A1%E7%A5%A8%E5%B9%B3%E6%BB%91%E4%B8%8B%E8%B7%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E6%95%B0%E7%9B%AE"><span class="toc-text">力扣每日一题2110-股票平滑下跌阶段的数目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-14"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-14"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-14"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983562-%E6%8A%98%E6%89%A3%E4%BB%B7%E4%BA%A4%E6%98%93%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6"><span class="toc-text">力扣每日一题3562-折扣价交易股票的最大利润</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-15"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-15"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-15"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983573-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAV"><span class="toc-text">力扣每日一题3573-买卖股票的最佳时机V</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-16"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-16"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-16"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983652-%E6%8C%89%E7%AD%96%E7%95%A5%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA"><span class="toc-text">力扣每日一题3652-按策略买卖股票的最佳时机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-17"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-17"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-17"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982092-%E6%89%BE%E5%87%BA%E7%9F%A5%E6%99%93%E7%A7%98%E5%AF%86%E7%9A%84%E6%89%80%E6%9C%89%E4%B8%93%E5%AE%B6"><span class="toc-text">力扣每日一题2092-找出知晓秘密的所有专家</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-18"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-18"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-18"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98944-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8F"><span class="toc-text">力扣每日一题944-删列造序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-19"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-19"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-19"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98955-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8FII"><span class="toc-text">力扣每日一题955-删列造序II</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-20"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-20"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-20"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98960-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8FIII"><span class="toc-text">力扣每日一题960-删列造序III</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-21"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-21"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-21"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982054-%E4%B8%A4%E4%B8%AA%E6%9C%80%E5%A5%BD%E7%9A%84%E4%B8%8D%E9%87%8D%E5%8F%A0%E6%B4%BB%E5%8A%A8"><span class="toc-text">力扣每日一题2054-两个最好的不重叠活动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-22"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-22"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-22"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983074-%E9%87%8D%E6%96%B0%E5%88%86%E8%A3%85%E8%8B%B9%E6%9E%9C"><span class="toc-text">力扣每日一题3074-重新分装苹果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-23"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-23"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-23"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983075-%E5%B9%B8%E7%A6%8F%E5%80%BC%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E9%80%89%E6%8B%A9%E6%96%B9%E6%A1%88"><span class="toc-text">力扣每日一题3075-幸福值最大化的选择方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-24"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-24"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-24"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982483-%E5%95%86%E5%BA%97%E7%9A%84%E6%9C%80%E5%B0%91%E4%BB%A3%E4%BB%B7"><span class="toc-text">力扣每日一题2483-商店的最少代价</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-25"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-25"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-25"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982402-%E4%BC%9A%E8%AE%AE%E5%AE%A4III"><span class="toc-text">力扣每日一题2402-会议室III</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-26"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-26"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-26"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981351-%E7%BB%9F%E8%AE%A1%E6%9C%89%E5%BA%8F%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B4%9F%E6%95%B0"><span class="toc-text">力扣每日一题1351-统计有序矩阵中的负数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-27"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-27"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-27"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98756-%E9%87%91%E5%AD%97%E5%A1%94%E8%BD%AC%E6%8D%A2%E7%9F%A9%E9%98%B5"><span class="toc-text">力扣每日一题756-金字塔转换矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-28"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-28"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-28"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98840-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E5%B9%BB%E6%96%B9"><span class="toc-text">力扣每日一题840-矩阵中的幻方</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-29"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-29"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-29"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981970-%E4%BD%A0%E8%83%BD%E7%A9%BF%E8%BF%87%E7%9F%A9%E9%98%B5%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9"><span class="toc-text">力扣每日一题1970-你能穿过矩阵的最后一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-30"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-30"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-30"><span class="toc-text">实现</span></a></li></ol></li></ol></li></ol>
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>分类
+  </div>
+  <div class="categories-list">
+    
+      <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <div class="categories-list-item">
+          学习笔记
+          <span class="categories-list-item-badge">3</span>
+        </div>
+      </a>
+    
+      <a href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
+        <div class="categories-list-item">
+          做题笔记
+          <span class="categories-list-item-badge">12</span>
+        </div>
+      </a>
+    
+      <a href="/categories/%E6%9D%82%E8%B0%88/">
+        <div class="categories-list-item">
+          杂谈
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>热门标签
+  </div>
+  <div class="tags-list">
+    
+      <a 
+        href="/tags/cpp/" 
+        title="cpp">
+        <div class="tags-list-item">cpp</div>
+      </a>
+    
+      <a 
+        href="/tags/monthly-summary/" 
+        title="monthly-summary">
+        <div class="tags-list-item">monthly-summary</div>
+      </a>
+    
+      <a 
+        href="/tags/leetcode/" 
+        title="leetcode">
+        <div class="tags-list-item">leetcode</div>
+      </a>
+    
+      <a 
+        href="/tags/python/" 
+        title="python">
+        <div class="tags-list-item">python</div>
+      </a>
+    
+      <a 
+        href="/tags/dp/" 
+        title="dp">
+        <div class="tags-list-item">dp</div>
+      </a>
+    
+      <a 
+        href="/tags/note/" 
+        title="note">
+        <div class="tags-list-item">note</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" 
+        title="概率论">
+        <div class="tags-list-item">概率论</div>
+      </a>
+    
+      <a 
+        href="/tags/network/" 
+        title="network">
+        <div class="tags-list-item">network</div>
+      </a>
+    
+      <a 
+        href="/tags/%E7%9F%A9%E9%98%B5%E5%BF%AB%E9%80%9F%E5%B9%82/" 
+        title="矩阵快速幂">
+        <div class="tags-list-item">矩阵快速幂</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%95%B0%E4%BD%8Ddp/" 
+        title="数位dp">
+        <div class="tags-list-item">数位dp</div>
+      </a>
+    
+      <a 
+        href="/tags/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/" 
+        title="组合数学">
+        <div class="tags-list-item">组合数学</div>
+      </a>
+    
+      <a 
+        href="/tags/fenwick/" 
+        title="fenwick">
+        <div class="tags-list-item">fenwick</div>
+      </a>
+    
+      <a 
+        href="/tags/math/" 
+        title="math">
+        <div class="tags-list-item">math</div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      力扣每月题解汇总-2025年12月
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2025-12-30T16:34:00.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2025-12-31</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/" 
+          class="post-meta-link">
+          做题笔记
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>9.8k 字</span>
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/tags/cpp/" 
+            class="post-meta-link">
+            cpp
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/leetcode/" 
+            class="post-meta-link">
+            leetcode
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/monthly-summary/" 
+            class="post-meta-link">
+            monthly-summary
+          </a>
+        
+      </div>
+    </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <h1 id="力扣每月题解汇总-2025年12月"><a href="#力扣每月题解汇总-2025年12月" class="headerlink" title="力扣每月题解汇总-2025年12月"></a>力扣每月题解汇总-2025年12月</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><code>2025-12-01</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982141-%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8Cn%E5%8F%B0%E7%94%B5%E8%84%91%E7%9A%84%E6%9C%80%E9%95%BF%E6%97%B6%E9%97%B4">力扣每日一题2141-同时运行N台电脑的最长时间</a></li>
+<li><code>2025-12-02</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983623-%E7%BB%9F%E8%AE%A1%E6%A2%AF%E5%BD%A2%E7%9A%84%E6%95%B0%E7%9B%AEi">力扣每日一题3623-统计梯形的数目I</a></li>
+<li><code>2025-12-03</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983625-%E7%BB%9F%E8%AE%A1%E6%A2%AF%E5%BD%A2%E7%9A%84%E6%95%B0%E7%9B%AEii">力扣每日一题3625-统计梯形的数目II</a></li>
+<li><code>2025-12-04</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982211-%E7%BB%9F%E8%AE%A1%E9%81%93%E8%B7%AF%E4%B8%8A%E7%9A%84%E7%A2%B0%E6%92%9E%E6%AC%A1%E6%95%B0">力扣每日一题2211-统计道路上的碰撞次数</a></li>
+<li><code>2025-12-05</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983432-%E7%BB%9F%E8%AE%A1%E5%85%83%E7%B4%A0%E5%92%8C%E5%B7%AE%E5%80%BC%E4%B8%BA%E5%81%B6%E6%95%B0%E7%9A%84%E5%88%86%E5%8C%BA%E6%96%B9%E6%A1%88">力扣每日一题3432-统计元素和差值为偶数的分区方案</a></li>
+<li><code>2025-12-06</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983578-%E7%BB%9F%E8%AE%A1%E6%9E%81%E5%B7%AE%E6%9C%80%E5%A4%A7%E4%B8%BAk%E7%9A%84%E5%88%86%E5%89%B2%E6%96%B9%E5%BC%8F%E6%95%B0">力扣每日一题3578-统计极差最大为K的分割方式数</a></li>
+<li><code>2025-12-07</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981523-%E5%9C%A8%E5%8C%BA%E9%97%B4%E8%8C%83%E5%9B%B4%E5%86%85%E7%BB%9F%E8%AE%A1%E5%A5%87%E6%95%B0%E6%95%B0%E7%9B%AE">力扣每日一题1523-在区间范围内统计奇数数目</a></li>
+<li><code>2025-12-08</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981925-%E7%BB%9F%E8%AE%A1%E5%B9%B3%E6%96%B9%E5%92%8C%E4%B8%89%E5%85%83%E7%BB%84%E7%9A%84%E6%95%B0%E7%9B%AE">力扣每日一题1925-统计平方和三元组的数目</a></li>
+<li><code>2025-12-09</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983583-%E7%BB%9F%E8%AE%A1%E7%89%B9%E6%AE%8A%E4%B8%89%E5%85%83%E7%BB%84">力扣每日一题3583-统计特殊三元组</a></li>
+<li><code>2025-12-10</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983577-%E7%BB%9F%E8%AE%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%A3%E9%94%81%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E6%95%B0">力扣每日一题3577-统计计算机解锁顺序排列数</a></li>
+<li><code>2025-12-11</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983531-%E7%BB%9F%E8%AE%A1%E8%A2%AB%E8%A6%86%E7%9B%96%E7%9A%84%E5%BB%BA%E7%AD%91">力扣每日一题3531-统计被覆盖的建筑</a></li>
+<li><code>2025-12-12</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983433-%E7%BB%9F%E8%AE%A1%E7%94%A8%E6%88%B7%E8%A2%AB%E6%8F%90%E5%8F%8A%E6%83%85%E5%86%B5">力扣每日一题3433-统计用户被提及情况</a></li>
+<li><code>2025-12-13</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983606-%E4%BC%98%E6%83%A0%E5%88%B8%E6%A0%A1%E9%AA%8C%E5%99%A8">力扣每日一题3606-优惠券校验器</a></li>
+<li><code>2025-12-14</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982147-%E5%88%86%E9%9A%94%E9%95%BF%E5%BB%8A%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0">力扣每日一题2147-分隔长廊的方案数</a></li>
+<li><code>2025-12-15</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982110-%E8%82%A1%E7%A5%A8%E5%B9%B3%E6%BB%91%E4%B8%8B%E8%B7%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E6%95%B0%E7%9B%AE">力扣每日一题2110-股票平滑下跌阶段的数目</a></li>
+<li><code>2025-12-16</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983562-%E6%8A%98%E6%89%A3%E4%BB%B7%E4%BA%A4%E6%98%93%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6">力扣每日一题3562-折扣价交易股票的最大利润</a></li>
+<li><code>2025-12-17</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983573-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAv">力扣每日一题3573-买卖股票的最佳时机V</a></li>
+<li><code>2025-12-18</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983652-%E6%8C%89%E7%AD%96%E7%95%A5%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA">力扣每日一题3652-按策略买卖股票的最佳时机</a></li>
+<li><code>2025-12-19</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982092-%E6%89%BE%E5%87%BA%E7%9F%A5%E6%99%93%E7%A7%98%E5%AF%86%E7%9A%84%E6%89%80%E6%9C%89%E4%B8%93%E5%AE%B6">力扣每日一题2092-找出知晓秘密的所有专家</a></li>
+<li><code>2025-12-20</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98944-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8F">力扣每日一题944-删列造序</a></li>
+<li><code>2025-12-21</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98955-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8Fii">力扣每日一题955-删列造序II</a></li>
+<li><code>2025-12-22</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98960-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8Fiii">力扣每日一题960-删列造序III</a></li>
+<li><code>2025-12-23</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982054-%E4%B8%A4%E4%B8%AA%E6%9C%80%E5%A5%BD%E7%9A%84%E4%B8%8D%E9%87%8D%E5%8F%A0%E6%B4%BB%E5%8A%A8">力扣每日一题2054-两个最好的不重叠活动</a></li>
+<li><code>2025-12-24</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983074-%E9%87%8D%E6%96%B0%E5%88%86%E8%A3%85%E8%8B%B9%E6%9E%9C">力扣每日一题3074-重新分装苹果</a></li>
+<li><code>2025-12-25</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983075-%E5%B9%B8%E7%A6%8F%E5%80%BC%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E9%80%89%E6%8B%A9%E6%96%B9%E6%A1%88">力扣每日一题3075-幸福值最大化的选择方案</a></li>
+<li><code>2025-12-26</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982483-%E5%95%86%E5%BA%97%E7%9A%84%E6%9C%80%E5%B0%91%E4%BB%A3%E4%BB%B7">力扣每日一题2483-商店的最少代价</a></li>
+<li><code>2025-12-27</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982402-%E4%BC%9A%E8%AE%AE%E5%AE%A4iii">力扣每日一题2402-会议室III</a></li>
+<li><code>2025-12-28</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981351-%E7%BB%9F%E8%AE%A1%E6%9C%89%E5%BA%8F%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B4%9F%E6%95%B0">力扣每日一题1351-统计有序矩阵中的负数</a></li>
+<li><code>2025-12-29</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98756-%E9%87%91%E5%AD%97%E5%A1%94%E8%BD%AC%E6%8D%A2%E7%9F%A9%E9%98%B5">力扣每日一题756-金字塔转换矩阵</a></li>
+<li><code>2025-12-30</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98840-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E5%B9%BB%E6%96%B9">力扣每日一题840-矩阵中的幻方</a></li>
+<li><code>2025-12-31</code> <a href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981970-%E4%BD%A0%E8%83%BD%E7%A9%BF%E8%BF%87%E7%9F%A9%E9%98%B5%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9">力扣每日一题1970-你能穿过矩阵的最后一天</a></li>
+</ul>
+<hr>
+<h2 id="力扣每日一题2141-同时运行N台电脑的最长时间"><a href="#力扣每日一题2141-同时运行N台电脑的最长时间" class="headerlink" title="力扣每日一题2141-同时运行N台电脑的最长时间"></a>力扣每日一题2141-同时运行N台电脑的最长时间</h2><blockquote>
+<p>日期：2025-12-01</p>
+</blockquote>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>给定正整数 <code>n</code> 与正整数数组 <code>batteries</code> 分别表示电脑数量与各电池的电量。每个电池同一时间可以供给一台电脑，每一单位电量可以供给一单位时间。求问最多可以同时开启所有电脑多长时间。</p>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>咱们先想想，要求所有电脑开启 <code>x</code> 时间如何判断是否可行。若一个电池电量大于等于 <code>x</code> ，显然其全程只能供给一个，因为同一电池同一时间仅能供给一台电脑。而剩余的电池总电量仅需大于等于剩余电脑与总时之积即可。</p>
+<p>由此我们可以想到对答案进行一个二分即可。</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ll <span class="hljs-title">maxRunTime</span><span class="hljs-params">(<span class="hljs-type">int</span> n, vector&lt;<span class="hljs-type">int</span>&gt;&amp; batteries)</span> </span>{<br>        <span class="hljs-type">int</span> m = batteries.<span class="hljs-built_in">size</span>();<br><br>        <span class="hljs-keyword">auto</span> check = [&amp;](ll x) -&gt; <span class="hljs-type">bool</span> {<br>            <span class="hljs-type">int</span> t = n;<br>            ll sum = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; b : batteries) {<br>                <span class="hljs-keyword">if</span> (b &gt;= x) t--;<br>                <span class="hljs-keyword">else</span> sum += b;<br>            }<br>            <span class="hljs-keyword">return</span> t &lt;= <span class="hljs-number">0</span> || sum / t &gt;= x;<br>        };<br>        <br>        ll lo = <span class="hljs-number">0</span>, hi = <span class="hljs-built_in">accumulate</span>(batteries.<span class="hljs-built_in">begin</span>(), batteries.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0ll</span>) / n;<br>        <span class="hljs-keyword">while</span> (lo &lt; hi) {<br>            ll mid = (lo + hi + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">check</span>(mid)) {<br>                lo = mid;<br>            } <span class="hljs-keyword">else</span> {<br>                hi = mid - <span class="hljs-number">1</span>;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> lo;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3623-统计梯形的数目I"><a href="#力扣每日一题3623-统计梯形的数目I" class="headerlink" title="力扣每日一题3623-统计梯形的数目I"></a>力扣每日一题3623-统计梯形的数目I</h2><blockquote>
+<p>日期：2025-12-02</p>
+</blockquote>
+<h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>给定二维坐标点集，求可从点集中组成多少个有一对边平行 <code>x</code> 轴的水平梯形。</p>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>用哈希记录各纵坐标的点数，同纵坐标的点可以两两组成条边，而各不同纵坐标的边可两两组成一个水平梯形。</p>
+<h3 id="实现-1"><a href="#实现-1" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> ll mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><br><span class="hljs-function">ll <span class="hljs-title">powMod</span><span class="hljs-params">(ll a, ll b)</span> </span>{<br>	ll res = <span class="hljs-number">1</span>;<br>	<span class="hljs-keyword">while</span>(b) {<br>		<span class="hljs-keyword">if</span>(b &amp; <span class="hljs-number">1</span>) res = res * a % mod;<br>		a = a * a % mod;<br>		b &gt;&gt;= <span class="hljs-number">1</span>;<br>	}<br>	<span class="hljs-keyword">return</span> res;<br>}<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countTrapezoids</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; points)</span> </span>{<br>        unordered_map&lt;<span class="hljs-type">int</span>, <span class="hljs-type">int</span>&gt; cnt;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; vec : points) {<br>            <span class="hljs-type">int</span> x = vec[<span class="hljs-number">0</span>], y = vec[<span class="hljs-number">1</span>];<br>            cnt[y]++;<br>        }<br>        ll ans = <span class="hljs-number">0</span>;<br>        vector&lt;ll&gt; tmp;<br>        ll inv2 = <span class="hljs-built_in">powMod</span>(<span class="hljs-number">2</span>, mod - <span class="hljs-number">2</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; [y, t] : cnt) {<br>            <span class="hljs-keyword">if</span> (t &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">continue</span>;<br>            <span class="hljs-comment">// ans = ans * t % mod * (t - 1) % mod * powMod(2, mod - 2) % mod;</span><br>            tmp.<span class="hljs-built_in">push_back</span>(<span class="hljs-number">1ll</span> * t * (t - <span class="hljs-number">1</span>) % mod * inv2 % mod);<br>        }<br>        <span class="hljs-keyword">if</span> (tmp.<span class="hljs-built_in">size</span>() &lt; <span class="hljs-number">2</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        ll pre = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x : tmp) {<br>            ans = (ans + x * pre % mod) % mod;<br>            pre = (pre + x) % mod; <br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3625-统计梯形的数目II"><a href="#力扣每日一题3625-统计梯形的数目II" class="headerlink" title="力扣每日一题3625-统计梯形的数目II"></a>力扣每日一题3625-统计梯形的数目II</h2><blockquote>
+<p>日期：2025-12-03</p>
+</blockquote>
+<h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>给定二维点集 <code>points</code> ，求可以组成多少梯形。</p>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>和昨天的题很类似，只是没有了含一对边平行于 x 轴的限制。同时数据范围也小了很多 <code>4 &lt;= points.size() &lt;= 500</code> 。</p>
+<p>那我们其实可以暴力去求点两两之间组成线段的斜率与截距，任意两斜率相同且截距不同的线段均可组成一个梯形。但需要注意，这样判断会将平行四边形计算两次，需对平行四边形进行去重，具体的，平行四边形两对角线中点重合，可借此进行去重处理。</p>
+<h3 id="实现-2"><a href="#实现-2" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countTrapezoids</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; points)</span> </span>{<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        unordered_map&lt;<span class="hljs-type">double</span>, unordered_map&lt;<span class="hljs-type">double</span>, <span class="hljs-type">int</span>&gt;&gt; line;<br>        unordered_map&lt;<span class="hljs-type">int</span>, unordered_map&lt;<span class="hljs-type">double</span>, <span class="hljs-type">int</span>&gt;&gt; cnt;<br><br>        <span class="hljs-type">int</span> n = points.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>; j &lt; n; j++) {<br>                <span class="hljs-type">int</span> dx = points[i][<span class="hljs-number">0</span>] - points[j][<span class="hljs-number">0</span>];<br>                <span class="hljs-type">int</span> dy = points[i][<span class="hljs-number">1</span>] - points[j][<span class="hljs-number">1</span>];<br>                <span class="hljs-type">double</span> a = dx != <span class="hljs-number">0</span> ? <span class="hljs-number">1.0</span> * dy / dx : DBL_MAX;<br>                <span class="hljs-type">double</span> b = dx != <span class="hljs-number">0</span> ? <span class="hljs-number">1.0</span> * (points[i][<span class="hljs-number">1</span>] * dx - points[i][<span class="hljs-number">0</span>] * dy) / dx : points[i][<span class="hljs-number">0</span>];<br>                line[a][b]++;<br>                cnt[((points[i][<span class="hljs-number">0</span>] + points[j][<span class="hljs-number">0</span>] + <span class="hljs-number">2000</span>) &lt;&lt; <span class="hljs-number">16</span>) | (points[i][<span class="hljs-number">1</span>] + points[j][<span class="hljs-number">1</span>] + <span class="hljs-number">2000</span>)][a]++;<br>            }<br>        }<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; [_, l] : line) {<br>            <span class="hljs-type">int</span> pre = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; [__, t] : l) {<br>                ans += pre * t;<br>                pre += t;<br>            }<br>        }<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; [_, l] : cnt) {<br>            <span class="hljs-type">int</span> pre = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; [__, t] : l) {<br>                ans -= pre * t;<br>                pre += t;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题2211-统计道路上的碰撞次数"><a href="#力扣每日一题2211-统计道路上的碰撞次数" class="headerlink" title="力扣每日一题2211-统计道路上的碰撞次数"></a>力扣每日一题2211-统计道路上的碰撞次数</h2><blockquote>
+<p>日期：2025-12-04</p>
+</blockquote>
+<h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>给定字符串 <code>directions</code> 表示一排车的初始方向。若两辆车以相反的方向相撞则碰撞次数加 <code>2</code> ；若移动车辆撞上静止车辆则移动次数加 <code>1</code> 。两车相撞后均保持停止在相撞位置。问最终总相撞次数。</p>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>若从左往右遍历，显然只有向右与静止的车辆需要记录，进行一个模拟即可。</p>
+<h3 id="实现-3"><a href="#实现-3" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countCollisions</span><span class="hljs-params">(string directions)</span> </span>{<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> t = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">char</span> last = <span class="hljs-string">'#'</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; ch : directions) {<br>            <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">'L'</span>) {<br>                <span class="hljs-keyword">if</span> (last == <span class="hljs-string">'R'</span>) {<br>                    ans += t + <span class="hljs-number">1</span>;<br>                    t = <span class="hljs-number">0</span>;<br>                    last = <span class="hljs-string">'S'</span>;<br>                    <span class="hljs-keyword">continue</span>;<br>                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (last == <span class="hljs-string">'S'</span>) {<br>                    ans++;<br>                    last = <span class="hljs-string">'S'</span>;<br>                    <span class="hljs-keyword">continue</span>;<br>                }<br>            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ch == <span class="hljs-string">'S'</span>) {<br>                <span class="hljs-keyword">if</span> (last == <span class="hljs-string">'R'</span>) {<br>                    ans += t;<br>                    t = <span class="hljs-number">0</span>;<br>                    last = <span class="hljs-string">'S'</span>;<br>                    <span class="hljs-keyword">continue</span>;<br>                }<br>            } <span class="hljs-keyword">else</span> {<br>                t++;<br>            }<br>            last = ch;<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3432-统计元素和差值为偶数的分区方案"><a href="#力扣每日一题3432-统计元素和差值为偶数的分区方案" class="headerlink" title="力扣每日一题3432-统计元素和差值为偶数的分区方案"></a>力扣每日一题3432-统计元素和差值为偶数的分区方案</h2><blockquote>
+<p>日期：2025-12-05</p>
+</blockquote>
+<h3 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h3><p>给定整数数组 <code>nums</code> ，将整个数组分为两个非空的子数组，求两子数组元素和之差为偶数的分割方案数。</p>
+<h3 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h3><p>使用前缀和优化求两段子数组和的过程，然后枚举所分割的点即可。</p>
+<h3 id="实现-4"><a href="#实现-4" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countPartitions</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>{<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">pre</span><span class="hljs-params">(n)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (i) pre[i] += pre[i - <span class="hljs-number">1</span>];<br>            pre[i] += nums[i];<br>        }<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) {<br>            <span class="hljs-keyword">if</span> (!((pre[i] &lt;&lt; <span class="hljs-number">1</span>) - pre.<span class="hljs-built_in">back</span>() &amp; <span class="hljs-number">1</span>)) ans++;<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3578-统计极差最大为K的分割方式数"><a href="#力扣每日一题3578-统计极差最大为K的分割方式数" class="headerlink" title="力扣每日一题3578-统计极差最大为K的分割方式数"></a>力扣每日一题3578-统计极差最大为K的分割方式数</h2><blockquote>
+<p>日期：2025-12-06</p>
+</blockquote>
+<h3 id="题意-5"><a href="#题意-5" class="headerlink" title="题意"></a>题意</h3><p>给定整数数组 <code>nums</code> 与一个整数 <code>k</code> 。求该数组有多少种划分方法，使得每个子数组极差不超过 <code>k</code> 。</p>
+<h3 id="思路-5"><a href="#思路-5" class="headerlink" title="思路"></a>思路</h3><p>显然是进行一个 dp，不过我们需要维护一个区间的方案数以及最大最小值。这几个技巧我们先前都有联系过，就不过多赘述了。</p>
+<h3 id="实现-5"><a href="#实现-5" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countPartitions</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums, <span class="hljs-type">int</span> k)</span> </span>{<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">f</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>        f[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        deque&lt;<span class="hljs-type">int</span>&gt; mn, mx;<br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>, l = <span class="hljs-number">0</span>, pre = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            pre += f[i];<br>            <span class="hljs-keyword">if</span> (pre &gt;= mod) pre -= mod;<br>            <span class="hljs-keyword">for</span> ( ; !mn.<span class="hljs-built_in">empty</span>() &amp;&amp; nums[mn.<span class="hljs-built_in">back</span>()] &gt;= nums[i]; mn.<span class="hljs-built_in">pop_back</span>());<br>            mn.<span class="hljs-built_in">push_back</span>(i);<br>            <span class="hljs-keyword">for</span> ( ; !mx.<span class="hljs-built_in">empty</span>() &amp;&amp; nums[mx.<span class="hljs-built_in">back</span>()] &lt;= nums[i]; mx.<span class="hljs-built_in">pop_back</span>());<br>            mx.<span class="hljs-built_in">push_back</span>(i);<br><br>            <span class="hljs-keyword">for</span> ( ; nums[mx.<span class="hljs-built_in">front</span>()] - nums[mn.<span class="hljs-built_in">front</span>()] &gt; k; ) {<br>                pre = (pre - f[l] + mod) % mod;<br>                l++;<br>                <span class="hljs-keyword">for</span> ( ; !mn.<span class="hljs-built_in">empty</span>() &amp;&amp; mn.<span class="hljs-built_in">front</span>() &lt; l; mn.<span class="hljs-built_in">pop_front</span>());<br>                <span class="hljs-keyword">for</span> ( ; !mx.<span class="hljs-built_in">empty</span>() &amp;&amp; mx.<span class="hljs-built_in">front</span>() &lt; l; mx.<span class="hljs-built_in">pop_front</span>());<br>            }<br>            f[i + <span class="hljs-number">1</span>] = pre;<br>        }<br>        <span class="hljs-keyword">return</span> f[n];<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题1523-在区间范围内统计奇数数目"><a href="#力扣每日一题1523-在区间范围内统计奇数数目" class="headerlink" title="力扣每日一题1523-在区间范围内统计奇数数目"></a>力扣每日一题1523-在区间范围内统计奇数数目</h2><blockquote>
+<p>日期：2025-12-07</p>
+</blockquote>
+<h3 id="题意-6"><a href="#题意-6" class="headerlink" title="题意"></a>题意</h3><p>给定非负整数 <code>low</code> 和 <code>high</code> ，求 <code>[low, high]</code> 之间的奇数个数。</p>
+<h3 id="思路-6"><a href="#思路-6" class="headerlink" title="思路"></a>思路</h3><p>可以想到求一个数 <code>x</code> 及其之前的所有非负奇数的个数有 <code>(x + 1) / 2</code> 个。只需要分别求出 <code>low</code> 与 <code>high</code> 之前的奇数个数然后做差即可。</p>
+<h3 id="实现-6"><a href="#实现-6" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countOdds</span><span class="hljs-params">(<span class="hljs-type">int</span> low, <span class="hljs-type">int</span> high)</span> </span>{<br>        <span class="hljs-keyword">return</span> (high + <span class="hljs-number">1</span> &gt;&gt; <span class="hljs-number">1</span>) - (low &gt;&gt; <span class="hljs-number">1</span>);<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题1925-统计平方和三元组的数目"><a href="#力扣每日一题1925-统计平方和三元组的数目" class="headerlink" title="力扣每日一题1925-统计平方和三元组的数目"></a>力扣每日一题1925-统计平方和三元组的数目</h2><blockquote>
+<p>日期：2025-12-08</p>
+</blockquote>
+<h3 id="题意-7"><a href="#题意-7" class="headerlink" title="题意"></a>题意</h3><p>给定正整数 <code>n</code> ，求满足 <code>1 &lt;= a, b, c &lt;= n &amp;&amp; a^2 + b^2 == c^2</code> 的三元组 <code>(a, b, c)</code> 的个数。</p>
+<h3 id="思路-7"><a href="#思路-7" class="headerlink" title="思路"></a>思路</h3><p>勾股数是有很多有意思的数学上的性质，但这里数据范围实在不大 <code>1 &lt;= n &lt;= 250</code> 咱们就简单问题简单做，进行一个暴力模拟即可。</p>
+<h3 id="实现-7"><a href="#实现-7" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countTriples</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>{<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>; j &lt;= n; j++) {<br>                <span class="hljs-type">int</span> k = i * i + j * j;<br>                <span class="hljs-type">int</span> sk = <span class="hljs-built_in">sqrt</span>(k);<br>                <span class="hljs-keyword">if</span> (sk &lt;= n &amp;&amp; sk * sk == k) ans += <span class="hljs-number">2</span>;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3583-统计特殊三元组"><a href="#力扣每日一题3583-统计特殊三元组" class="headerlink" title="力扣每日一题3583-统计特殊三元组"></a>力扣每日一题3583-统计特殊三元组</h2><blockquote>
+<p>日期：2025-12-09</p>
+</blockquote>
+<h3 id="题意-8"><a href="#题意-8" class="headerlink" title="题意"></a>题意</h3><p>给定整数数组 <code>nums</code> ，返回满足以下条件的三元组 <code>(i, j, k)</code> 个数:</p>
+<ul>
+<li><code>0 &lt;= i &lt; j &lt; k &lt; nums.size</code></li>
+<li><code>nums[i] == nums[j] * 2 == nums[k]</code></li>
+</ul>
+<h3 id="思路-8"><a href="#思路-8" class="headerlink" title="思路"></a>思路</h3><p>比较容易想到的实现思路是使用哈希维护各个数出现的个数，前后扫一趟得出前后缀为当前数两倍的数的个数，然后枚举中间值求解。</p>
+<p>但我们需要求的仅为三元组个数，可以通过类似 dp 的思想维护一下 元组 <code>i</code> 的个数 与 元组 <code>(i, j) &amp;&amp; nums[i] == 2 * nums[j]</code> 的个数，由此即可推出 <code>(i, j, k)</code> 的个数，相较而言可以少扫描一次，常数级别上稍稍快些。</p>
+<h3 id="实现-8"><a href="#实现-8" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">specialTriplets</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; nums)</span> </span>{<br>        <span class="hljs-type">int</span> n = nums.<span class="hljs-built_in">size</span>();<br>        unordered_map&lt;<span class="hljs-type">int</span>, ll&gt; f0, f1;<br>        ll ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : nums) {<br>            <span class="hljs-keyword">if</span> (x % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) ans += f1[x &gt;&gt; <span class="hljs-number">1</span>];<br>            f1[x] += f0[x &lt;&lt; <span class="hljs-number">1</span>];<br>            f0[x]++;<br>        }<br>        <span class="hljs-keyword">return</span> ans % mod;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3577-统计计算机解锁顺序排列数"><a href="#力扣每日一题3577-统计计算机解锁顺序排列数" class="headerlink" title="力扣每日一题3577-统计计算机解锁顺序排列数"></a>力扣每日一题3577-统计计算机解锁顺序排列数</h2><blockquote>
+<p>日期：2025-12-10</p>
+</blockquote>
+<h3 id="题意-9"><a href="#题意-9" class="headerlink" title="题意"></a>题意</h3><p>给定数组 <code>complexity</code> 表示多台上锁的计算机的密码复杂度。若要解锁编号为 <code>i</code> 的计算机需用已解锁的计算机 <code>j</code> 解锁且要求 <code>j &lt; i &amp;&amp; complexity[j] &lt; complexity[i]</code> 。初始编号为 <code>0</code> 的计算机已解锁。问有多少种 <code>[0, 1, 2..., n - 1]</code> 的排列解锁顺序能将所有计算机解锁。  </p>
+<h3 id="思路-9"><a href="#思路-9" class="headerlink" title="思路"></a>思路</h3><p>咋一看有点复杂，但实际难点全在读懂题目上了。我们要按排列的方式一个一个去解锁所有的计算机，初始仅有 <code>0</code> 是解锁了的，所以 <code>0</code> 是固定好在首位的。若之后存在复杂度小于等于首个复杂度的必定无法解锁，这是可由解锁条件直接推出的。若之后所有数均严格 大于首个复杂度，那显然排序方式是不影响的，因为每台均可由首台解锁，则答案为 <code>(n - 1)!</code></p>
+<h3 id="实现-9"><a href="#实现-9" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countPermutations</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; complexity)</span> </span>{<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> n = complexity.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (complexity[i] &lt;= complexity[<span class="hljs-number">0</span>]) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>            ans = <span class="hljs-number">1ll</span> * ans * i % mod;<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3531-统计被覆盖的建筑"><a href="#力扣每日一题3531-统计被覆盖的建筑" class="headerlink" title="力扣每日一题3531-统计被覆盖的建筑"></a>力扣每日一题3531-统计被覆盖的建筑</h2><blockquote>
+<p>日期：2025-12-11</p>
+</blockquote>
+<h3 id="题意-10"><a href="#题意-10" class="headerlink" title="题意"></a>题意</h3><p>给定 <code>n * n</code> 大小的城市，以及所有建筑位置 <code>buildings</code> 。若某建筑上下左右方向上都至少存在一个建筑则称其被覆盖，求该城市被覆盖建筑个数。 </p>
+<h3 id="思路-10"><a href="#思路-10" class="headerlink" title="思路"></a>思路</h3><p>使用哈希记录每个横纵轴最大最小位置的建筑，对于某建筑若其不为所在横纵轴最大/最小建筑则其被覆盖。</p>
+<h3 id="实现-10"><a href="#实现-10" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countCoveredBuildings</span><span class="hljs-params">(<span class="hljs-type">int</span> n, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; buildings)</span> </span>{<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">xmn</span><span class="hljs-params">(n + <span class="hljs-number">1</span>, n)</span>, <span class="hljs-title">ymn</span><span class="hljs-params">(n + <span class="hljs-number">1</span>, n)</span>, <span class="hljs-title">xmx</span><span class="hljs-params">(n + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)</span>, <span class="hljs-title">ymx</span><span class="hljs-params">(n + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; b : buildings) {<br>            <span class="hljs-type">int</span> x = b[<span class="hljs-number">0</span>], y = b[<span class="hljs-number">1</span>];<br>            xmn[y] = <span class="hljs-built_in">min</span>(xmn[y], x);<br>            xmx[y] = <span class="hljs-built_in">max</span>(xmx[y], x);<br>            ymn[x] = <span class="hljs-built_in">min</span>(ymn[x], y);<br>            ymx[x] = <span class="hljs-built_in">max</span>(ymx[x], y);<br>        }<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; b : buildings) {<br>            <span class="hljs-type">int</span> x = b[<span class="hljs-number">0</span>], y = b[<span class="hljs-number">1</span>];<br>            ans += (xmn[y] &lt; x &amp;&amp; xmx[y] &gt; x &amp;&amp; ymn[x] &lt; y &amp;&amp; ymx[x] &gt; y);<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3433-统计用户被提及情况"><a href="#力扣每日一题3433-统计用户被提及情况" class="headerlink" title="力扣每日一题3433-统计用户被提及情况"></a>力扣每日一题3433-统计用户被提及情况</h2><blockquote>
+<p>日期：2025-12-12</p>
+</blockquote>
+<h3 id="题意-11"><a href="#题意-11" class="headerlink" title="题意"></a>题意</h3><p>给定数组 <code>events</code> 表示一堆消息，具体的 <code>events[i] = [type_i, time_i, mentions_i]</code> 。</p>
+<ul>
+<li>若 <code>type_i</code> 为 <code>MESSAGE</code> 表示在 <code>time_i</code> 时一组用户被消息提及。<ul>
+<li>其中若 <code>mentions_i</code> 为 <code>ALL</code> 表示给所有用户发送消息，包括离线用户</li>
+<li>若 <code>mentions_i</code> 为 <code>HERE</code> 表示给所有在线用户发送消息</li>
+<li>若为多个由空格分隔的 <code>id&lt;numer&gt;</code> 表示给对应 <code>numer</code> 的用户发送消息，即使对方离线</li>
+</ul>
+</li>
+<li>若 <code>type_i</code> 为 <code>OFFLINE</code> 表示 <code>mentions_i</code> 表示的用户在 <code>time_i</code> 开始离线 <code>60</code> 个单位时间，并会在 <code>time_i + 60</code> 时自动再次上线。</li>
+</ul>
+<p>求所有用户被提及到的总次数。</p>
+<h3 id="思路-11"><a href="#思路-11" class="headerlink" title="思路"></a>思路</h3><p>没什么特别的算法，就是根据题意进行模拟即可。只是这里需要注意给出来的事件并非是按时间顺序排好的，需要先排序一下，同时相同时间下优先处理下线逻辑。</p>
+<h3 id="实现-11"><a href="#实现-11" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">countMentions</span><span class="hljs-params">(<span class="hljs-type">int</span> numberOfUsers, vector&lt;vector&lt;string&gt;&gt;&amp; events)</span> </span>{<br>        ranges::<span class="hljs-built_in">sort</span>(events, [&amp;](<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x, <span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; y) {<br>            <span class="hljs-type">int</span> xt = <span class="hljs-built_in">stoi</span>(x[<span class="hljs-number">1</span>]), yt = <span class="hljs-built_in">stoi</span>(y[<span class="hljs-number">1</span>]);<br>            <span class="hljs-keyword">if</span> (xt == yt) <span class="hljs-keyword">return</span> x[<span class="hljs-number">0</span>] == <span class="hljs-string">"OFFLINE"</span>;<br>            <span class="hljs-keyword">return</span> xt &lt; yt;<br>        });<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">ans</span><span class="hljs-params">(numberOfUsers)</span></span>;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">onlineT</span><span class="hljs-params">(numberOfUsers)</span></span>;<br>        <span class="hljs-type">int</span> curT = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; e : events) {<br>            <span class="hljs-keyword">auto</span> message = e[<span class="hljs-number">0</span>], ti = e[<span class="hljs-number">1</span>], mentions = e[<span class="hljs-number">2</span>];<br>            <span class="hljs-type">int</span> t = <span class="hljs-built_in">stoi</span>(ti);<br>            <span class="hljs-keyword">if</span> (message == <span class="hljs-string">"MESSAGE"</span>) {<br>                <span class="hljs-keyword">if</span> (mentions == <span class="hljs-string">"ALL"</span>) {<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; x : ans) x++;<br>                } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mentions == <span class="hljs-string">"HERE"</span>) {<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; numberOfUsers; i++) {<br>                        <span class="hljs-keyword">if</span> (onlineT[i] &lt;= t) ans[i]++;<br>                    }<br>                } <span class="hljs-keyword">else</span> {<br>                    <span class="hljs-type">int</span> m = mentions.<span class="hljs-built_in">size</span>();<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {<br>                        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">isdigit</span>(mentions[i])) <span class="hljs-keyword">continue</span>;<br>                        <span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>;<br>                        <span class="hljs-keyword">for</span> ( ; j &lt; m &amp;&amp; <span class="hljs-built_in">isdigit</span>(mentions[j]); j++);<br>                        <span class="hljs-type">int</span> id = <span class="hljs-built_in">stoi</span>(mentions.<span class="hljs-built_in">substr</span>(i, j - i));<br>                        ans[id]++;<br>                        i = j;<br>                    }<br>                }<br>            } <span class="hljs-keyword">else</span> {<br>                <span class="hljs-type">int</span> id = <span class="hljs-built_in">stoi</span>(mentions);<br>                onlineT[id] = t + <span class="hljs-number">60</span>;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3606-优惠券校验器"><a href="#力扣每日一题3606-优惠券校验器" class="headerlink" title="力扣每日一题3606-优惠券校验器"></a>力扣每日一题3606-优惠券校验器</h2><blockquote>
+<p>日期：2025-12-13</p>
+</blockquote>
+<h3 id="题意-12"><a href="#题意-12" class="headerlink" title="题意"></a>题意</h3><p>给定三个等长数组 <code>code</code>、<code>businessLine</code> 和 <code>isActive</code> 分别表示多个优惠券的标识符、业务类别以及有效状态。若一个优惠券的标识符仅由字母数字与下划线组成，且业务类别属于 <code>electronics /grocery/pharmacy/restaurant</code>  之一，同时处于有效状态则称该优惠券有效。返回所有有效优惠券的标识符，以业务类型进行排序，相同业务类型的优惠券按标识符字典序升序排序。</p>
+<h3 id="思路-12"><a href="#思路-12" class="headerlink" title="思路"></a>思路</h3><p>也没什么特别的做法，就是遍历优惠券，按题设条件判断其是否有效，分组排序后合并即可。</p>
+<h3 id="实现-12"><a href="#实现-12" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp">unordered_map&lt;string, <span class="hljs-type">int</span>&gt; s2i = {<br>    {<span class="hljs-string">"electronics"</span>, <span class="hljs-number">0</span>}, {<span class="hljs-string">"grocery"</span>, <span class="hljs-number">1</span>}, {<span class="hljs-string">"pharmacy"</span>, <span class="hljs-number">2</span>}, {<span class="hljs-string">"restaurant"</span>, <span class="hljs-number">3</span>}<br>};<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">validateCoupons</span><span class="hljs-params">(vector&lt;string&gt;&amp; code, vector&lt;string&gt;&amp; businessLine, vector&lt;<span class="hljs-type">bool</span>&gt;&amp; isActive)</span> </span>{<br>        vector&lt;vector&lt;string&gt;&gt; <span class="hljs-built_in">s</span>(<span class="hljs-number">4</span>);<br>        <span class="hljs-type">int</span> n = code.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (isActive[i] &amp;&amp; s2i.<span class="hljs-built_in">count</span>(businessLine[i])) {<br>                <span class="hljs-type">bool</span> ok = !code[i].<span class="hljs-built_in">empty</span>();<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; ch : code[i]) {<br>                    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">isalpha</span>(ch) &amp;&amp; !<span class="hljs-built_in">isdigit</span>(ch) &amp;&amp; ch != <span class="hljs-string">'_'</span>) {<br>                        ok = <span class="hljs-literal">false</span>;<br>                        <span class="hljs-keyword">break</span>;<br>                    }<br>                }<br>                <span class="hljs-keyword">if</span> (ok) s[s2i[businessLine[i]]].<span class="hljs-built_in">emplace_back</span>(<span class="hljs-built_in">move</span>(code[i]));<br>            }<br>        }<br>        vector&lt;string&gt; ans;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; vec : s) {<br>            ranges::<span class="hljs-built_in">sort</span>(vec);<br>            ans.<span class="hljs-built_in">insert</span>(ans.<span class="hljs-built_in">end</span>(), vec.<span class="hljs-built_in">begin</span>(), vec.<span class="hljs-built_in">end</span>());<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题2147-分隔长廊的方案数"><a href="#力扣每日一题2147-分隔长廊的方案数" class="headerlink" title="力扣每日一题2147-分隔长廊的方案数"></a>力扣每日一题2147-分隔长廊的方案数</h2><blockquote>
+<p>日期：2025-12-14</p>
+</blockquote>
+<h3 id="题意-13"><a href="#题意-13" class="headerlink" title="题意"></a>题意</h3><p>给定一条由座位与植物组成的长廊，需往其间空隙上放屏风使得长廊被分割为若干个恰有两座位的子段。求有多少种不同放置方案。</p>
+<h3 id="思路-13"><a href="#思路-13" class="headerlink" title="思路"></a>思路</h3><p>假如我们先把所有的植物移除，那么放置方案显然是确定且唯一的。那不同的放置方案实际上就是，将座位按连续的两两分组，不同组之间的空隙数量之积。简单模拟计算即可。</p>
+<h3 id="实现-13"><a href="#实现-13" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> mod = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">numberOfWays</span><span class="hljs-params">(string corridor)</span> </span>{<br>        <span class="hljs-type">int</span> n = corridor.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">1</span>, t = <span class="hljs-number">0</span>, last = <span class="hljs-number">-1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (corridor[i] == <span class="hljs-string">'S'</span>) {<br>                t++;<br>                <span class="hljs-keyword">if</span> (t &gt; <span class="hljs-number">2</span> &amp;&amp; (t &amp; <span class="hljs-number">1</span>)) {<br>                    ans = <span class="hljs-number">1ll</span> * ans * (i - last) % mod;<br>                }<br>                last = i;<br>            }<br>        }<br>        <span class="hljs-keyword">if</span> ((t &amp; <span class="hljs-number">1</span>) || t == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题2110-股票平滑下跌阶段的数目"><a href="#力扣每日一题2110-股票平滑下跌阶段的数目" class="headerlink" title="力扣每日一题2110-股票平滑下跌阶段的数目"></a>力扣每日一题2110-股票平滑下跌阶段的数目</h2><blockquote>
+<p>日期：2025-12-15</p>
+</blockquote>
+<h3 id="题意-14"><a href="#题意-14" class="headerlink" title="题意"></a>题意</h3><p>给定正整数数组 <code>prices</code> 表示某支股票的历史股价。若连续一天或多天每日股价比前一日股价恰好少 <code>1</code> 则称该阶段为平滑下降阶段。求所有平滑下降阶段的数目。</p>
+<h3 id="思路-14"><a href="#思路-14" class="headerlink" title="思路"></a>思路</h3><p>那好像是有写过几次很类似的题目了。咱们直接进行一个滑动窗口求出当前最长平滑下降阶段，再用等差数列求和公式求出该段总贡献即可。</p>
+<h3 id="实现-14"><a href="#实现-14" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ll <span class="hljs-title">getDescentPeriods</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; prices)</span> </span>{<br>        ll ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> n = prices.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ) {<br>            <span class="hljs-type">int</span> j = i + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">for</span> ( ; j &lt; n &amp;&amp; prices[j] == prices[j - <span class="hljs-number">1</span>] - <span class="hljs-number">1</span>; j++);<br>            ans += <span class="hljs-number">1ll</span> * (j - i + <span class="hljs-number">1</span>) * (j - i) / <span class="hljs-number">2</span>;<br>            i = j;<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3562-折扣价交易股票的最大利润"><a href="#力扣每日一题3562-折扣价交易股票的最大利润" class="headerlink" title="力扣每日一题3562-折扣价交易股票的最大利润"></a>力扣每日一题3562-折扣价交易股票的最大利润</h2><blockquote>
+<p>日期：2025-12-16</p>
+</blockquote>
+<h3 id="题意-15"><a href="#题意-15" class="headerlink" title="题意"></a>题意</h3><p>给定长度为 <code>n</code> 的数组 <code>present</code> 与 <code>future</code> 表示这 <code>n</code> 个员工当天购买股票的价格与明天可以卖出的价格。同时给出二维数组 <code>hierarchy</code> 表示员工之间直接的上下属关系。若某员工的直系上司购买了股票，则该员工可半价购买。在给定预算 <code>budget</code> 下，该公司的最大利润是多少。</p>
+<h3 id="思路-15"><a href="#思路-15" class="headerlink" title="思路"></a>思路</h3><p>员工间的上下属关系可以转换为一棵树。那在不用考虑预算的情况下，显然是进行一个树形dp即可：递归处理每个结点，根据当前结点是否可以半价购买进行状态转移。</p>
+<p>但加上预算要求应该怎么做呢，首先想到增加一个维度用来处理预算。记当前结点为 <code>u</code> 购买价格为 <code>c</code> 还剩预算 <code>x</code> ，若购买当前结点则所有子树剩余预算为 <code>c - x</code> 且直接的子节点可以半价购买；若不购买当前结点则剩余预算为 <code>c</code> 且直接的子节点只能原价购买。若所有子节点已经处理完毕，显然是要做一个树上背包的操作处理得到当前结点的最大价值。</p>
+<h3 id="实现-15"><a href="#实现-15" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(<span class="hljs-type">int</span> n, vector&lt;<span class="hljs-type">int</span>&gt;&amp; present, vector&lt;<span class="hljs-type">int</span>&gt;&amp; future, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; hierarchy, <span class="hljs-type">int</span> budget)</span> </span>{<br>        vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt; <span class="hljs-built_in">e</span>(n);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; h : hierarchy) {<br>            <span class="hljs-type">int</span> u = h[<span class="hljs-number">0</span>], v = h[<span class="hljs-number">1</span>];<br>            u--; v--;<br>            e[u].<span class="hljs-built_in">push_back</span>(v);<br>        }<br><br>        <span class="hljs-function">vector <span class="hljs-title">f</span><span class="hljs-params">(n, vector&lt;array&lt;<span class="hljs-type">int</span>, <span class="hljs-number">2</span>&gt;&gt; (budget + <span class="hljs-number">1</span>))</span></span>;<br>        <span class="hljs-function">vector <span class="hljs-title">g</span><span class="hljs-params">(n, vector&lt;array&lt;<span class="hljs-type">int</span>, <span class="hljs-number">2</span>&gt;&gt; (budget + <span class="hljs-number">1</span>))</span></span>;<br>        <span class="hljs-keyword">auto</span> dfs = [&amp;](<span class="hljs-keyword">this</span> <span class="hljs-keyword">auto</span>&amp;&amp; self, <span class="hljs-type">int</span> u) -&gt; <span class="hljs-type">void</span> {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> v : e[u]) {<br>                <span class="hljs-built_in">self</span>(v);<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = budget; i &gt;= <span class="hljs-number">0</span>; i--) {<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt;= i; j++) {<br>                        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; <span class="hljs-number">2</span>; k++) {<br>                            f[u][i][k] = <span class="hljs-built_in">max</span>(f[u][i][k], f[u][i - j][k] + g[v][j][k]);<br>                        }<br>                    }<br>                }<br>            }<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= budget; i++) {<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; <span class="hljs-number">2</span>; k++) {<br>                    <span class="hljs-type">int</span> c = k ? present[u] / <span class="hljs-number">2</span> : present[u];<br>                    <span class="hljs-keyword">if</span> (i &gt;= c) {<br>                        g[u][i][k] = <span class="hljs-built_in">max</span>(f[u][i][<span class="hljs-number">0</span>], f[u][i - c][<span class="hljs-number">1</span>] + future[u] - c);<br>                    } <span class="hljs-keyword">else</span> {<br>                        g[u][i][k] = f[u][i][<span class="hljs-number">0</span>];<br>                    }<br>                }<br>            }<br>        };<br>        <span class="hljs-built_in">dfs</span>(<span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">return</span> g[<span class="hljs-number">0</span>][budget][<span class="hljs-number">0</span>];<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3573-买卖股票的最佳时机V"><a href="#力扣每日一题3573-买卖股票的最佳时机V" class="headerlink" title="力扣每日一题3573-买卖股票的最佳时机V"></a>力扣每日一题3573-买卖股票的最佳时机V</h2><blockquote>
+<p>日期：2025-12-17</p>
+</blockquote>
+<h3 id="题意-16"><a href="#题意-16" class="headerlink" title="题意"></a>题意</h3><p>给定正整数数组 <code>prices</code> 表示每天的股票价格，同时我们仅能进行 <code>k</code> 笔交易，可进行如下类型的交易：</p>
+<ul>
+<li>普通交易：第 <code>i</code> 天买入，第 <code>j</code> 天卖出，获利 <code>prices[j] - prices[i]</code></li>
+<li>做空交易：第 <code>i</code> 天卖出，第 <code>j</code> 天买入，获利 <code>prices[i] - prices[j]</code></li>
+</ul>
+<p>必须在当前交易结束后才可进行下一笔交易，求可获最大总利润。</p>
+<h3 id="思路-16"><a href="#思路-16" class="headerlink" title="思路"></a>思路</h3><p>数据范围比较合适，同时状态间的转移关系也比较明显，还是可以比较自然想到使用dp的。</p>
+<p>我们最多可以进行 <code>k</code> 笔交易，即最多可以买入 <code>k</code> 次卖出 <code>k</code> 次，因此我们可以将 <code>k</code> 次交易拆分为 <code>2 * k</code> 次操作，这样方便进行状态的转移。</p>
+<p>同时我们有两种交易方式，那么我们其实仅有 <code>3</code> 种不同状态：1. 上一交易已完成可以任意开始下一交易； 2. 正在进行普通交易，已买入股票等待卖出； 3. 正在进行做空交易，已卖出股票等待买入。状态1通过开始对应交易进入对应交易状态，状态23通过完成当前交易回到状态1。最终答案显然是取状态1的最大值即可。</p>
+<h3 id="实现-16"><a href="#实现-16" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> ll inf = <span class="hljs-number">1e18</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">ll <span class="hljs-title">maximumProfit</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; prices, <span class="hljs-type">int</span> k)</span> </span>{<br>        <span class="hljs-type">int</span> n = prices.<span class="hljs-built_in">size</span>();<br>        vector&lt;array&lt;ll, 3&gt;&gt; <span class="hljs-built_in">f</span>(<span class="hljs-number">2</span> * k + <span class="hljs-number">1</span>, {-inf, -inf, -inf});<br>        f[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-built_in">min</span>(<span class="hljs-number">2</span> * k, i + <span class="hljs-number">1</span>); j &gt; <span class="hljs-number">0</span>; j--) {<br>                f[j][<span class="hljs-number">0</span>] = <span class="hljs-built_in">max</span>({f[j][<span class="hljs-number">0</span>], f[j - <span class="hljs-number">1</span>][<span class="hljs-number">1</span>] + prices[i], f[j - <span class="hljs-number">1</span>][<span class="hljs-number">2</span>] - prices[i]});<br>                f[j][<span class="hljs-number">1</span>] = <span class="hljs-built_in">max</span>(f[j][<span class="hljs-number">1</span>], f[j - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] - prices[i]);<br>                f[j][<span class="hljs-number">2</span>] = <span class="hljs-built_in">max</span>(f[j][<span class="hljs-number">2</span>], f[j - <span class="hljs-number">1</span>][<span class="hljs-number">0</span>] + prices[i]);<br>            }<br>        }<br>        ll ans = -inf;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">2</span> * k; i++) {<br>            ans = <span class="hljs-built_in">max</span>(ans, f[i][<span class="hljs-number">0</span>]);<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3652-按策略买卖股票的最佳时机"><a href="#力扣每日一题3652-按策略买卖股票的最佳时机" class="headerlink" title="力扣每日一题3652-按策略买卖股票的最佳时机"></a>力扣每日一题3652-按策略买卖股票的最佳时机</h2><blockquote>
+<p>日期：2025-12-18</p>
+</blockquote>
+<h3 id="题意-17"><a href="#题意-17" class="headerlink" title="题意"></a>题意</h3><p>给定整数数组 <code>prices</code> 和 <code>strategy</code> 分别表示每日股价与每日操作策略，其中每日策略有买入/卖出/持有三种。同时给定偶数 <code>k</code> ，可以对 <code>strategy</code> 进行最多一次修改：选择连续 <code>k</code> 天的策略，将前 <code>k / 2</code> 天操作均修改为持有，将后 <code>k / 2</code> 天操作均改为卖出。假定没有预算与持股等限制，求可获最大利润。</p>
+<h3 id="思路-17"><a href="#思路-17" class="headerlink" title="思路"></a>思路</h3><p>修改某个子区间的操作，可以想到使用前缀和处理记录当前位置之前均改为持有以及均改为卖出对最终利润的影响。再通过枚举修改区间的左右边界进行求利润最大即可。</p>
+<h3 id="实现-17"><a href="#实现-17" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; prices, vector&lt;<span class="hljs-type">int</span>&gt;&amp; strategy, <span class="hljs-type">int</span> k)</span> </span>{<br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> n = prices.<span class="hljs-built_in">size</span>();<br>        ll ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-function">vector&lt;ll&gt; <span class="hljs-title">hold</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span>, <span class="hljs-title">sole</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (strategy[i] == <span class="hljs-number">1</span>) {<br>                ans += prices[i];<br>                hold[i + <span class="hljs-number">1</span>] = hold[i] - prices[i];<br>                sole[i + <span class="hljs-number">1</span>] = sole[i];<br>            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (strategy[i] == <span class="hljs-number">0</span>) {<br>                sole[i + <span class="hljs-number">1</span>] = sole[i] + prices[i];<br>                hold[i + <span class="hljs-number">1</span>] = hold[i];<br>            } <span class="hljs-keyword">else</span> {<br>                ans -= prices[i];<br>                hold[i + <span class="hljs-number">1</span>] = hold[i] + prices[i];<br>                sole[i + <span class="hljs-number">1</span>] = sole[i] + prices[i] * <span class="hljs-number">2</span>; <br>            }<br>        }<br><br>        ll mx = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> l = <span class="hljs-number">0</span>, m = k / <span class="hljs-number">2</span> - <span class="hljs-number">1</span>, r = k - <span class="hljs-number">1</span>; r &lt; n; l++, m++, r++) {<br>            mx = <span class="hljs-built_in">max</span>(mx, hold[m + <span class="hljs-number">1</span>] - hold[l] + sole[r + <span class="hljs-number">1</span>] - sole[m + <span class="hljs-number">1</span>]);<br>        }<br>        <span class="hljs-keyword">return</span> ans + mx;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题2092-找出知晓秘密的所有专家"><a href="#力扣每日一题2092-找出知晓秘密的所有专家" class="headerlink" title="力扣每日一题2092-找出知晓秘密的所有专家"></a>力扣每日一题2092-找出知晓秘密的所有专家</h2><blockquote>
+<p>日期：2025-12-19</p>
+</blockquote>
+<h3 id="题意-18"><a href="#题意-18" class="headerlink" title="题意"></a>题意</h3><p>给定数组 <code>meetings</code> 表示多个会议，其中 <code>meeting[i] = [x_i, y_i, time_i]</code> 表示在 <code>time_i</code> 时 <code>x_i</code> 与 <code>y_i</code> 处于同一个会议。每人可以同时参与多个会议，若会议中有人知道秘密则所有参会者均会知道秘密，同时秘密的传播是瞬时的，所有人均可在知道秘密的瞬间向其他人分享秘密。初始有 <code>0</code> 与 <code>firstPerson</code> 知道秘密，求开完所有会后所有知道秘密的人。</p>
+<h3 id="思路-18"><a href="#思路-18" class="headerlink" title="思路"></a>思路</h3><p>参加同一个会议就可以知道秘密，由此我们可以比较自然的想到使用并查集处理每个会议，将所有参与同一个会议的人合并起来，最终与 <code>0</code> 同处一个并查集即表示其知道秘密。</p>
+<p>但仔细一想，是有些疏漏的，并查集不具备时间的属性，而会议是有的。比如：甲乙开会时无人知晓秘密，但会将其合入同一并查集，之后乙与指导秘密的丙开会，则使得甲乙丙同处一个并查集但实际应仅有乙丙知道秘密。所以我们需要使用到撤销合并的操作，此处相对比较简单，我们仅关心每人是否知道了秘密，所以不用上太高级的内容，只需合并过后检查其是否会知晓秘密即是否与 <code>0</code> 同集即可，若不知晓则撤销该操作即将其父节点设为自己即可。同时我们需要将会议按时间进行排序，顺序的去处理每个会议，同时因秘密可以瞬时传播，所以我们需一起处理同时发生的所有会议。</p>
+<h3 id="实现-18"><a href="#实现-18" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">struct</span> <span class="hljs-title class_">DSU</span> {<br>	vector&lt;<span class="hljs-type">int</span>&gt; fa, sz;<br><br>	<span class="hljs-built_in">DSU</span>() {}<br>	<span class="hljs-built_in">DSU</span>(<span class="hljs-type">int</span> n) {<br>		<span class="hljs-built_in">init</span>(n);<br>	}<br><br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> </span>{<br>		fa.<span class="hljs-built_in">resize</span>(n);<br>		<span class="hljs-built_in">iota</span>(fa.<span class="hljs-built_in">begin</span>(), fa.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0</span>);<br>		sz.<span class="hljs-built_in">assign</span>(n, <span class="hljs-number">1</span>);<br>	}<br><br>	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">find</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>{<br>		<span class="hljs-keyword">while</span>(x != fa[x]) {<br>			x = fa[x] = fa[fa[x]];<br>		}<br>		<span class="hljs-keyword">return</span> x;<br>	}<br><br>	<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">same</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>{<br>		<span class="hljs-keyword">return</span> <span class="hljs-built_in">find</span>(x) == <span class="hljs-built_in">find</span>(y);<br>	}<br><br>	<span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">merge</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span> </span>{<br>		x = <span class="hljs-built_in">find</span>(x); y = <span class="hljs-built_in">find</span>(y);<br>		<span class="hljs-keyword">if</span>(x == y) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>		sz[x] += sz[y];<br>		fa[y] = x;<br>		<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>	}<br><br>	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">size</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span> </span>{<br>		<span class="hljs-keyword">return</span> sz[<span class="hljs-built_in">find</span>(x)];<br>	}<br>};<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">findAllPeople</span><span class="hljs-params">(<span class="hljs-type">int</span> n, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; meetings, <span class="hljs-type">int</span> firstPerson)</span> </span>{<br>        <span class="hljs-function">DSU <span class="hljs-title">dsu</span><span class="hljs-params">(n)</span></span>;<br>        <span class="hljs-type">int</span> m = meetings.<span class="hljs-built_in">size</span>();<br>        ranges::<span class="hljs-built_in">sort</span>(meetings, [&amp;](<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; x, <span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; y) {<br>            <span class="hljs-keyword">return</span> x[<span class="hljs-number">2</span>] &lt; y[<span class="hljs-number">2</span>];<br>        });<br><br>        dsu.<span class="hljs-built_in">merge</span>(<span class="hljs-number">0</span>, firstPerson);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; ) {<br>            <span class="hljs-type">int</span> j = i;<br>            <span class="hljs-keyword">for</span> ( ; j &lt; m &amp;&amp; meetings[j][<span class="hljs-number">2</span>] == meetings[i][<span class="hljs-number">2</span>]; j++) {<br>                <span class="hljs-type">int</span> x = meetings[j][<span class="hljs-number">0</span>], y = meetings[j][<span class="hljs-number">1</span>];<br>                dsu.<span class="hljs-built_in">merge</span>(x, y);<br>            }<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = i; k &lt; j; k++) {<br>                <span class="hljs-type">int</span> x = meetings[k][<span class="hljs-number">0</span>], y = meetings[k][<span class="hljs-number">1</span>];<br>                <span class="hljs-keyword">if</span> (!dsu.<span class="hljs-built_in">same</span>(x, <span class="hljs-number">0</span>)) {<br>                    dsu.fa[x] = x;<br>                    dsu.fa[y] = y;<br>                }<br>            }<br>            i = j;<br>        }<br><br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (dsu.<span class="hljs-built_in">same</span>(i, <span class="hljs-number">0</span>)) ans.<span class="hljs-built_in">push_back</span>(i);<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题944-删列造序"><a href="#力扣每日一题944-删列造序" class="headerlink" title="力扣每日一题944-删列造序"></a>力扣每日一题944-删列造序</h2><blockquote>
+<p>日期：2025-12-20</p>
+</blockquote>
+<h3 id="题意-19"><a href="#题意-19" class="headerlink" title="题意"></a>题意</h3><p>给定由等长字符串组成的数组 <code>strs</code> ，将这些字符串排成列，删除其中不是非严格递增的列，求总共需要删除多少列。</p>
+<h3 id="思路-19"><a href="#思路-19" class="headerlink" title="思路"></a>思路</h3><p>遍历检查每个列是否为递增的即可。</p>
+<h3 id="实现-19"><a href="#实现-19" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minDeletionSize</span><span class="hljs-params">(vector&lt;string&gt;&amp; strs)</span> </span>{<br>        <span class="hljs-type">int</span> n = strs.<span class="hljs-built_in">size</span>(), m = strs.<span class="hljs-built_in">back</span>().<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt; n; j++) {<br>                <span class="hljs-keyword">if</span> (strs[j][i] &lt; strs[j - <span class="hljs-number">1</span>][i]) {<br>                    ans++;<br>                    <span class="hljs-keyword">break</span>;<br>                }<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题955-删列造序II"><a href="#力扣每日一题955-删列造序II" class="headerlink" title="力扣每日一题955-删列造序II"></a>力扣每日一题955-删列造序II</h2><blockquote>
+<p>日期：2025-12-21</p>
+</blockquote>
+<h3 id="题意-20"><a href="#题意-20" class="headerlink" title="题意"></a>题意</h3><p>给定多个等长字符串组成的数组 <code>strs</code> ，将这些字符串排成列，每次操作可以任意删除所有字符串某一列的字母，若想使所有字符串按字典序升序排序，最少需要多少次操作。</p>
+<h3 id="思路-20"><a href="#思路-20" class="headerlink" title="思路"></a>思路</h3><p>和昨天的题目还是非常类似的，只是昨天要求为每列均升序，今天要求为整个字符串升序。那只需维护每个字符串剩余的部分进行遍历检查即可。</p>
+<h3 id="实现-20"><a href="#实现-20" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minDeletionSize</span><span class="hljs-params">(vector&lt;string&gt;&amp; strs)</span> </span>{<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> n = strs.<span class="hljs-built_in">size</span>(), m = strs.<span class="hljs-built_in">back</span>().<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">pre</span><span class="hljs-params">(n)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {<br>            <span class="hljs-type">bool</span> del = <span class="hljs-literal">false</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt; n; j++) {<br>                <span class="hljs-keyword">if</span> (pre[j] + strs[j][i] &lt; pre[j - <span class="hljs-number">1</span>] + strs[j - <span class="hljs-number">1</span>][i]) {<br>                    ans++;<br>                    del = <span class="hljs-literal">true</span>;<br>                    <span class="hljs-keyword">break</span>;<br>                }<br>            }<br>            <span class="hljs-keyword">if</span> (!del) {<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++) pre[j] += strs[j][i];<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题960-删列造序III"><a href="#力扣每日一题960-删列造序III" class="headerlink" title="力扣每日一题960-删列造序III"></a>力扣每日一题960-删列造序III</h2><blockquote>
+<p>日期：2025-12-22</p>
+</blockquote>
+<h3 id="题意-21"><a href="#题意-21" class="headerlink" title="题意"></a>题意</h3><p>给定多个等长字符串组成的数组 <code>strs</code> ，将这些字符串排成列，每次操作可以任意删除所有字符串某一列的字母。若想使得操作后所有的字符串中所有剩余字母按升序排序，即每行字符升序排序，最少需要多少次操作。</p>
+<h3 id="思路-21"><a href="#思路-21" class="headerlink" title="思路"></a>思路</h3><p>乍一看好难，细一想确实好难，想不到什么特别棒的方法。但仔细一看数据范围 <code>1 &lt;= strs.size() &lt;= 100</code> <code>1 &lt;= strs[i].size() &lt;= 100</code> ，那其实就很好做了。将其视作一个最长递增子序列，只是比较函数需要重载一下即可，用 dp 的方式去写， <code>1 &lt;= strs.size() * strs.size() * strs[i].size() &lt;= 1e6</code> 显然是可以接受的。</p>
+<h3 id="实现-21"><a href="#实现-21" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minDeletionSize</span><span class="hljs-params">(vector&lt;string&gt;&amp; strs)</span> </span>{<br>        <span class="hljs-type">int</span> n = strs.<span class="hljs-built_in">size</span>(), m = strs.<span class="hljs-built_in">back</span>().<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">f</span><span class="hljs-params">(m, <span class="hljs-number">1</span>)</span></span>;<br><br>        <span class="hljs-keyword">auto</span> x_leq_y = [&amp;](<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y) -&gt; <span class="hljs-type">bool</span> {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>                <span class="hljs-keyword">if</span> (strs[i][x] &gt; strs[i][y]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            }<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>        };<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; m; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; i; j++) {<br>                <span class="hljs-keyword">if</span> (<span class="hljs-built_in">x_leq_y</span>(j, i)) {<br>                    f[i] = <span class="hljs-built_in">max</span>(f[i], f[j] + <span class="hljs-number">1</span>);<br>                }<br>            }<br>        }<br><br>        <span class="hljs-keyword">return</span> m - ranges::<span class="hljs-built_in">max</span>(f);<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题2054-两个最好的不重叠活动"><a href="#力扣每日一题2054-两个最好的不重叠活动" class="headerlink" title="力扣每日一题2054-两个最好的不重叠活动"></a>力扣每日一题2054-两个最好的不重叠活动</h2><blockquote>
+<p>日期：2025-12-23</p>
+</blockquote>
+<h3 id="题意-22"><a href="#题意-22" class="headerlink" title="题意"></a>题意</h3><p>给定多个活动的开始结束时间及其价值用数组 <code>envents</code> 表示，最多同时参加两个时间不重叠的活动，求可参加活动的价值最大和。</p>
+<h3 id="思路-22"><a href="#思路-22" class="headerlink" title="思路"></a>思路</h3><p>有蛮多实现方法的，比如按结束时间排序后维护已结束活动然后进行二分。这里我选择对时间离散化后进行一个后缀max，维护每个时间点之后开始的活动可得的最大价值，然后枚举结束时间，求最大即可。</p>
+<h3 id="实现-22"><a href="#实现-22" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxTwoEvents</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; events)</span> </span>{<br>        vector&lt;<span class="hljs-type">int</span>&gt; t;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; e : events) {<br>            t.<span class="hljs-built_in">push_back</span>(e[<span class="hljs-number">0</span>]);<br>            t.<span class="hljs-built_in">push_back</span>(e[<span class="hljs-number">1</span>]);<br>        }<br>        ranges::<span class="hljs-built_in">sort</span>(t);<br>        <span class="hljs-type">int</span> m = t.<span class="hljs-built_in">erase</span>(<span class="hljs-built_in">unique</span>(t.<span class="hljs-built_in">begin</span>(), t.<span class="hljs-built_in">end</span>()), t.<span class="hljs-built_in">end</span>()) - t.<span class="hljs-built_in">begin</span>();<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">f</span><span class="hljs-params">(m + <span class="hljs-number">1</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; e : events) {<br>            <span class="hljs-type">int</span> it = ranges::<span class="hljs-built_in">lower_bound</span>(t, e[<span class="hljs-number">0</span>]) - t.<span class="hljs-built_in">begin</span>();<br>            f[it] = <span class="hljs-built_in">max</span>(f[it], e[<span class="hljs-number">2</span>]);<br>        }<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = m - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) f[i] = <span class="hljs-built_in">max</span>(f[i], f[i + <span class="hljs-number">1</span>]);<br><br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; e : events) {<br>            <span class="hljs-type">int</span> it = ranges::<span class="hljs-built_in">lower_bound</span>(t, e[<span class="hljs-number">1</span>]) - t.<span class="hljs-built_in">begin</span>();<br>            ans = <span class="hljs-built_in">max</span>(ans, f[it + <span class="hljs-number">1</span>] + e[<span class="hljs-number">2</span>]);<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3074-重新分装苹果"><a href="#力扣每日一题3074-重新分装苹果" class="headerlink" title="力扣每日一题3074-重新分装苹果"></a>力扣每日一题3074-重新分装苹果</h2><blockquote>
+<p>日期：2025-12-24</p>
+</blockquote>
+<h3 id="题意-23"><a href="#题意-23" class="headerlink" title="题意"></a>题意</h3><p>给定正整数数组 <code>apple</code> 和 <code>capacity</code> 分别表示多袋苹果的苹果个数与多个箱子可容纳苹果的个数。求最少需要多少个箱子可将所有苹果装完。</p>
+<h3 id="思路-23"><a href="#思路-23" class="headerlink" title="思路"></a>思路</h3><p>每袋的苹果均可以拆分开来装入不同箱子，那显然就是简单的贪心操作，从大到小排序遍历箱子，第一个前缀和大于苹果数量的即为答案。</p>
+<h3 id="实现-23"><a href="#实现-23" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">minimumBoxes</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; apple, vector&lt;<span class="hljs-type">int</span>&gt;&amp; capacity)</span> </span>{<br>        <span class="hljs-type">int</span> n = capacity.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> sum = <span class="hljs-built_in">accumulate</span>(apple.<span class="hljs-built_in">begin</span>(), apple.<span class="hljs-built_in">end</span>(), <span class="hljs-number">0</span>);<br>        ranges::<span class="hljs-built_in">sort</span>(capacity, <span class="hljs-built_in">greater</span>());<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>, cur = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            cur += capacity[i];<br>            <span class="hljs-keyword">if</span> (cur &gt;= sum) <span class="hljs-keyword">return</span> i + <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题3075-幸福值最大化的选择方案"><a href="#力扣每日一题3075-幸福值最大化的选择方案" class="headerlink" title="力扣每日一题3075-幸福值最大化的选择方案"></a>力扣每日一题3075-幸福值最大化的选择方案</h2><blockquote>
+<p>日期：2025-12-25</p>
+</blockquote>
+<h3 id="题意-24"><a href="#题意-24" class="headerlink" title="题意"></a>题意</h3><p>给定多个小孩的幸福值用非负整数数组 <code>happiness</code> 表示。用 <code>k</code> 轮筛选出 <code>k</code> 个孩子，每一轮中所有未被选中的孩子幸福值减一但不会降至负数。求可获得的最大幸福值之和。</p>
+<h3 id="思路-24"><a href="#思路-24" class="headerlink" title="思路"></a>思路</h3><p>比较明显是进行一个从大到小贪 <code>k</code> 个孩子就好。</p>
+<h3 id="实现-24"><a href="#实现-24" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-title">maximumHappinessSum</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; happiness, <span class="hljs-type">int</span> k)</span> </span>{<br>        ll ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-type">int</span> n = happiness.<span class="hljs-built_in">size</span>();<br>        ranges::<span class="hljs-built_in">sort</span>(happiness, <span class="hljs-built_in">greater</span>());<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n &amp;&amp; k; i++, k--) {<br>            happiness[i] -= i;<br>            <span class="hljs-keyword">if</span> (happiness[i] &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;<br>            ans += happiness[i];<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题2483-商店的最少代价"><a href="#力扣每日一题2483-商店的最少代价" class="headerlink" title="力扣每日一题2483-商店的最少代价"></a>力扣每日一题2483-商店的最少代价</h2><blockquote>
+<p>日期：2025-12-26</p>
+</blockquote>
+<h3 id="题意-25"><a href="#题意-25" class="headerlink" title="题意"></a>题意</h3><p>给定字符串 <code>customers</code> 表示每时刻是否有顾客到来，在初始商店是营业的，可任选一个时刻关闭商店不再营业。若营业期间某时刻无客到来则代价加一，若歇业期间某时刻有客到来则代价加一。求代价最小的前提下最早的关门时间。</p>
+<h3 id="思路-25"><a href="#思路-25" class="headerlink" title="思路"></a>思路</h3><p>某时刻关门的代价为：关门之前的无客数量与关门后的有客数量之和。进行一个前后缀处理前后信息即可。</p>
+<h3 id="实现-25"><a href="#实现-25" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">bestClosingTime</span><span class="hljs-params">(string customers)</span> </span>{<br>        <span class="hljs-type">int</span> n = customers.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>, mn = n;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">suf</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) {<br>            suf[i] = suf[i + <span class="hljs-number">1</span>] + (customers[i] == <span class="hljs-string">'Y'</span>);<br>        }<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>, c = <span class="hljs-number">0</span>; i &lt;= n; i++) {<br>            <span class="hljs-type">int</span> cur = c + suf[i];<br>            <span class="hljs-keyword">if</span> (cur &lt; mn) {<br>                mn = cur;<br>                ans = i;<br>            }<br>            c += customers[i] == <span class="hljs-string">'N'</span>;<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题2402-会议室III"><a href="#力扣每日一题2402-会议室III" class="headerlink" title="力扣每日一题2402-会议室III"></a>力扣每日一题2402-会议室III</h2><blockquote>
+<p>日期：2025-12-27</p>
+</blockquote>
+<h3 id="题意-26"><a href="#题意-26" class="headerlink" title="题意"></a>题意</h3><p>有 <code>n</code> 个会议室，同时给出多个会议的开始与结束时间用数组 <code>meetings</code> 表示。每场会议会在未占用且编号最小的会议室举办；若当前无可用会议室则会议延期直到有空会议室，且会议时长不会改变；若有多个会议均处于延期状态会优先分配给原定开始时间最早的会议。求举办最多次会议的会议室编号。</p>
+<h3 id="思路-26"><a href="#思路-26" class="headerlink" title="思路"></a>思路</h3><p>那么我们模拟一下会议分配的过程就好了，对于在开会议的会议室根据其结束时间进行排序，同时维护空闲的会议室，按开始时间的顺序给各个会议分配会议室，最终统计各个会议室开会次数即可。</p>
+<h3 id="实现-26"><a href="#实现-26" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">mostBooked</span><span class="hljs-params">(<span class="hljs-type">int</span> n, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; meetings)</span> </span>{<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">cnt</span><span class="hljs-params">(n)</span></span>;<br>        priority_queue&lt;pair&lt;ll, <span class="hljs-type">int</span>&gt;, vector&lt;pair&lt;ll, <span class="hljs-type">int</span>&gt;&gt;, greater&lt;&gt;&gt; busy;<br>        priority_queue&lt;<span class="hljs-type">int</span>, vector&lt;<span class="hljs-type">int</span>&gt;, greater&lt;&gt;&gt; free;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) free.<span class="hljs-built_in">push</span>(i);<br>        ranges::<span class="hljs-built_in">sort</span>(meetings);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; m : meetings) {<br>            ll s = m[<span class="hljs-number">0</span>], e = m[<span class="hljs-number">1</span>];<br>            <span class="hljs-keyword">while</span> (!busy.<span class="hljs-built_in">empty</span>() &amp;&amp; busy.<span class="hljs-built_in">top</span>().first &lt;= s) {<br>                free.<span class="hljs-built_in">push</span>(busy.<span class="hljs-built_in">top</span>().second);<br>                busy.<span class="hljs-built_in">pop</span>();<br>            }<br>            <span class="hljs-keyword">if</span> (free.<span class="hljs-built_in">empty</span>()) {<br>                <span class="hljs-keyword">auto</span> [t, id] = busy.<span class="hljs-built_in">top</span>();<br>                busy.<span class="hljs-built_in">pop</span>();<br>                cnt[id]++;<br>                busy.<span class="hljs-built_in">push</span>({t + e - s, id});<br>            } <span class="hljs-keyword">else</span> {<br>                <span class="hljs-type">int</span> id = free.<span class="hljs-built_in">top</span>();<br>                free.<span class="hljs-built_in">pop</span>();<br>                cnt[id]++;<br>                busy.<span class="hljs-built_in">push</span>({e, id});<br>            }<br>        }<br>        <span class="hljs-type">int</span> mx = <span class="hljs-number">0</span>, ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (cnt[i] &gt; mx) {<br>                mx = cnt[i];<br>                ans = i;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题1351-统计有序矩阵中的负数"><a href="#力扣每日一题1351-统计有序矩阵中的负数" class="headerlink" title="力扣每日一题1351-统计有序矩阵中的负数"></a>力扣每日一题1351-统计有序矩阵中的负数</h2><blockquote>
+<p>日期：2025-12-28</p>
+</blockquote>
+<h3 id="题意-27"><a href="#题意-27" class="headerlink" title="题意"></a>题意</h3><p>给定二维整数矩阵 <code>grid</code>，其中各行各列均以非严格递减的顺序排列。统计其中负数的数量。</p>
+<h3 id="思路-27"><a href="#思路-27" class="headerlink" title="思路"></a>思路</h3><p>数据范围并不大，可以直接进行一个暴力遍历。</p>
+<p>但题目已经保证了各行各列均递减排序，那么其实有着非常好的性质。比如一个数若是负数，则其所在列行数大于其的数均为负数；若一个数为正数，则其左上的元素一定为正数。由此优化一下遍历方式即可。</p>
+<h3 id="实现-27"><a href="#实现-27" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">countNegatives</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; grid)</span> </span>{<br>        <span class="hljs-type">int</span> n = grid.<span class="hljs-built_in">size</span>(), m = grid.<span class="hljs-built_in">back</span>().<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>, j = m - <span class="hljs-number">1</span>; i &lt; n &amp;&amp; j &gt;= <span class="hljs-number">0</span>; ) {<br>            <span class="hljs-keyword">if</span> (grid[i][j] &gt;= <span class="hljs-number">0</span>) {<br>                i++;<br>            } <span class="hljs-keyword">else</span> {<br>                ans += n - i;<br>                j--;<br>            }<br>        }<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题756-金字塔转换矩阵"><a href="#力扣每日一题756-金字塔转换矩阵" class="headerlink" title="力扣每日一题756-金字塔转换矩阵"></a>力扣每日一题756-金字塔转换矩阵</h2><blockquote>
+<p>日期：2025-12-29</p>
+</blockquote>
+<h3 id="题意-28"><a href="#题意-28" class="headerlink" title="题意"></a>题意</h3><p>给定一堆长度为 <code>3</code> 的字符串 <code>allowed</code> 表示一些可选的字母三角形。同时给出一个字符串 <code>bottom</code> 表示一个金字塔底座。求问给定的 <code>allowed</code> 与 <code>bottom</code> 是否可以补全出一个完整的金字塔，使得该金字塔每一个小三角形均可在 <code>allowed</code> 中找到。</p>
+<h3 id="思路-28"><a href="#思路-28" class="headerlink" title="思路"></a>思路</h3><p>数据范围实在很小，<code>2 &lt;= bottom.length() &lt;= 6 &amp;&amp; 0 &lt;= allow.length() &lt;= 216 &amp;&amp; 所有字符来自 {'A', 'B', 'C', 'D', 'E', 'F'}</code></p>
+<p>那咱们直接进行一个暴搜就好，根据底座一层层往上枚举可选的字符，直到到顶或无可选字符。</p>
+<h3 id="实现-28"><a href="#实现-28" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> N = <span class="hljs-number">6</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">bool</span> <span class="hljs-title">pyramidTransition</span><span class="hljs-params">(string bottom, vector&lt;string&gt;&amp; allowed)</span> </span>{<br>        <span class="hljs-type">int</span> n = bottom.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">bool</span> ans = <span class="hljs-literal">false</span>;<br>        <span class="hljs-function">vector&lt;string&gt; <span class="hljs-title">f</span><span class="hljs-params">(N, <span class="hljs-string">"######"</span>)</span></span>;<br>        <span class="hljs-function">vector <span class="hljs-title">allow</span><span class="hljs-params">(N, vector&lt;string&gt; (N))</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">const</span> <span class="hljs-keyword">auto</span>&amp; s : allowed) {<br>            allow[s[<span class="hljs-number">0</span>] - <span class="hljs-string">'A'</span>][s[<span class="hljs-number">1</span>] - <span class="hljs-string">'A'</span>] += s[<span class="hljs-number">2</span>];<br>        }<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) f[<span class="hljs-number">0</span>][i] = bottom[i];<br><br>        <span class="hljs-keyword">auto</span> dfs = [&amp;](<span class="hljs-keyword">this</span> <span class="hljs-keyword">auto</span>&amp;&amp; self, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j) -&gt; <span class="hljs-type">void</span> {<br>            <span class="hljs-keyword">if</span> (i == n - <span class="hljs-number">1</span>) {<br>                ans = <span class="hljs-literal">true</span>;<br>                <span class="hljs-keyword">return</span>;<br>            }<br>            <span class="hljs-keyword">if</span> (allow[f[i][j - <span class="hljs-number">1</span>] - <span class="hljs-string">'A'</span>][f[i][j] - <span class="hljs-string">'A'</span>].<span class="hljs-built_in">empty</span>()) <span class="hljs-keyword">return</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; ch : allow[f[i][j - <span class="hljs-number">1</span>] - <span class="hljs-string">'A'</span>][f[i][j] - <span class="hljs-string">'A'</span>]) {<br>                f[i + <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] = ch;<br>                <span class="hljs-keyword">if</span> (j == n - i - <span class="hljs-number">1</span>) <span class="hljs-built_in">self</span>(i + <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);<br>                <span class="hljs-keyword">else</span> <span class="hljs-built_in">self</span>(i, j + <span class="hljs-number">1</span>);<br>                <span class="hljs-keyword">if</span> (ans) <span class="hljs-keyword">return</span>;<br>            }<br>        };<br>        <span class="hljs-built_in">dfs</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>);<br><br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题840-矩阵中的幻方"><a href="#力扣每日一题840-矩阵中的幻方" class="headerlink" title="力扣每日一题840-矩阵中的幻方"></a>力扣每日一题840-矩阵中的幻方</h2><blockquote>
+<p>日期：2025-12-30</p>
+</blockquote>
+<h3 id="题意-29"><a href="#题意-29" class="headerlink" title="题意"></a>题意</h3><p>给定矩阵 <code>grid</code> ，求其内存在几个幻方。幻方定义为 <code>3 * 3</code> 的矩阵，同时每一行每一列每个对角线的和相同，同时数字 <code>1 ~ 9</code> 均出现且仅出现一次。</p>
+<h3 id="思路-29"><a href="#思路-29" class="headerlink" title="思路"></a>思路</h3><p>也没什么好的办法，就进行一个求每行每列和进行检查的暴力就好。只是为了方便实现，可以数学推导一下，首先 <code>1 ~ 9</code> 均出现且仅出现一次则和为 <code>45</code> ，每行列对角线和相同则均为 <code>45 / 3 == 15</code>，由此可以稍微简化一下实现的复杂度。</p>
+<h3 id="实现-29"><a href="#实现-29" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">numMagicSquaresInside</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; grid)</span> </span>{<br>        <span class="hljs-type">int</span> n = grid.<span class="hljs-built_in">size</span>(), m = grid.<span class="hljs-built_in">back</span>().<span class="hljs-built_in">size</span>();<br>        <span class="hljs-type">int</span> ans = <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">auto</span> check = [&amp;](<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j) -&gt; <span class="hljs-type">bool</span> {<br>            <span class="hljs-keyword">if</span> (grid[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] != <span class="hljs-number">5</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            <span class="hljs-type">int</span> mask = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x = <span class="hljs-number">0</span>; x &lt; <span class="hljs-number">3</span>; x++) {<br>                <span class="hljs-type">int</span> c = <span class="hljs-number">0</span>, r = <span class="hljs-number">0</span>;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> y = <span class="hljs-number">0</span>; y &lt; <span class="hljs-number">3</span>; y++) {<br>                    mask |= <span class="hljs-number">1</span> &lt;&lt; grid[i - x][j - y];<br>                    c += grid[i - x][j - y];<br>                    r += grid[i - y][j - x];<br>                }<br>                <span class="hljs-keyword">if</span> (c != <span class="hljs-number">15</span> || r != <span class="hljs-number">15</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>            }<br>            <span class="hljs-keyword">return</span> mask == <span class="hljs-number">1022</span>;<br>        };<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">2</span>; i &lt; n; i++) <br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">2</span>; j &lt; m; j++) <br>                ans += <span class="hljs-built_in">check</span>(i, j);<br><br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
+
+<hr>
+<h2 id="力扣每日一题1970-你能穿过矩阵的最后一天"><a href="#力扣每日一题1970-你能穿过矩阵的最后一天" class="headerlink" title="力扣每日一题1970-你能穿过矩阵的最后一天"></a>力扣每日一题1970-你能穿过矩阵的最后一天</h2><blockquote>
+<p>日期：2025-12-31</p>
+</blockquote>
+<h3 id="题意-30"><a href="#题意-30" class="headerlink" title="题意"></a>题意</h3><p>给定 <code>row * col</code> 大小的陆地，每天都会有一个新的陆地变为水域用数组 <code>cells</code> 表示。可任选最上面一行的某个陆地位置出发，每次可以往上下左右任意相邻的陆地格子移动。问哪一天是可以从最上面一行陆地走到最下面一行陆地的最后一天。</p>
+<h3 id="思路-30"><a href="#思路-30" class="headerlink" title="思路"></a>思路</h3><p>那方法还是有很多的，与时间相关最简单的方法还是想到使用二分，二分时间然后进行检查，检查就是一个很常规的联通性问题，bfs dfs都是可以的。</p>
+<p>也可以换一个角度想，从最后一天往前推，即为全是水域的矩阵每天会多一块陆地。那么第一次使得最上最下两行联通的天数即为答案。联通性问题很自然可以想到使用并查集进行维护，每一块陆地可以使得其上下左右的陆地联通。</p>
+<h3 id="实现-30"><a href="#实现-30" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> array&lt;<span class="hljs-type">int</span>, 2&gt; nxt[] = {<br>    {<span class="hljs-number">0</span>, <span class="hljs-number">1</span>}, {<span class="hljs-number">0</span>, <span class="hljs-number">-1</span>}, {<span class="hljs-number">1</span>, <span class="hljs-number">0</span>}, {<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>}<br>};<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">latestDayToCross</span><span class="hljs-params">(<span class="hljs-type">int</span> row, <span class="hljs-type">int</span> col, vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; cells)</span> </span>{<br>        <span class="hljs-type">int</span> n = cells.<span class="hljs-built_in">size</span>();<br><br>        <span class="hljs-keyword">auto</span> check = [&amp;](<span class="hljs-type">int</span> t) -&gt; <span class="hljs-type">bool</span> {<br>            vector <span class="hljs-built_in">mp</span>(row, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-type">int</span>&gt; (col));<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= t; i++) {<br>                mp[cells[i][<span class="hljs-number">0</span>] - <span class="hljs-number">1</span>][cells[i][<span class="hljs-number">1</span>] - <span class="hljs-number">1</span>] = <span class="hljs-number">1</span>;<br>            }<br>            queue&lt;array&lt;<span class="hljs-type">int</span>, 2&gt;&gt; q;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; col; i++) {<br>                <span class="hljs-keyword">if</span> (mp[<span class="hljs-number">0</span>][i] == <span class="hljs-number">0</span>) q.<span class="hljs-built_in">push</span>({<span class="hljs-number">0</span>, i});<br>            }<br>            <span class="hljs-keyword">while</span> (!q.<span class="hljs-built_in">empty</span>()) {<br>                <span class="hljs-keyword">auto</span> [x, y] = q.<span class="hljs-built_in">front</span>();<br>                q.<span class="hljs-built_in">pop</span>();<br>                <span class="hljs-keyword">if</span> (mp[x][y] != <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;<br>                <span class="hljs-keyword">if</span> (x == row - <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>                mp[x][y] = <span class="hljs-number">2</span>;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> [tx, ty] : nxt) {<br>                    <span class="hljs-type">int</span> nx = tx + x, ny = ty + y;<br>                    <span class="hljs-keyword">if</span> (nx &lt; <span class="hljs-number">0</span> || nx &gt;= row || ny &lt; <span class="hljs-number">0</span> || ny &gt;= col || mp[nx][ny] != <span class="hljs-number">0</span>) <span class="hljs-keyword">continue</span>;<br>                    q.<span class="hljs-built_in">push</span>({nx, ny});<br>                }<br>            }<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        };<br><br>        <span class="hljs-type">int</span> lo = <span class="hljs-number">0</span>, hi = n - <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">while</span> (lo &lt; hi) {<br>            <span class="hljs-type">int</span> mid = (lo + hi + <span class="hljs-number">1</span>) / <span class="hljs-number">2</span>;<br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">check</span>(mid)) lo = mid;<br>            <span class="hljs-keyword">else</span> hi = mid - <span class="hljs-number">1</span>;<br>        }<br>        <span class="hljs-keyword">return</span> lo + <span class="hljs-number">1</span>;<br>    }<br>};<br></code></pre>
+
+  </div>
+  <div>
+    
+      <div 
+        class="post-note note-warning copyright" 
+        style="margin-top: 42px">
+        <p>
+          <span style="font-weight: bold;">作者：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="/about">
+            sfiisf
+          </a>
+        </p>
+        <p>
+          <span style="font-weight: bold;">文章链接：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="https://sfiisf.github.io/2025/12/31/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2025-12/">
+            https://sfiisf.github.io/2025/12/31/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2025-12/
+          </a>
+        </p>
+        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+      </div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+    <div class="nav-item-prev">
+      <a 
+        href="/2026/01/31/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2026-01/" 
+        class="nav-link">
+        <i class="iconfont icon-left nav-prev-icon"></i>
+        <div>
+          <div class="nav-label">上一篇</div>
+          
+            <div class="nav-title">力扣每月题解汇总-2026年01月 </div>
+          
+        </div>
+      </a>
+    </div>
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/2025/11/30/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2025-11/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">下一篇</div>
+          
+            <div class="nav-title">力扣每月题解汇总-2025年11月 </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+  <div 
+    class="card card-content comment-card" 
+    style="margin-top: 16px;">
+    <div class="comment-card-title">评论</div>
+    
+  <div id="vcomments"></div>
+  
+  <script>
+    loadScript("//unpkg.com/valine/dist/Valine.min.js");
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+      new Valine({
+        el: '#vcomments',
+        appId: 'lYjjqblKF9pwlJPXwL9ouRIq-gzGzoHsz',
+        appKey: 'smLLmhNh9lceD0dFC4SmBB0E',
+        placeholder: '说些什么',
+        path: window.location.pathname,
+        avatar: 'mp',
+        meta: ["nick","mail","link"],
+        pageSize: '10',
+        lang: '',
+        visitor: 'false',
+        highlight: true,
+        recordIP: false,
+        
+        
+        
+        enableQQ: 'false',
+        requiredFields: [],
+      });
+    };
+  </script>
+
+  </div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2025%E5%B9%B412%E6%9C%88"><span class="toc-text">力扣每月题解汇总-2025年12月</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982141-%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8CN%E5%8F%B0%E7%94%B5%E8%84%91%E7%9A%84%E6%9C%80%E9%95%BF%E6%97%B6%E9%97%B4"><span class="toc-text">力扣每日一题2141-同时运行N台电脑的最长时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983623-%E7%BB%9F%E8%AE%A1%E6%A2%AF%E5%BD%A2%E7%9A%84%E6%95%B0%E7%9B%AEI"><span class="toc-text">力扣每日一题3623-统计梯形的数目I</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-1"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-1"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983625-%E7%BB%9F%E8%AE%A1%E6%A2%AF%E5%BD%A2%E7%9A%84%E6%95%B0%E7%9B%AEII"><span class="toc-text">力扣每日一题3625-统计梯形的数目II</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-2"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-2"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982211-%E7%BB%9F%E8%AE%A1%E9%81%93%E8%B7%AF%E4%B8%8A%E7%9A%84%E7%A2%B0%E6%92%9E%E6%AC%A1%E6%95%B0"><span class="toc-text">力扣每日一题2211-统计道路上的碰撞次数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-3"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-3"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-3"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983432-%E7%BB%9F%E8%AE%A1%E5%85%83%E7%B4%A0%E5%92%8C%E5%B7%AE%E5%80%BC%E4%B8%BA%E5%81%B6%E6%95%B0%E7%9A%84%E5%88%86%E5%8C%BA%E6%96%B9%E6%A1%88"><span class="toc-text">力扣每日一题3432-统计元素和差值为偶数的分区方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-4"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-4"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-4"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983578-%E7%BB%9F%E8%AE%A1%E6%9E%81%E5%B7%AE%E6%9C%80%E5%A4%A7%E4%B8%BAK%E7%9A%84%E5%88%86%E5%89%B2%E6%96%B9%E5%BC%8F%E6%95%B0"><span class="toc-text">力扣每日一题3578-统计极差最大为K的分割方式数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-5"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-5"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-5"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981523-%E5%9C%A8%E5%8C%BA%E9%97%B4%E8%8C%83%E5%9B%B4%E5%86%85%E7%BB%9F%E8%AE%A1%E5%A5%87%E6%95%B0%E6%95%B0%E7%9B%AE"><span class="toc-text">力扣每日一题1523-在区间范围内统计奇数数目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-6"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-6"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-6"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981925-%E7%BB%9F%E8%AE%A1%E5%B9%B3%E6%96%B9%E5%92%8C%E4%B8%89%E5%85%83%E7%BB%84%E7%9A%84%E6%95%B0%E7%9B%AE"><span class="toc-text">力扣每日一题1925-统计平方和三元组的数目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-7"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-7"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-7"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983583-%E7%BB%9F%E8%AE%A1%E7%89%B9%E6%AE%8A%E4%B8%89%E5%85%83%E7%BB%84"><span class="toc-text">力扣每日一题3583-统计特殊三元组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-8"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-8"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-8"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983577-%E7%BB%9F%E8%AE%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%A3%E9%94%81%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E6%95%B0"><span class="toc-text">力扣每日一题3577-统计计算机解锁顺序排列数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-9"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-9"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-9"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983531-%E7%BB%9F%E8%AE%A1%E8%A2%AB%E8%A6%86%E7%9B%96%E7%9A%84%E5%BB%BA%E7%AD%91"><span class="toc-text">力扣每日一题3531-统计被覆盖的建筑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-10"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-10"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-10"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983433-%E7%BB%9F%E8%AE%A1%E7%94%A8%E6%88%B7%E8%A2%AB%E6%8F%90%E5%8F%8A%E6%83%85%E5%86%B5"><span class="toc-text">力扣每日一题3433-统计用户被提及情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-11"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-11"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-11"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983606-%E4%BC%98%E6%83%A0%E5%88%B8%E6%A0%A1%E9%AA%8C%E5%99%A8"><span class="toc-text">力扣每日一题3606-优惠券校验器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-12"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-12"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-12"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982147-%E5%88%86%E9%9A%94%E9%95%BF%E5%BB%8A%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0"><span class="toc-text">力扣每日一题2147-分隔长廊的方案数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-13"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-13"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-13"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982110-%E8%82%A1%E7%A5%A8%E5%B9%B3%E6%BB%91%E4%B8%8B%E8%B7%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E6%95%B0%E7%9B%AE"><span class="toc-text">力扣每日一题2110-股票平滑下跌阶段的数目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-14"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-14"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-14"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983562-%E6%8A%98%E6%89%A3%E4%BB%B7%E4%BA%A4%E6%98%93%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6"><span class="toc-text">力扣每日一题3562-折扣价交易股票的最大利润</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-15"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-15"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-15"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983573-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAV"><span class="toc-text">力扣每日一题3573-买卖股票的最佳时机V</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-16"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-16"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-16"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983652-%E6%8C%89%E7%AD%96%E7%95%A5%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA"><span class="toc-text">力扣每日一题3652-按策略买卖股票的最佳时机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-17"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-17"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-17"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982092-%E6%89%BE%E5%87%BA%E7%9F%A5%E6%99%93%E7%A7%98%E5%AF%86%E7%9A%84%E6%89%80%E6%9C%89%E4%B8%93%E5%AE%B6"><span class="toc-text">力扣每日一题2092-找出知晓秘密的所有专家</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-18"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-18"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-18"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98944-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8F"><span class="toc-text">力扣每日一题944-删列造序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-19"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-19"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-19"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98955-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8FII"><span class="toc-text">力扣每日一题955-删列造序II</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-20"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-20"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-20"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98960-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8FIII"><span class="toc-text">力扣每日一题960-删列造序III</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-21"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-21"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-21"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982054-%E4%B8%A4%E4%B8%AA%E6%9C%80%E5%A5%BD%E7%9A%84%E4%B8%8D%E9%87%8D%E5%8F%A0%E6%B4%BB%E5%8A%A8"><span class="toc-text">力扣每日一题2054-两个最好的不重叠活动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-22"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-22"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-22"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983074-%E9%87%8D%E6%96%B0%E5%88%86%E8%A3%85%E8%8B%B9%E6%9E%9C"><span class="toc-text">力扣每日一题3074-重新分装苹果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-23"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-23"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-23"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983075-%E5%B9%B8%E7%A6%8F%E5%80%BC%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E9%80%89%E6%8B%A9%E6%96%B9%E6%A1%88"><span class="toc-text">力扣每日一题3075-幸福值最大化的选择方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-24"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-24"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-24"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982483-%E5%95%86%E5%BA%97%E7%9A%84%E6%9C%80%E5%B0%91%E4%BB%A3%E4%BB%B7"><span class="toc-text">力扣每日一题2483-商店的最少代价</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-25"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-25"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-25"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982402-%E4%BC%9A%E8%AE%AE%E5%AE%A4III"><span class="toc-text">力扣每日一题2402-会议室III</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-26"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-26"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-26"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981351-%E7%BB%9F%E8%AE%A1%E6%9C%89%E5%BA%8F%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B4%9F%E6%95%B0"><span class="toc-text">力扣每日一题1351-统计有序矩阵中的负数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-27"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-27"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-27"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98756-%E9%87%91%E5%AD%97%E5%A1%94%E8%BD%AC%E6%8D%A2%E7%9F%A9%E9%98%B5"><span class="toc-text">力扣每日一题756-金字塔转换矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-28"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-28"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-28"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98840-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E5%B9%BB%E6%96%B9"><span class="toc-text">力扣每日一题840-矩阵中的幻方</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-29"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-29"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-29"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981970-%E4%BD%A0%E8%83%BD%E7%A9%BF%E8%BF%87%E7%9F%A9%E9%98%B5%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9"><span class="toc-text">力扣每日一题1970-你能穿过矩阵的最后一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-30"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-30"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-30"><span class="toc-text">实现</span></a></li></ol></li></ol></li></ol>
+</div>
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>目录
+</div>
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2025%E5%B9%B412%E6%9C%88"><span class="toc-text">力扣每月题解汇总-2025年12月</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982141-%E5%90%8C%E6%97%B6%E8%BF%90%E8%A1%8CN%E5%8F%B0%E7%94%B5%E8%84%91%E7%9A%84%E6%9C%80%E9%95%BF%E6%97%B6%E9%97%B4"><span class="toc-text">力扣每日一题2141-同时运行N台电脑的最长时间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983623-%E7%BB%9F%E8%AE%A1%E6%A2%AF%E5%BD%A2%E7%9A%84%E6%95%B0%E7%9B%AEI"><span class="toc-text">力扣每日一题3623-统计梯形的数目I</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-1"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-1"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983625-%E7%BB%9F%E8%AE%A1%E6%A2%AF%E5%BD%A2%E7%9A%84%E6%95%B0%E7%9B%AEII"><span class="toc-text">力扣每日一题3625-统计梯形的数目II</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-2"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-2"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-2"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982211-%E7%BB%9F%E8%AE%A1%E9%81%93%E8%B7%AF%E4%B8%8A%E7%9A%84%E7%A2%B0%E6%92%9E%E6%AC%A1%E6%95%B0"><span class="toc-text">力扣每日一题2211-统计道路上的碰撞次数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-3"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-3"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-3"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983432-%E7%BB%9F%E8%AE%A1%E5%85%83%E7%B4%A0%E5%92%8C%E5%B7%AE%E5%80%BC%E4%B8%BA%E5%81%B6%E6%95%B0%E7%9A%84%E5%88%86%E5%8C%BA%E6%96%B9%E6%A1%88"><span class="toc-text">力扣每日一题3432-统计元素和差值为偶数的分区方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-4"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-4"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-4"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983578-%E7%BB%9F%E8%AE%A1%E6%9E%81%E5%B7%AE%E6%9C%80%E5%A4%A7%E4%B8%BAK%E7%9A%84%E5%88%86%E5%89%B2%E6%96%B9%E5%BC%8F%E6%95%B0"><span class="toc-text">力扣每日一题3578-统计极差最大为K的分割方式数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-5"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-5"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-5"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981523-%E5%9C%A8%E5%8C%BA%E9%97%B4%E8%8C%83%E5%9B%B4%E5%86%85%E7%BB%9F%E8%AE%A1%E5%A5%87%E6%95%B0%E6%95%B0%E7%9B%AE"><span class="toc-text">力扣每日一题1523-在区间范围内统计奇数数目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-6"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-6"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-6"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981925-%E7%BB%9F%E8%AE%A1%E5%B9%B3%E6%96%B9%E5%92%8C%E4%B8%89%E5%85%83%E7%BB%84%E7%9A%84%E6%95%B0%E7%9B%AE"><span class="toc-text">力扣每日一题1925-统计平方和三元组的数目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-7"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-7"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-7"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983583-%E7%BB%9F%E8%AE%A1%E7%89%B9%E6%AE%8A%E4%B8%89%E5%85%83%E7%BB%84"><span class="toc-text">力扣每日一题3583-统计特殊三元组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-8"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-8"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-8"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983577-%E7%BB%9F%E8%AE%A1%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%A3%E9%94%81%E9%A1%BA%E5%BA%8F%E6%8E%92%E5%88%97%E6%95%B0"><span class="toc-text">力扣每日一题3577-统计计算机解锁顺序排列数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-9"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-9"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-9"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983531-%E7%BB%9F%E8%AE%A1%E8%A2%AB%E8%A6%86%E7%9B%96%E7%9A%84%E5%BB%BA%E7%AD%91"><span class="toc-text">力扣每日一题3531-统计被覆盖的建筑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-10"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-10"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-10"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983433-%E7%BB%9F%E8%AE%A1%E7%94%A8%E6%88%B7%E8%A2%AB%E6%8F%90%E5%8F%8A%E6%83%85%E5%86%B5"><span class="toc-text">力扣每日一题3433-统计用户被提及情况</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-11"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-11"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-11"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983606-%E4%BC%98%E6%83%A0%E5%88%B8%E6%A0%A1%E9%AA%8C%E5%99%A8"><span class="toc-text">力扣每日一题3606-优惠券校验器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-12"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-12"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-12"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982147-%E5%88%86%E9%9A%94%E9%95%BF%E5%BB%8A%E7%9A%84%E6%96%B9%E6%A1%88%E6%95%B0"><span class="toc-text">力扣每日一题2147-分隔长廊的方案数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-13"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-13"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-13"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982110-%E8%82%A1%E7%A5%A8%E5%B9%B3%E6%BB%91%E4%B8%8B%E8%B7%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E6%95%B0%E7%9B%AE"><span class="toc-text">力扣每日一题2110-股票平滑下跌阶段的数目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-14"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-14"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-14"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983562-%E6%8A%98%E6%89%A3%E4%BB%B7%E4%BA%A4%E6%98%93%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E5%A4%A7%E5%88%A9%E6%B6%A6"><span class="toc-text">力扣每日一题3562-折扣价交易股票的最大利润</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-15"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-15"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-15"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983573-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAV"><span class="toc-text">力扣每日一题3573-买卖股票的最佳时机V</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-16"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-16"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-16"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983652-%E6%8C%89%E7%AD%96%E7%95%A5%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA"><span class="toc-text">力扣每日一题3652-按策略买卖股票的最佳时机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-17"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-17"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-17"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982092-%E6%89%BE%E5%87%BA%E7%9F%A5%E6%99%93%E7%A7%98%E5%AF%86%E7%9A%84%E6%89%80%E6%9C%89%E4%B8%93%E5%AE%B6"><span class="toc-text">力扣每日一题2092-找出知晓秘密的所有专家</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-18"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-18"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-18"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98944-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8F"><span class="toc-text">力扣每日一题944-删列造序</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-19"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-19"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-19"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98955-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8FII"><span class="toc-text">力扣每日一题955-删列造序II</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-20"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-20"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-20"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98960-%E5%88%A0%E5%88%97%E9%80%A0%E5%BA%8FIII"><span class="toc-text">力扣每日一题960-删列造序III</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-21"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-21"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-21"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982054-%E4%B8%A4%E4%B8%AA%E6%9C%80%E5%A5%BD%E7%9A%84%E4%B8%8D%E9%87%8D%E5%8F%A0%E6%B4%BB%E5%8A%A8"><span class="toc-text">力扣每日一题2054-两个最好的不重叠活动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-22"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-22"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-22"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983074-%E9%87%8D%E6%96%B0%E5%88%86%E8%A3%85%E8%8B%B9%E6%9E%9C"><span class="toc-text">力扣每日一题3074-重新分装苹果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-23"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-23"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-23"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%983075-%E5%B9%B8%E7%A6%8F%E5%80%BC%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E9%80%89%E6%8B%A9%E6%96%B9%E6%A1%88"><span class="toc-text">力扣每日一题3075-幸福值最大化的选择方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-24"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-24"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-24"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982483-%E5%95%86%E5%BA%97%E7%9A%84%E6%9C%80%E5%B0%91%E4%BB%A3%E4%BB%B7"><span class="toc-text">力扣每日一题2483-商店的最少代价</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-25"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-25"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-25"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%982402-%E4%BC%9A%E8%AE%AE%E5%AE%A4III"><span class="toc-text">力扣每日一题2402-会议室III</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-26"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-26"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-26"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981351-%E7%BB%9F%E8%AE%A1%E6%9C%89%E5%BA%8F%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B4%9F%E6%95%B0"><span class="toc-text">力扣每日一题1351-统计有序矩阵中的负数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-27"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-27"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-27"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98756-%E9%87%91%E5%AD%97%E5%A1%94%E8%BD%AC%E6%8D%A2%E7%9F%A9%E9%98%B5"><span class="toc-text">力扣每日一题756-金字塔转换矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-28"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-28"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-28"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98840-%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E5%B9%BB%E6%96%B9"><span class="toc-text">力扣每日一题840-矩阵中的幻方</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-29"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-29"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-29"><span class="toc-text">实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%981970-%E4%BD%A0%E8%83%BD%E7%A9%BF%E8%BF%87%E7%9F%A9%E9%98%B5%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E5%A4%A9"><span class="toc-text">力扣每日一题1970-你能穿过矩阵的最后一天</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E6%84%8F-30"><span class="toc-text">题意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%9D%E8%B7%AF-30"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0-30"><span class="toc-text">实现</span></a></li></ol></li></ol></li></ol>
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>最近文章
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-03-22</div>
+        <a href="/2026/03/22/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2026-03/"><div class="recent-posts-item-content">力扣每月题解汇总-2026年03月</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-02-28</div>
+        <a href="/2026/02/28/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2026-02/"><div class="recent-posts-item-content">力扣每月题解汇总-2026年02月</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-01-31</div>
+        <a href="/2026/01/31/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2026-01/"><div class="recent-posts-item-content">力扣每月题解汇总-2026年01月</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2025-12-31</div>
+        <a href="/2025/12/31/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2025-12/"><div class="recent-posts-item-content">力扣每月题解汇总-2025年12月</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2025
+          
+          
+                - 
+                2026
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/" 
+          class="footer-link">
+          sfiisf blog
+        </a>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+      <div class="footer-dsc">
+        
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          本站总访客数<span id="busuanzi_value_site_uv"></span>次
+        
+      </div>
+      
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+      
+
+  
+  
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+      };
+    </script>
+    
+<script src="//cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-svg.js"></script>
+
+  
+ 
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/js/main.js"></script> 
+    
+      <script> 
+        loadScript('/js/lib/busuanzi.min.js') 
+      </script>
+     
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+    
+      <script>
+        setTimeout(() => {localSearch("/search.json")}, 0)
+      </script>
+    
+  </body>
+</html>
