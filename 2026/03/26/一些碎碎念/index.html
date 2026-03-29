@@ -45,7 +45,7 @@
         content="2026-03-26">
       <meta 
         property="og:article:modified_time" 
-        content="2026-03-26">
+        content="2026-03-29">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -451,17 +451,17 @@ mjx-container[display="true"] + br {
         </div>
       </a>
     
-      <a href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
-        <div class="categories-list-item">
-          做题笔记
-          <span class="categories-list-item-badge">12</span>
-        </div>
-      </a>
-    
       <a href="/categories/%E6%9D%82%E8%B0%88/">
         <div class="categories-list-item">
           杂谈
           <span class="categories-list-item-badge">2</span>
+        </div>
+      </a>
+    
+      <a href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
+        <div class="categories-list-item">
+          做题笔记
+          <span class="categories-list-item-badge">12</span>
         </div>
       </a>
     
@@ -498,9 +498,9 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/dp/" 
-        title="dp">
-        <div class="tags-list-item">dp</div>
+        href="/tags/monthly-summary/" 
+        title="monthly-summary">
+        <div class="tags-list-item">monthly-summary</div>
       </a>
     
       <a 
@@ -516,9 +516,9 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/monthly-summary/" 
-        title="monthly-summary">
-        <div class="tags-list-item">monthly-summary</div>
+        href="/tags/dp/" 
+        title="dp">
+        <div class="tags-list-item">dp</div>
       </a>
     
   </div>
@@ -577,10 +577,10 @@ mjx-container[display="true"] + br {
 <p>目前看来还是我的分享欲更胜一筹，但我是个怎么样的人，恐怕还是得等未来的文章了…虽然目前确实还没有，但计划中已经有一两篇了，虽然虽然我也不太确定什么时候能落地…</p>
 <p>Still coming…</p>
 <p>Love!</p>
-<h2 id="一些记录"><a href="#一些记录" class="headerlink" title="一些记录"></a>一些记录</h2><p><img src="/./%E4%B8%80%E4%BA%9B%E7%A2%8E%E7%A2%8E%E5%BF%B5/%E7%93%B7%E7%A0%96.png" alt="瓷砖"></p>
+<h2 id="一些记录"><a href="#一些记录" class="headerlink" title="一些记录"></a>一些记录</h2><p><img src="/2026/03/26/一些碎碎念/%E7%93%B7%E7%A0%96.png" alt="瓷砖"></p>
 <p>本来还想截个访问数的，但发现访问记录不知道什么时候挂掉了…大概访客 &lt; 200，访问 &lt; 500 吧。</p>
 <p>不曾想刚刚发布就又恢复了</p>
-<p><img src="/./%E4%B8%80%E4%BA%9B%E7%A2%8E%E7%A2%8E%E5%BF%B5/%E8%AE%BF%E5%AE%A2%E8%AE%B0%E5%BD%95.png" alt="访客记录"></p>
+<p><img src="/2026/03/26/一些碎碎念/%E8%AE%BF%E5%AE%A2%E8%AE%B0%E5%BD%95.png" alt="访客记录"></p>
 
   </div>
   <div>
@@ -863,8 +863,10 @@ mjx-container[display="true"] + br {
     var img = document.querySelectorAll('.post-content img')
     var i
     for (i = 0; i < img.length; i++) {
+      var link = img[i].getAttribute('data-src') || img[i].getAttribute('src')
+      if (!link) continue
       var wrapper = document.createElement('a')
-      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('href', link)
       wrapper.setAttribute('aria-label', 'illustration')
       wrapper.style.cssText =
         'width: 100%; display: flex; justify-content: center;'
