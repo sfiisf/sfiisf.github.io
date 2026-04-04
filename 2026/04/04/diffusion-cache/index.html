@@ -18,17 +18,17 @@
   <link 
     rel="icon" 
     href="/">
-  <title>cpp学习</title>
+  <title>diffusion&cache</title>
   
     
       <meta 
         property="og:title" 
-        content="cpp学习">
+        content="diffusion&amp;cache">
     
     
       <meta 
         property="og:url" 
-        content="https://sfiisf.github.io/2025/04/09/cpp%E5%AD%A6%E4%B9%A0/index.html">
+        content="https://sfiisf.github.io/2026/04/04/diffusion-cache/index.html">
     
     
       <meta 
@@ -42,10 +42,10 @@
         content="article">
       <meta 
         property="og:article:published_time" 
-        content="2025-04-09">
+        content="2026-04-04">
       <meta 
         property="og:article:modified_time" 
-        content="2025-04-10">
+        content="2026-04-04">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -53,11 +53,11 @@
         
           <meta 
             property="og:article:tag" 
-            content="cpp">
+            content="diffusion">
         
           <meta 
             property="og:article:tag" 
-            content="note">
+            content="cache">
         
       
     
@@ -437,7 +437,7 @@ mjx-container[display="true"] + br {
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="toc-text">智能指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shared-ptr"><span class="toc-text">shared_ptr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unique-ptr"><span class="toc-text">unique_ptr</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TeaCache-Timestep-Embedding-Aware-Cache"><span class="toc-text">TeaCache (Timestep Embedding Aware Cache)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cache-dit"><span class="toc-text">cache-dit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DBCache"><span class="toc-text">DBCache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DBPrune"><span class="toc-text">DBPrune</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TaylorSeer-SCM"><span class="toc-text">TaylorSeer&amp;SCM</span></a></li></ol></li></ol>
       </div>
     </article>
   
@@ -553,16 +553,16 @@ mjx-container[display="true"] + br {
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      cpp学习
+      diffusion&amp;cache
     </h1>
   </header>
   <div class="post-meta post-show-meta">
-    <time datetime="2025-04-09T12:23:59.000Z">
+    <time datetime="2026-04-04T08:33:04.000Z">
       <i 
         class="iconfont icon-calendar" 
         style="margin-right: 2px;">
       </i>
-      <span>2025-04-09</span>
+      <span>2026-04-04</span>
     </time>
     
       <span class="dot"></span>
@@ -576,7 +576,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>499 字</span>
+      <span>964 字</span>
     
   </div>
   
@@ -591,18 +591,18 @@ mjx-container[display="true"] + br {
         
           
           <a 
-            href="/tags/cpp/" 
+            href="/tags/diffusion/" 
             class="post-meta-link">
-            cpp
+            diffusion
           </a>
         
           
             <span class="dot"></span>
           
           <a 
-            href="/tags/note/" 
+            href="/tags/cache/" 
             class="post-meta-link">
-            note
+            cache
           </a>
         
       </div>
@@ -612,20 +612,38 @@ mjx-container[display="true"] + br {
   <div 
     id="section" 
     class="post-content">
-    <p>由于我个人仍在学习当中，所学内容可能较为零散不成体系更多是以学习时间记录而非内容体系记录，所写可能也因此显得有些杂乱无章，当我建立起一个较为完整的知识体系框架后也许会回来整理吧。</p>
-<p>所记录的问题可能来自我网上冲浪所见或面试所遇我认为值得记录学习的，回答可能来自于网络资料、各路大模型回答以及一些我个人的理解，可能准确率并不太高，若有错漏还望不吝赐教。</p>
-<h2 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h2><p>引用计数概念防止内存泄露。</p>
-<p>基本想法：对于动态分配的对象进行引用计数每当增加一次对同一个对象的引用，那么引用对象的引用计数就会增加一次， 每删除一次引用，引用计数就会减一，当一个对象的引用计数减为零时，就自动删除指向的堆内存。</p>
-<p>c++11引入智能指针概念，包含<code>std::shared_ptr</code>/<code>std::unique_ptr</code>/<code>std::weak_ptr</code>,头文件为<code>&lt;memory&gt;</code></p>
-<h3 id="shared-ptr"><a href="#shared-ptr" class="headerlink" title="shared_ptr"></a><code>shared_ptr</code></h3><p>可自动记录有多少个<code>shared_ptr</code>共同指向同一对象，当计数归零时自动释放对应对象内存</p>
-<pre class="highlight"><code class="hljs cpp">std::<span class="hljs-built_in">make_shared</span>&lt;T&gt; (Args&amp;&amp;... args); <span class="hljs-comment">// 创建对应对象并返回其指针</span><br><br>.<span class="hljs-built_in">get</span>(); <span class="hljs-comment">// 获得原始指针</span><br>.<span class="hljs-built_in">use_count</span>(); <span class="hljs-comment">// 查看对象引用计数</span><br>	<span class="hljs-keyword">auto</span> p = ptr.<span class="hljs-built_in">get</span>(); <span class="hljs-comment">// 不会增加计数</span><br>	<span class="hljs-keyword">auto</span> p = ptr; <span class="hljs-comment">// 会增加计数</span><br><br>.<span class="hljs-built_in">reset</span>(); <span class="hljs-comment">// 置空</span><br></code></pre>
+    <p>背景是前前段时间在看 sglang diffusion 相关部分，大概研究了一下并做了些笔记，同时嫌自己的 blog 确实太空了，故而分享。</p>
+<p>但我的研究不晚于 <code>2026-02-10</code> ，可能存在因版本更新等原因造成的不准确描述，同时我这方面的学习也刚刚起步还算是才疏学浅，还请注意甄别。</p>
+<p>sglang 目前支持了 <a target="_blank" rel="noopener" href="https://github.com/ali-vilab/TeaCache">TeaCache</a> 与 <a target="_blank" rel="noopener" href="https://github.com/vipshop/cache-dit">cache-dit</a> , 但关于 TeaCache 的文档描述有些问题把 TeaCache 含义与论文地址打错了。我提的 pr 也一直无人理会…</p>
+<h2 id="TeaCache-Timestep-Embedding-Aware-Cache"><a href="#TeaCache-Timestep-Embedding-Aware-Cache" class="headerlink" title="TeaCache (Timestep Embedding Aware Cache)"></a>TeaCache (Timestep Embedding Aware Cache)</h2><p>论文地址：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2411.19108">https://arxiv.org/pdf/2411.19108</a></p>
+<p>简单来说，是通过实验发现 diffusion 模型 <code>timestep embeding</code> 与 <code>timestep embedding modulated noisy inputs</code> 均与输出呈现出了强相关性。因此可以通过这两个值判断是否使用缓存，其中 <code>timestep embedding modulated noisy inputs</code> 表现出了更强的相关性，性能上也更加优异，但我猜测可能是性能差异并不明显，同时实现的复杂度与计算的复杂度等因素，在实际的实现中，更多是采用 <code>timestep embeding</code> 作为判断。包括 <a target="_blank" rel="noopener" href="https://github.com/ali-vilab/TeaCache">TeaCache 库</a>, <a target="_blank" rel="noopener" href="https://github.com/welltop-cn/ComfyUI-TeaCache/blob/1a11412deac8f6fc9fa2a487bf952000c279ed39/nodes_diffusers.py#L59C9-L99C1">ComfyUI插件</a> 与 <a target="_blank" rel="noopener" href="https://github.com/sgl-project/sglang/blob/main/python/sglang/multimodal_gen/runtime/models/dits/wanvideo.py">sglang</a> 都仅使用了 <code>timestep embedding</code>。</p>
+<p>具体一些，比较当前时间步与前一时间步 <code>timestep embeding</code> 之间的 l1 距离进行多项式缩放之后累加与阈值判断。所跳过的是<strong>整个 transforms layer，跳过所有的 transform blocks</strong>。缓存的是 transforms layer 的残差，也就是变化趋势。使用缓存是用当前的输入加上缓存的残差。</p>
+<p>相邻时间步的变化不是一致的会存在一个标量误差，因此引入了多项式缩放进行拟合。</p>
+<p>累计 l1 距离超过阈值则重新进行计算缓存。</p>
+<img src="/2026/04/04/diffusion-cache/diffusion.png" alt="diffusion" style="zoom:50%;">
 
-<h3 id="unique-ptr"><a href="#unique-ptr" class="headerlink" title="unique_ptr"></a><code>unique_ptr</code></h3><p>独占的智能指针, 禁止其他智能指针与其共享同一个对象</p>
-<blockquote>
-<p>cpp11没有提供<code>std::make_unique</code>, cpp委员会说是忘记了</p>
-</blockquote>
-<p><code>unique_ptr</code> 用法<code>shared_ptr</code>与类似，但无法通过赋值拷贝给另一智能指针，但可以通过<code>std::move</code>将其转移给另一<code>unique_ptr</code></p>
-<p>同时还可以通过<code>.get()</code>获取其原始指针后直接赋值给普通指针，但这样显然并不安全。</p>
+<img src="/2026/04/04/diffusion-cache/相关性.png" alt="相关性" style="zoom:50%;">
+
+<img src="/2026/04/04/diffusion-cache/性能比较.png" alt="性能比较" style="zoom:50%;">
+
+<h2 id="cache-dit"><a href="#cache-dit" class="headerlink" title="cache-dit"></a>cache-dit</h2><p><code>cache-dit</code> 从缓存粒度上来看可以说是 <code>TeaCache</code> 的增强，但从判断方式来看更像是 <code>AdaCahe</code> 的简化，是作用在<strong>某个或某连续几个的 transform 块</strong>，计算比较的是不同时间步下特征残差的 l1 距离。缓存的是跳过块的残差。</p>
+<p>当前 sglang 中支持了 <code>DBCache</code> <code>DBPrune</code> 两种缓存方式，与 <code>TaylorSeer</code> <code>SCM</code> 两种增强机制。</p>
+<h3 id="DBCache"><a href="#DBCache" class="headerlink" title="DBCache"></a>DBCache</h3><p>将 transformers layer 按顺序分成了三大块: FN MN BN 。而不再粗暴地整个跳过。</p>
+<p>完整地计算 FN, 计算 FN 残差，计算与缓存的 FN 块残差的 l1 距离，没有缩放也没有累加，直接与阈值比较。</p>
+<p>若使用缓存，则跳过 MN 块的计算；若不使用缓存，则更新 FN 块残差缓存，重新计算 MN 更新 MN 残差缓存。</p>
+<p>最后计算 BN 块。</p>
+<h3 id="DBPrune"><a href="#DBPrune" class="headerlink" title="DBPrune"></a>DBPrune</h3><p>DBPrune 又是 DBCache 的进一步增强。<br>缓存的粒度从多个连续的 transformer 块也就是 MN 块，变成了每个 transform 块<br>类似的，计算当前时间步当前块与上一时间步当前块的 <code>hidden_states</code> l1 距离，与阈值比较判断是否使用缓存</p>
+<p>同时引入了动态阈值，取当前时间步前 5 块 diff 的平均值，若 <code>ori_threshold &lt; avg_diff &lt; max_threshold</code> 则取平均值做阈值。</p>
+<h3 id="TaylorSeer-SCM"><a href="#TaylorSeer-SCM" class="headerlink" title="TaylorSeer&SCM"></a>TaylorSeer&amp;SCM</h3><p>只是两种增强机制。</p>
+<p>TaylorSeer 使用泰勒展开预测变化趋势，替代所缓存的残差。但基于 <code>特征值的变化在相邻步数上是平滑的</code> 这一假设，因此仅适用于推理步数较多的模型，不适用于蒸馏后的模型。</p>
+<p>SCM (Step Computation Masking)，对缓存粒度更加精细地控制，可将推理过程按步骤进行分段并控制每段使用缓存的步数。同样仅使用于推理步数较多的模型。</p>
+<hr>
+<p>我的一些参考文章:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/1974897465024061983">【mmodel/xDit】xDit中的推理加速技术之缓存机制：TeaCache</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/711223667">[Diffusion推理]📚DiT推理加速综述: Caching</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/1937477466475197176">[Diffusion推理]📚Cache加速-TaylorSeer算法简析</a></li>
+</ul>
 
   </div>
   <div>
@@ -645,8 +663,8 @@ mjx-container[display="true"] + br {
           <span style="font-weight: bold;">文章链接：</span><a 
             target="_blank" 
             rel="nofollow noopener noreferrer" 
-            href="https://sfiisf.github.io/2025/04/09/cpp%E5%AD%A6%E4%B9%A0/">
-            https://sfiisf.github.io/2025/04/09/cpp%E5%AD%A6%E4%B9%A0/
+            href="https://sfiisf.github.io/2026/04/04/diffusion-cache/">
+            https://sfiisf.github.io/2026/04/04/diffusion-cache/
           </a>
         </p>
         <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
@@ -656,29 +674,15 @@ mjx-container[display="true"] + br {
 </article>
 <div class="nav">
   
-    <div class="nav-item-prev">
-      <a 
-        href="/2025/04/09/%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0/" 
-        class="nav-link">
-        <i class="iconfont icon-left nav-prev-icon"></i>
-        <div>
-          <div class="nav-label">上一篇</div>
-          
-            <div class="nav-title">网络学习 </div>
-          
-        </div>
-      </a>
-    </div>
-  
   
     <div class="nav-item-next">
       <a 
-        href="/2025/04/06/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" 
+        href="/2026/04/01/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2026-04/" 
         class="nav-link">
         <div>
           <div class="nav-label">下一篇</div>
           
-            <div class="nav-title">第一篇博客 </div>
+            <div class="nav-title">力扣每月题解汇总-2026年04月 </div>
           
         </div>
         <i class="iconfont icon-right nav-next-icon"></i>
@@ -732,7 +736,7 @@ mjx-container[display="true"] + br {
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="toc-text">智能指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shared-ptr"><span class="toc-text">shared_ptr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unique-ptr"><span class="toc-text">unique_ptr</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TeaCache-Timestep-Embedding-Aware-Cache"><span class="toc-text">TeaCache (Timestep Embedding Aware Cache)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cache-dit"><span class="toc-text">cache-dit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DBCache"><span class="toc-text">DBCache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DBPrune"><span class="toc-text">DBPrune</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TaylorSeer-SCM"><span class="toc-text">TaylorSeer&amp;SCM</span></a></li></ol></li></ol>
 </div>
             </main>
             <aside class="right-column">
@@ -746,7 +750,7 @@ mjx-container[display="true"] + br {
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="toc-text">智能指针</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#shared-ptr"><span class="toc-text">shared_ptr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unique-ptr"><span class="toc-text">unique_ptr</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TeaCache-Timestep-Embedding-Aware-Cache"><span class="toc-text">TeaCache (Timestep Embedding Aware Cache)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cache-dit"><span class="toc-text">cache-dit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DBCache"><span class="toc-text">DBCache</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DBPrune"><span class="toc-text">DBPrune</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TaylorSeer-SCM"><span class="toc-text">TaylorSeer&amp;SCM</span></a></li></ol></li></ol>
     </article>
   
   
