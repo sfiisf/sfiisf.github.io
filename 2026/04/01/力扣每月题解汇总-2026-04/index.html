@@ -45,7 +45,7 @@
         content="2026-04-01">
       <meta 
         property="og:article:modified_time" 
-        content="2026-04-30">
+        content="2026-05-01">
       <meta 
         property="og:article:author" 
         content="sfiisf">
@@ -408,7 +408,7 @@ mjx-container[display="true"] + br {
   <a 
     class="author-posts-count" 
     href="/archives">
-    <span>19</span>
+    <span>20</span>
     <span>文章</span>
   </a>
   <a 
@@ -469,7 +469,7 @@ mjx-container[display="true"] + br {
       <a href="/categories/%E5%81%9A%E9%A2%98%E7%AC%94%E8%AE%B0/">
         <div class="categories-list-item">
           做题笔记
-          <span class="categories-list-item-badge">13</span>
+          <span class="categories-list-item-badge">14</span>
         </div>
       </a>
     
@@ -488,15 +488,9 @@ mjx-container[display="true"] + br {
   <div class="tags-list">
     
       <a 
-        href="/tags/cpp/" 
-        title="cpp">
-        <div class="tags-list-item">cpp</div>
-      </a>
-    
-      <a 
-        href="/tags/note/" 
-        title="note">
-        <div class="tags-list-item">note</div>
+        href="/tags/monthly-summary/" 
+        title="monthly-summary">
+        <div class="tags-list-item">monthly-summary</div>
       </a>
     
       <a 
@@ -506,27 +500,15 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/monthly-summary/" 
-        title="monthly-summary">
-        <div class="tags-list-item">monthly-summary</div>
+        href="/tags/note/" 
+        title="note">
+        <div class="tags-list-item">note</div>
       </a>
     
       <a 
-        href="/tags/network/" 
-        title="network">
-        <div class="tags-list-item">network</div>
-      </a>
-    
-      <a 
-        href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" 
-        title="概率论">
-        <div class="tags-list-item">概率论</div>
-      </a>
-    
-      <a 
-        href="/tags/dp/" 
-        title="dp">
-        <div class="tags-list-item">dp</div>
+        href="/tags/cache/" 
+        title="cache">
+        <div class="tags-list-item">cache</div>
       </a>
     
       <a 
@@ -536,9 +518,27 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/cache/" 
-        title="cache">
-        <div class="tags-list-item">cache</div>
+        href="/tags/dp/" 
+        title="dp">
+        <div class="tags-list-item">dp</div>
+      </a>
+    
+      <a 
+        href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" 
+        title="概率论">
+        <div class="tags-list-item">概率论</div>
+      </a>
+    
+      <a 
+        href="/tags/network/" 
+        title="network">
+        <div class="tags-list-item">network</div>
+      </a>
+    
+      <a 
+        href="/tags/cpp/" 
+        title="cpp">
+        <div class="tags-list-item">cpp</div>
       </a>
     
   </div>
@@ -576,7 +576,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>8.4k 字</span>
+      <span>8.6k 字</span>
     
   </div>
   
@@ -846,14 +846,15 @@ mjx-container[display="true"] + br {
 <p>日期：2026-04-29</p>
 </blockquote>
 <h3 id="题意-28"><a href="#题意-28" class="headerlink" title="题意"></a>题意</h3><p>给定初始全为白格子的方阵 <code>grid</code>, 每次操作可任选某格子使得该列所有行号小于等于该格的格子染色为黑色. 方阵分数记为某左或右相邻格子为黑色的白格子的值之和. 求任意次操作后方阵和最大值.</p>
-<h3 id="思路-28"><a href="#思路-28" class="headerlink" title="思路"></a>思路</h3><p>显然进行一个 dp, 但我的论文真的要写不完了, 今天就让我偷偷懒吧!</p>
+<h3 id="思路-28"><a href="#思路-28" class="headerlink" title="思路"></a>思路</h3><p>显然进行一个 dp, 但我的论文真的要写不完了, 今天就让我偷偷懒吧! T_T</p>
 <h3 id="实现-28"><a href="#实现-28" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">using</span> ll = <span class="hljs-type">long</span> <span class="hljs-type">long</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">long</span> <span class="hljs-type">long</span> <span class="hljs-title">maximumScore</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; grid)</span> </span>{<br>        <span class="hljs-type">int</span> n = grid.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector <span class="hljs-title">pre</span><span class="hljs-params">(n + <span class="hljs-number">1</span>, vector&lt;ll&gt; (n + <span class="hljs-number">1</span>))</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; n; j++)<br>                pre[i + <span class="hljs-number">1</span>][j] = pre[i][j] + grid[i][j];<br>        }<br><br>        <span class="hljs-function">vector <span class="hljs-title">f</span><span class="hljs-params">(n + <span class="hljs-number">1</span>, vector (n + <span class="hljs-number">1</span>, vector&lt;ll&gt; (<span class="hljs-number">2</span>)))</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n - <span class="hljs-number">1</span>; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt;= n; j++) {<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; <span class="hljs-number">2</span>; k++) {<br>                    <span class="hljs-keyword">auto</span>&amp; res = f[i + <span class="hljs-number">1</span>][j][k];<br>                    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> t = <span class="hljs-number">0</span>; t &lt;= n; t++) {<br>                        <span class="hljs-keyword">if</span> (t == j) res = <span class="hljs-built_in">max</span>(res, f[i][t][<span class="hljs-number">0</span>]);<br>                        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (t &lt; j) res = <span class="hljs-built_in">max</span>(res, f[i][t][<span class="hljs-number">1</span>] + pre[j][i] - pre[t][i]);<br>                        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (k == <span class="hljs-number">0</span>) res = <span class="hljs-built_in">max</span>(res, f[i][t][<span class="hljs-number">0</span>] + pre[t][i + <span class="hljs-number">1</span>] - pre[j][i + <span class="hljs-number">1</span>]);<br>                        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (j == <span class="hljs-number">0</span>) res = <span class="hljs-built_in">max</span>(res, f[i][t][<span class="hljs-number">0</span>]);<br>                    }<br>                }<br>            }<br>        }<br><br>        ll ans = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span>&amp; t : f[n - <span class="hljs-number">1</span>]) ans = <span class="hljs-built_in">max</span>(ans, t[<span class="hljs-number">0</span>]);<br>        <span class="hljs-keyword">return</span> ans;<br>    }<br>};<br></code></pre>
 
 <h2 id="力扣每日一题3742-网格中得分最大的路径"><a href="#力扣每日一题3742-网格中得分最大的路径" class="headerlink" title="力扣每日一题3742-网格中得分最大的路径"></a>力扣每日一题3742-网格中得分最大的路径</h2><blockquote>
-<p>日期：2026-04-29</p>
+<p>日期：2026-04-30</p>
 </blockquote>
-<h3 id="题意-29"><a href="#题意-29" class="headerlink" title="题意"></a>题意</h3><p>给定二维矩阵 <code>grid</code>, 初始位于矩阵左上角, 目标右下角. 矩阵每格的值均大于等于零且小于等于三, 其值表示经过该格代价与收益均为该格值. 求最多花费 <code>k</code> 的情况下最大收益是多少.</p>
-<h3 id="思路-29"><a href="#思路-29" class="headerlink" title="思路"></a>思路</h3><h3 id="实现-29"><a href="#实现-29" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><br></code></pre>
+<h3 id="题意-29"><a href="#题意-29" class="headerlink" title="题意"></a>题意</h3><p>给定二维矩阵 <code>grid</code>, 初始位于矩阵左上角, 目标右下角. 矩阵每格的值均大于等于零且小于等于二, 其值表示经过该格的收益, 经过该格的代价则为该格值与 1 取较小值. 求最多花费 <code>k</code> 的情况下最大收益是多少.</p>
+<h3 id="思路-29"><a href="#思路-29" class="headerlink" title="思路"></a>思路</h3><p>显然是一个非常经典的 dp, 但是我的论文还是没有写完, 就饶了我吧 T_T</p>
+<h3 id="实现-29"><a href="#实现-29" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> inf = <span class="hljs-number">1e9</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">maxPathScore</span><span class="hljs-params">(vector&lt;vector&lt;<span class="hljs-type">int</span>&gt;&gt;&amp; grid, <span class="hljs-type">int</span> k)</span> </span>{<br>        <span class="hljs-type">int</span> n = grid.<span class="hljs-built_in">size</span>(), m = grid.<span class="hljs-built_in">back</span>().<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector <span class="hljs-title">f</span><span class="hljs-params">(n, vector (m, vector&lt;<span class="hljs-type">int</span>&gt; (k + <span class="hljs-number">2</span>, -inf)))</span></span>;<br>        f[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>][k] = <span class="hljs-number">0</span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; m; j++) {<br>                <span class="hljs-type">int</span> c = grid[i][j] == <span class="hljs-number">0</span> ? <span class="hljs-number">0</span> : <span class="hljs-number">1</span>;<br>                <span class="hljs-type">int</span> g = grid[i][j];<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> o = k - c; o &gt;= <span class="hljs-number">0</span>; o--) {<br>                    <span class="hljs-type">int</span>&amp; x = f[i][j][o];<br>                    <span class="hljs-keyword">if</span> (i) x = <span class="hljs-built_in">max</span>(x, f[i - <span class="hljs-number">1</span>][j][o + c] + g);<br>                    <span class="hljs-keyword">if</span> (j) x = <span class="hljs-built_in">max</span>(x, f[i][j - <span class="hljs-number">1</span>][o + c] + g);<br>                    x = <span class="hljs-built_in">max</span>(x, f[i][j][o + <span class="hljs-number">1</span>]);<br>                }<br>            }<br>        }<br><br>        <span class="hljs-type">int</span> ans = -inf;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= k; i++) ans = <span class="hljs-built_in">max</span>(ans, f[n - <span class="hljs-number">1</span>][m - <span class="hljs-number">1</span>][i]);<br>        <span class="hljs-keyword">return</span> ans &lt; <span class="hljs-number">0</span> ? <span class="hljs-number">-1</span> : ans;<br>    }<br>};<br></code></pre>
   </div>
   <div>
     
@@ -988,6 +989,11 @@ mjx-container[display="true"] + br {
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2026-05-01</div>
+        <a href="/2026/05/01/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2026-05/"><div class="recent-posts-item-content">力扣每月题解汇总-2026年05月</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2026-04-04</div>
         <a href="/2026/04/04/diffusion-cache/"><div class="recent-posts-item-content">diffusion&amp;cache</div></a>
       </div>
@@ -1000,11 +1006,6 @@ mjx-container[display="true"] + br {
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2026-03-26</div>
         <a href="/2026/03/26/%E4%B8%80%E4%BA%9B%E7%A2%8E%E7%A2%8E%E5%BF%B5/"><div class="recent-posts-item-content">一些碎碎念</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2026-03-22</div>
-        <a href="/2026/03/22/%E5%8A%9B%E6%89%A3%E6%AF%8F%E6%9C%88%E9%A2%98%E8%A7%A3%E6%B1%87%E6%80%BB-2026-03/"><div class="recent-posts-item-content">力扣每月题解汇总-2026年03月</div></a>
       </div>
     
   </div>
