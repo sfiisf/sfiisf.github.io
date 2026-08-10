@@ -488,15 +488,9 @@ mjx-container[display="true"] + br {
   <div class="tags-list">
     
       <a 
-        href="/tags/monthly-summary/" 
-        title="monthly-summary">
-        <div class="tags-list-item">monthly-summary</div>
-      </a>
-    
-      <a 
-        href="/tags/leetcode/" 
-        title="leetcode">
-        <div class="tags-list-item">leetcode</div>
+        href="/tags/cpp/" 
+        title="cpp">
+        <div class="tags-list-item">cpp</div>
       </a>
     
       <a 
@@ -506,27 +500,15 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/cache/" 
-        title="cache">
-        <div class="tags-list-item">cache</div>
+        href="/tags/leetcode/" 
+        title="leetcode">
+        <div class="tags-list-item">leetcode</div>
       </a>
     
       <a 
-        href="/tags/diffusion/" 
-        title="diffusion">
-        <div class="tags-list-item">diffusion</div>
-      </a>
-    
-      <a 
-        href="/tags/dp/" 
-        title="dp">
-        <div class="tags-list-item">dp</div>
-      </a>
-    
-      <a 
-        href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" 
-        title="概率论">
-        <div class="tags-list-item">概率论</div>
+        href="/tags/monthly-summary/" 
+        title="monthly-summary">
+        <div class="tags-list-item">monthly-summary</div>
       </a>
     
       <a 
@@ -536,9 +518,27 @@ mjx-container[display="true"] + br {
       </a>
     
       <a 
-        href="/tags/cpp/" 
-        title="cpp">
-        <div class="tags-list-item">cpp</div>
+        href="/tags/%E6%A6%82%E7%8E%87%E8%AE%BA/" 
+        title="概率论">
+        <div class="tags-list-item">概率论</div>
+      </a>
+    
+      <a 
+        href="/tags/dp/" 
+        title="dp">
+        <div class="tags-list-item">dp</div>
+      </a>
+    
+      <a 
+        href="/tags/diffusion/" 
+        title="diffusion">
+        <div class="tags-list-item">diffusion</div>
+      </a>
+    
+      <a 
+        href="/tags/cache/" 
+        title="cache">
+        <div class="tags-list-item">cache</div>
       </a>
     
   </div>
@@ -576,7 +576,7 @@ mjx-container[display="true"] + br {
     
     
       <span class="dot"></span>
-      <span>2.3k 字</span>
+      <span>2.6k 字</span>
     
   </div>
   
@@ -679,13 +679,15 @@ mjx-container[display="true"] + br {
 <p>日期：2026-08-08</p>
 </blockquote>
 <h3 id="题意-7"><a href="#题意-7" class="headerlink" title="题意"></a>题意</h3><p>给定两个字符串 <code>word1</code> 与 <code>word2</code>; 定义几乎相同字符串为至多修改一个字符即可相同的字符串; 求问 <code>word1</code> 中下标字典序最小的子序列是 <code>word2</code> 几乎相同字符串的下标数组.</p>
-<h3 id="思路-7"><a href="#思路-7" class="headerlink" title="思路"></a>思路</h3><h3 id="实现-7"><a href="#实现-7" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><br></code></pre>
+<h3 id="思路-7"><a href="#思路-7" class="headerlink" title="思路"></a>思路</h3><p>应该是做一个最长后缀匹配, 然后从前往后枚举修改位置.</p>
+<h3 id="实现-7"><a href="#实现-7" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">validSequence</span><span class="hljs-params">(string word1, string word2)</span> </span>{<br>        <span class="hljs-type">int</span> n = word<span class="hljs-number">1.</span><span class="hljs-built_in">size</span>(), m = word<span class="hljs-number">2.</span><span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">suf</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>        suf[n] = m;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = n - <span class="hljs-number">1</span>, j = m - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) {<br>            <span class="hljs-keyword">if</span> (j &gt;= <span class="hljs-number">0</span> &amp;&amp; word1[i] == word2[j]) j--;<br>            suf[i] = j;<br>        }<br><br>        vector&lt;<span class="hljs-type">int</span>&gt; ans;<br>        <span class="hljs-type">bool</span> ok = <span class="hljs-literal">true</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>; i &lt; n; i++) {<br>            <span class="hljs-keyword">if</span> (word1[i] == word2[j]) {<br>                ans.<span class="hljs-built_in">push_back</span>(i);<br>                j++;<br>            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ok &amp;&amp; j &gt;= suf[i + <span class="hljs-number">1</span>]) {<br>                ok = <span class="hljs-literal">false</span>;<br>                ans.<span class="hljs-built_in">push_back</span>(i);<br>                j++;<br>            }<br>            <span class="hljs-keyword">if</span> (j == m) <span class="hljs-keyword">return</span> ans;<br>        }<br>        <span class="hljs-keyword">return</span> {};<br>    }<br>};<br></code></pre>
 
 <h2 id="力扣每日一题1140-石子游戏II"><a href="#力扣每日一题1140-石子游戏II" class="headerlink" title="力扣每日一题1140-石子游戏II"></a>力扣每日一题1140-石子游戏II</h2><blockquote>
 <p>日期：2026-08-09</p>
 </blockquote>
 <h3 id="题意-8"><a href="#题意-8" class="headerlink" title="题意"></a>题意</h3><p>给定正整数数组 <code>piles</code> 表示多堆石子, 初始 <code>M=1</code>, 每回合可以取走前 <code>[1, 2M]</code> 堆石子并令 <code>M=max(M, 取走的堆数)</code>. 最终以总石子的数量多少定胜负, 求问先手玩家最多可获多少石子.</p>
-<h3 id="思路-8"><a href="#思路-8" class="headerlink" title="思路"></a>思路</h3><h3 id="实现-8"><a href="#实现-8" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><br></code></pre>
+<h3 id="思路-8"><a href="#思路-8" class="headerlink" title="思路"></a>思路</h3><p>和常见的轮流取数博弈没有太大的区别, 只是需要多一个状态条件记录当前的 M, 然后做一个 dfs 或 dp 即可.</p>
+<h3 id="实现-8"><a href="#实现-8" class="headerlink" title="实现"></a>实现</h3><pre class="highlight"><code class="hljs cpp"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> {<br><span class="hljs-type">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-type">int</span> inf = <span class="hljs-number">1e9</span>;<br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">stoneGameII</span><span class="hljs-params">(vector&lt;<span class="hljs-type">int</span>&gt;&amp; piles)</span> </span>{<br>        <span class="hljs-type">int</span> n = piles.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-function">vector <span class="hljs-title">vis</span><span class="hljs-params">(n, vector&lt;<span class="hljs-type">int</span>&gt; (n, -inf))</span></span>;<br>        <span class="hljs-function">vector&lt;<span class="hljs-type">int</span>&gt; <span class="hljs-title">p</span><span class="hljs-params">(n + <span class="hljs-number">1</span>)</span></span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; n; i++) p[i + <span class="hljs-number">1</span>] = p[i] + piles[i];<br><br>        <span class="hljs-keyword">auto</span> dfs = [&amp;](<span class="hljs-keyword">this</span> <span class="hljs-keyword">auto</span>&amp;&amp; self, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> m) -&gt; <span class="hljs-type">int</span> {<br>            <span class="hljs-keyword">if</span> (i + <span class="hljs-number">2</span> * m &gt;= n) <span class="hljs-keyword">return</span> p.<span class="hljs-built_in">back</span>() - p[i];<br>            <span class="hljs-type">int</span>&amp; res = vis[i][m];<br>            <span class="hljs-keyword">if</span> (res != -inf) <span class="hljs-keyword">return</span> res;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x = <span class="hljs-number">1</span>; x &lt;= <span class="hljs-number">2</span> * m &amp;&amp; i + x &lt;= n; x++) {<br>                res = <span class="hljs-built_in">max</span>(res, p[i + x] - p[i] - <span class="hljs-built_in">self</span>(i + x, <span class="hljs-built_in">max</span>(m, x)));<br>            }<br>            <span class="hljs-keyword">return</span> res;<br>        };<br><br>        <span class="hljs-keyword">return</span> (p.<span class="hljs-built_in">back</span>() + <span class="hljs-built_in">dfs</span>(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)) / <span class="hljs-number">2</span>;<br>    }<br>};<br></code></pre>
 
 <h2 id="力扣每日一题1510-石子游戏IV"><a href="#力扣每日一题1510-石子游戏IV" class="headerlink" title="力扣每日一题1510-石子游戏IV"></a>力扣每日一题1510-石子游戏IV</h2><blockquote>
 <p>日期：2026-08-10</p>
